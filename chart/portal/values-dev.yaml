@@ -12,7 +12,7 @@ backend:
     image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
 
   userAdministration:
-    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
 
   provisioning:
-    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"

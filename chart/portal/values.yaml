@@ -19,7 +19,7 @@ frontend:
 
 backend:
   portContainer: 80
-  portService: 5000
+  portService: 443
   replicaCount: 1
 
   registration:
@@ -28,8 +28,8 @@ backend:
 
   userAdministration:
     name: "useradministration-service"
-    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
 
   provisioning:
     name: "provisioning-service"
-    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
