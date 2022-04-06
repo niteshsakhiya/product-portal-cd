@@ -18,7 +18,7 @@ frontend:
     image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
 
 backend:
-  portContainer: 8080
+  portContainer: 80
   portService: 5000
   replicaCount: 1
 
