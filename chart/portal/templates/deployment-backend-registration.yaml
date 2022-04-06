@@ -28,4 +28,4 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: "secret-registration-appsettings"
+          secretName: secret-registration-appsettings
