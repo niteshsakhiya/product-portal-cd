@@ -1,0 +1,36 @@
+name: "portal"
+domain: "demo.catena-x.net"
+issuer: "letsencrypt-prod"
+
+frontend:
+  portContainer: 8080
+  portService: 5000
+  replicaCount: 1
+
+  frontendPortal:
+    path: "/(.*)"
+    image: "ghcr.io/catenax-ng/product-portal-frontend:0.0.1"
+
+  frontendRegistration:
+    path: "/(landing|registration)"
+    image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.0.1"
+
+backend:
+  portContainer: 80
+  portService: 443
+  replicaCount: 1
+
+  registration:
+    name: "registration-service"
+    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:0.0.1"
+    secret: "secret-registration-appsettings"
+
+  userAdministration:
+    name: "useradministration-service"
+    image: "ghcr.io/catenax-ng/product-backend-useradministration-service:0.0.1"
+    secret: "secret-useradministration-appsettings"
+
+  provisioning:
+    name: "provisioning-service"
+    image: "ghcr.io/catenax-ng/product-backend-provisioning-service:0.0.1"
+    secret: "secret-provisioning-appsettings"

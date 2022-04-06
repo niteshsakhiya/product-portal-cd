@@ -1,0 +1,19 @@
+name: "portal-dev"
+
+frontendPortal:
+  image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+
+frontendRegistration:
+  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
+
+backendRegistration:
+  image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:main"
+  secret: "secret-registration-appsettings-dev"
+
+backendUserAdministration:
+  image: "ghcr.io/catenax-ng/product-backend-useradministration-service:main"
+  secret: "secret-useradministration-appsettings-dev"
+
+backendProvisioning:
+  image: "ghcr.io/catenax-ng/product-backend-provisioning-service:main"
+  secret: "secret-provisioning-appsettings-dev"
