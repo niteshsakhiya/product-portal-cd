@@ -7,13 +7,15 @@ frontend:
   portService: 5000
   replicaCount: 1
 
-  frontendPortal:
+  portal:
     path: "/(.*)"
-    image: "ghcr.io/catenax-ng/product-portal-frontend:0.0.1"
+    name: "portal"
+    image: "ghcr.io/catenax-ng/product-portal-frontend:main"
 
-  frontendRegistration:
+  registration:
     path: "/(landing|registration)"
-    image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.0.1"
+    name: "registration"
+    image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
 
 backend:
   portContainer: 80
@@ -22,15 +24,15 @@ backend:
 
   registration:
     name: "registration-service"
-    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:0.0.1"
+    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:main"
     secret: "secret-registration-appsettings"
 
   userAdministration:
     name: "useradministration-service"
-    image: "ghcr.io/catenax-ng/product-backend-useradministration-service:0.0.1"
+    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
     secret: "secret-useradministration-appsettings"
 
   provisioning:
     name: "provisioning-service"
-    image: "ghcr.io/catenax-ng/product-backend-provisioning-service:0.0.1"
+    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
     secret: "secret-provisioning-appsettings"
