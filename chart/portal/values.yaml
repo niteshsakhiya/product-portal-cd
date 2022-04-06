@@ -25,14 +25,11 @@ backend:
   registration:
     name: "registration-service"
     image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
-    secret: "secret-registration-appsettings"
 
   userAdministration:
     name: "useradministration-service"
     image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
-    secret: "secret-useradministration-appsettings"
 
   provisioning:
     name: "provisioning-service"
     image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
-    secret: "secret-provisioning-appsettings"
