@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.backend.userAdministration.name }}
+  name: {{ .Values.backend.useradministration.name }}
 spec:
   replicas: {{ .Values.backend.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.backend.userAdministration.name }}
+      app: {{ .Values.backend.useradministration.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.backend.userAdministration.name }}
+        app: {{ .Values.backend.useradministration.name }}
     spec:
       containers:
-      - name: {{ .Values.backend.userAdministration.name }}
-        image: {{ .Values.backend.userAdministration.image }}
+      - name: {{ .Values.backend.useradministration.name }}
+        image: {{ .Values.backend.useradministration.image }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.backend.portContainer }}
