@@ -11,7 +11,7 @@ backend:
   registration:
     image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
 
-  userAdministration:
+  useradministration:
     image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
 
   provisioning:

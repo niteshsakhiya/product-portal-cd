@@ -19,7 +19,7 @@ spec:
     http:
       paths:
 
-      - path: "/api/registration"
+      - path: /api/registration/
         pathType: Prefix
         backend:
           service:
@@ -27,15 +27,15 @@ spec:
             port:
               number: {{ .Values.backend.portService }}
 
-      - path: "/api/useradministration"
+      - path: /api/useradministration/
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.backend.userAdministration.name }}
+            name: {{ .Values.backend.useradministration.name }}
             port:
               number: {{ .Values.backend.portService }}
 
-      - path: "/api/provisioning"
+      - path: /api/provisioning/
         pathType: Prefix
         backend:
           service:

@@ -19,14 +19,14 @@ frontend:
 
 backend:
   portContainer: 80
-  portService: 443
+  portService: 8080
   replicaCount: 1
 
   registration:
     name: "registration-service"
     image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
 
-  userAdministration:
+  useradministration:
     name: "useradministration-service"
     image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
 
