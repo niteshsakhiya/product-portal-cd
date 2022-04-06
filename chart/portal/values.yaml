@@ -10,12 +10,12 @@ frontend:
   portal:
     path: "/(.*)"
     name: "portal"
-    image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+    image: "ghcr.io/catenax-ng/product-portal-frontend:0.0.1"
 
   registration:
     path: "/(landing|registration)"
     name: "registration"
-    image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
+    image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.0.1"
 
 backend:
   portContainer: 80
@@ -24,15 +24,15 @@ backend:
 
   registration:
     name: "registration-service"
-    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:main"
+    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:0.0.1"
     secret: "secret-registration-appsettings"
 
   userAdministration:
     name: "useradministration-service"
-    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    image: "ghcr.io/catenax-ng/product-portal-hello-helm:0.0.1"
     secret: "secret-useradministration-appsettings"
 
   provisioning:
     name: "provisioning-service"
-    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    image: "ghcr.io/catenax-ng/product-portal-hello-helm:0.0.1"
     secret: "secret-provisioning-appsettings"

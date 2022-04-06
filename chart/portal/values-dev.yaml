@@ -1,19 +1,21 @@
-name: "portal-dev"
+name: "portal"
 
-frontendPortal:
-  image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+frontend:
+  portal:
+    image: "ghcr.io/catenax-ng/product-portal-frontend:main"
 
-frontendRegistration:
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
+  registration:
+    image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
 
-backendRegistration:
-  image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:main"
-  secret: "secret-registration-appsettings-dev"
+backend:
+  registration:
+    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:main"
+    secret: "secret-registration-appsettings"
 
-backendUserAdministration:
-  image: "ghcr.io/catenax-ng/product-backend-useradministration-service:main"
-  secret: "secret-useradministration-appsettings-dev"
+  userAdministration:
+    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    secret: "secret-useradministration-appsettings-dev"
 
-backendProvisioning:
-  image: "ghcr.io/catenax-ng/product-backend-provisioning-service:main"
-  secret: "secret-provisioning-appsettings-dev"
+  provisioning:
+    image: "ghcr.io/catenax-ng/product-portal-hello-helm:main"
+    secret: "secret-provisioning-appsettings-dev"
