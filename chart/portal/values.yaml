@@ -10,7 +10,7 @@ frontend:
   portal:
     path: "/(.*)"
     name: "portal"
-    image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+    image: "ghcr.io/catenax-ng/product-portal-frontend:0.0.1"
 
   registration:
     path: "/(landing|registration)"
