@@ -9,7 +9,7 @@ frontend:
 
 backend:
   registration:
-    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:main"
+    image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
     secret: "secret-registration-appsettings"
 
   userAdministration:

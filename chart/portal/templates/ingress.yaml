@@ -19,22 +19,6 @@ spec:
     http:
       paths:
 
-      - path: {{ .Values.frontend.registration.path }}
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .Values.frontend.registration.name }}
-            port:
-              number: {{ .Values.frontend.portService }}
-
-      - path: {{ .Values.frontend.portal.path }}
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .Values.frontend.portal.name }}
-            port:
-              number: {{ .Values.frontend.portService }}
-
       - path: /api/registration/
         pathType: Prefix
         backend:
@@ -58,3 +42,20 @@ spec:
             name: {{ .Values.backend.provisioning.name }}
             port:
               number: {{ .Values.backend.portService }}
+
+      - path: {{ .Values.frontend.registration.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.frontend.registration.name }}
+            port:
+              number: {{ .Values.frontend.portService }}
+
+      - path: {{ .Values.frontend.portal.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.frontend.portal.name }}
+            port:
+              number: {{ .Values.frontend.portService }}
+

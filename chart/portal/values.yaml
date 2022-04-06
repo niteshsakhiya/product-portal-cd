@@ -24,7 +24,7 @@ backend:
 
   registration:
     name: "registration-service"
-    image: "ghcr.io/catenax-ng/product-portal-backend-registration-service:0.0.1"
+    image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:0.0.1"
     secret: "secret-registration-appsettings"
 
   userAdministration:
