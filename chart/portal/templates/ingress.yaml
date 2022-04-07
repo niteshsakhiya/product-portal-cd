@@ -27,7 +27,7 @@ spec:
             port:
               number: {{ .Values.backend.portService }}
 
-      - path: /api/useradministration/(.*)
+      - path: /api/useradministration/
         pathType: Prefix
         backend:
           service:
