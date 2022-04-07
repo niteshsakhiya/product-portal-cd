@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.frontend.name }}
+  name: {{ .Values.name }}
   annotations:
     cert-manager.io/cluster-issuer: {{ .Values.issuer }}
     kubernetes.io/ingress.class: nginx
@@ -12,25 +12,25 @@ metadata:
 spec:
   tls:
   - hosts:
-    - {{ .Values.frontend.name }}.{{ .Values.domain }}
-    secretName: {{ .Values.frontend.name }}.{{ .Values.domain }}-tls
+    - {{ .Values.name }}.{{ .Values.domain }}
+    secretName: {{ .Values.name }}.{{ .Values.domain }}-tls
   rules:
-  - host: {{ .Values.frontend.name }}.{{ .Values.domain }}
+  - host: {{ .Values.name }}.{{ .Values.domain }}
     http:
       paths:
 
-      - path: {{ .Values.frontend.registration.path }}
+      - path: {{ .Values.registration.path }}
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.frontend.registration.name }}
+            name: {{ .Values.registration.name }}
             port:
-              number: {{ .Values.frontend.portService }}
+              number: {{ .Values.portService }}
 
-      - path: {{ .Values.frontend.portal.path }}
+      - path: {{ .Values.portal.path }}
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.frontend.portal.name }}
+            name: {{ .Values.portal.name }}
             port:
-              number: {{ .Values.frontend.portService }}
+              number: {{ .Values.portService }}
