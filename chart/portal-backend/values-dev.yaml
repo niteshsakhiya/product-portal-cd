@@ -1,2 +1,7 @@
-name: "registration-service"
-image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
+ name: "portal-api-dev"
+   registration:
+     image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
+  #  useradministration:
+  #    image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
+  #  provisioning:
+  #    image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"

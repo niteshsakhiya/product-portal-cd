@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}
+  name: {{ .Values.registration.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: {{ .Values.registration.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: {{ .Values.registration.name }}
     spec:
       containers:
-      - name: {{ .Values.name }}
+      - name: {{ .Values.registration.name }}
         image: {{ .Values.image }}
         imagePullPolicy: "Always"
         ports:
