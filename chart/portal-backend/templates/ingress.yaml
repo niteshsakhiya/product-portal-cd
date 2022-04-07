@@ -17,10 +17,19 @@ spec:
   - host: {{ .Values.name }}.{{ .Values.domain }}
     http:
       paths:
-      - path: /
+
+      - path: /api/registration
         pathType: Prefix
         backend:
           service:
             name: {{ .Values.registration.name }}
+            port:
+              number: {{ .Values.portService }}
+
+      - path: /api/useradministration
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.useradministration.name }}
             port:
               number: {{ .Values.portService }}

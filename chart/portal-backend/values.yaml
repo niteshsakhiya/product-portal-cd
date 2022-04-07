@@ -9,9 +9,9 @@ registration:
   name: "registration-service"
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
 
-# useradministration:
-#   name: "useradministration-service"
-#   image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
+useradministration:
+  name: "useradministration-service"
+  image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
 
 # provisioning:
 #   name: "provisioning-service"
