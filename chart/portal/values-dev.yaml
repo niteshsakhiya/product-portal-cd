@@ -1,18 +1,5 @@
-frontend:
-  name: "portal-dev"
-    portal:
-      image: "ghcr.io/catenax-ng/product-portal-frontend:main"
-
-    registration:
-      image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
-
-backend:
-  name: "portal-api-dev"
-    registration:
-      image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
-
-    useradministration:
-      image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
-
-    provisioning:
-      image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
+name: "portal-dev"
+  portal:
+    image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+  registration:
+    image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
