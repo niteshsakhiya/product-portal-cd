@@ -6,5 +6,5 @@
   useradministration:
     image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
 
-  # provisioning:
-  #   image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
+provisioning:
+  image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"

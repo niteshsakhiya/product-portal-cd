@@ -33,3 +33,11 @@ spec:
             name: {{ .Values.useradministration.name }}
             port:
               number: {{ .Values.portService }}
+
+      - path: /api/provisioning
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.provisioning.name }}
+            port:
+              number: {{ .Values.portService }}

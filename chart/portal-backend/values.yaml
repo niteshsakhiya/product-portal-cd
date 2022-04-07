@@ -13,6 +13,6 @@ useradministration:
   name: "useradministration-service"
   image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
 
-# provisioning:
-#   name: "provisioning-service"
-#   image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
+provisioning:
+  name: "provisioning-service"
+  image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
