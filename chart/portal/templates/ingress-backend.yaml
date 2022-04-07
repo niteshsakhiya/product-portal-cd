@@ -1,0 +1,44 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.backend.name }}
+  annotations:
+    cert-manager.io/cluster-issuer: {{ .Values.issuer }}
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/enable-cors: "false"
+
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.backend.name }}.{{ .Values.domain }}
+    secretName: {{ .Values.backend.name }}.{{ .Values.domain }}-tls
+  rules:
+  - host: {{ .Values.backend.name }}.{{ .Values.domain }}
+    http:
+      paths:
+
+      - path: /api/registration
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.backend.registration.name }}
+            port:
+              number: {{ .Values.backend.portService }}
+
+      - path: /api/useradministration
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.backend.useradministration.name }}
+            port:
+              number: {{ .Values.backend.portService }}
+
+      - path: /api/provisioning
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.backend.provisioning.name }}
+            port:
+              number: {{ .Values.backend.portService }}
