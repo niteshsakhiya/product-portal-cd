@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: {{ .Values.registration.portService }}
+  - port: {{ .Values.portService }}
     targetPort: {{ .Values.portContainer }}
   selector:
     app: {{ .Values.registration.name }}
