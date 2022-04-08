@@ -4,7 +4,7 @@ registration:
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"
 
 useradministration:
-  image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
+  image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:latest"
 
 provisioning:
-  image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
+  image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest"
