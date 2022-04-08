@@ -1,6 +1,6 @@
 domain: "demo.catena-x.net"
 issuer: "letsencrypt-prod"
-name: "portal-api"
+name: "portal-backend"
 portContainer: 80
 portService: 8080
 replicaCount: 1
