@@ -3,4 +3,4 @@ name: portal
 description: Helm chart for Catena-X Portal frontend and backend
 type: application
 version: 0.0.2
-appVersion: "0.0.2"
+appVersion: "0.3.4"
