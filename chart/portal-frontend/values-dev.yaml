@@ -1,5 +1,5 @@
 name: "portal-dev"
 portal:
-  image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+  image: "ghcr.io/catenax-ng/product-portal-frontend:latest"
 registration:
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
+  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:latest"
