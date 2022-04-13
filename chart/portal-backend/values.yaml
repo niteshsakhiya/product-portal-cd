@@ -16,3 +16,7 @@ useradministration:
 provisioning:
   name: "provisioning-service"
   image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
+
+marketplace-app:
+  name: "marketplace-app-service"
+  image: "ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:main"
