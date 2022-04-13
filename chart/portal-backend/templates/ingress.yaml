@@ -46,6 +46,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.marketplace_app.name }}
+            name: {{ .Values.appmarketplace.name }}
             port:
               number: {{ .Values.portService }}

@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.marketplace-app.name }}
+  name: {{ .Values.appmarketplace.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.marketplace-app.name }}
+      app: {{ .Values.appmarketplace.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.marketplace-app.name }}
+        app: {{ .Values.appmarketplace.name }}
     spec:
       containers:
-      - name: {{ .Values.marketplace-app.name }}
-        image: {{ .Values.marketplace-app.image }}
+      - name: {{ .Values.appmarketplace.name }}
+        image: {{ .Values.appmarketplace.image }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
