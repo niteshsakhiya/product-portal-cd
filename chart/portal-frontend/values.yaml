@@ -8,9 +8,9 @@ replicaCount: 1
 portal:
   path: "/(.*)"
   name: "portal"
-  image: "ghcr.io/catenax-ng/product-portal-frontend:0.3.4"
+  image: "ghcr.io/catenax-ng/product-portal-frontend:0.3.5"
   
 registration:
   path: "/registration/(.*)"
   name: "registration"
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.3.4"
+  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.3.5"
