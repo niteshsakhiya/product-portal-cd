@@ -41,3 +41,11 @@ spec:
             name: {{ .Values.provisioning.name }}
             port:
               number: {{ .Values.portService }}
+
+      - path: /api/apps
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.appmarketplace.name }}
+            port:
+              number: {{ .Values.portService }}

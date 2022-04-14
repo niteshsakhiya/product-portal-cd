@@ -8,3 +8,6 @@ useradministration:
 
 provisioning:
   image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest"
+
+appmarketplace:
+  image: "ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest"
