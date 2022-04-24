@@ -10,7 +10,7 @@ baseApi: https://portal-backend.demo.catena-x.net
 baseAssets: https://portal.demo.catena-x.net/assets
 baseUtil: https://catenax-dev003-util.azurewebsites.net/v1
 baseApiBpdm: https://catenax-bpdm.demo.catena-x.net/api
-requestTimeout: 30000
+requestTimeout: "30000"
 
 portal:
   path: "/(.*)"
