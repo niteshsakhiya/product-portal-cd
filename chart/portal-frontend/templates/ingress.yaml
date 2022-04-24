@@ -27,6 +27,14 @@ spec:
             port:
               number: {{ .Values.portService }}
 
+      - path: {{ .Values.assets.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.assets.name }}
+            port:
+              number: {{ .Values.portService }}
+
       - path: {{ .Values.portal.path }}
         pathType: Prefix
         backend:
