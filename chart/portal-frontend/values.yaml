@@ -13,7 +13,7 @@ portal:
 assets:
   path: "/assets/(.*)"
   name: "assets"
-  image: "ghcr.io/catenax-ng/product-portal-frontend-assets:0.3.5"
+  image: "ghcr.io/catenax-ng/product-portal-common-assets:0.3.5"
 
 registration:
   path: "/registration/(.*)"
