@@ -30,4 +30,4 @@ spec:
         - name: BASE_API_BPDM
           value: {{ .Values.baseApiBpdm }}
         - name: REQUEST_TIMEOUT
-          value: {{ .Values.requestTimeout }}
+          value: "{{ .Values.requestTimeout }}"
