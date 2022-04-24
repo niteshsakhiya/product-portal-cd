@@ -18,16 +18,3 @@ spec:
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
-        env:
-        - name: REACT_APP_BASE_CENTRAL_IDP
-          value: {{ .Values.baseCentralIdp }}
-        - name: REACT_APP_BASE_API
-          value: {{ .Values.baseApi }}
-        - name: REACT_APP_BASE_ASSETS
-          value: {{ .Values.baseAssets }}
-        - name: REACT_APP_BASE_UTIL
-          value: {{ .Values.baseUtil }}
-        - name: REACT_APP_BASE_API_BPDM
-          value: {{ .Values.baseApiBpdm }}
-        - name: REACT_APP_REQUEST_TIMEOUT
-          value: "{{ .Values.requestTimeout }}"

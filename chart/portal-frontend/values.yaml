@@ -5,13 +5,6 @@ portContainer: 8080
 portService: 8080
 replicaCount: 1
 
-baseCentralIdp: https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamcentralidp/auth
-baseApi: https://portal-backend.demo.catena-x.net
-baseAssets: https://portal.demo.catena-x.net/assets
-baseUtil: https://catenax-dev003-util.azurewebsites.net/v1
-baseApiBpdm: https://catenax-bpdm.demo.catena-x.net/api
-requestTimeout: "30000"
-
 portal:
   path: "/(.*)"
   name: "portal"
