@@ -19,15 +19,15 @@ spec:
         ports:
         - containerPort: {{ .Values.portContainer }}
         env:
-        - name: BASE_CENTRAL_IDP
+        - name: REACT_APP_BASE_CENTRAL_IDP
           value: {{ .Values.baseCentralIdp }}
-        - name: BASE_API
+        - name: REACT_APP_BASE_API
           value: {{ .Values.baseApi }}
-        - name: BASE_ASSETS
+        - name: REACT_APP_BASE_ASSETS
           value: {{ .Values.baseAssets }}
-        - name: BASE_UTIL
+        - name: REACT_APP_BASE_UTIL
           value: {{ .Values.baseUtil }}
-        - name: BASE_API_BPDM
+        - name: REACT_APP_BASE_API_BPDM
           value: {{ .Values.baseApiBpdm }}
-        - name: REQUEST_TIMEOUT
+        - name: REACT_APP_REQUEST_TIMEOUT
           value: "{{ .Values.requestTimeout }}"
