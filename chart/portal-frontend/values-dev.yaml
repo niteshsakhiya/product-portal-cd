@@ -1,5 +1,12 @@
 name: "portal-dev"
 
+baseCentralIdp: https://catenaxdev003akssrv.germanywestcentral.cloudapp.azure.com/iamcentralidp/auth
+baseApi: https://portal-backend-dev.demo.catena-x.net
+baseAssets: https://portal-dev.demo.catena-x.net/assets
+baseUtil: https://catenax-dev003-util.azurewebsites.net/v1
+baseApiBpdm: https://catenax-bpdm-dev.demo.catena-x.net/api
+requestTimeout: 30000
+
 portal:
   image: "ghcr.io/catenax-ng/product-portal-frontend:main"
 

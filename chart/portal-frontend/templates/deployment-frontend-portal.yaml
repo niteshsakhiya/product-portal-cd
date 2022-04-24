@@ -18,3 +18,16 @@ spec:
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
+        env:
+        - name: BASE_CENTRAL_IDP
+          value: {{ .Values.baseCentralIdp }}
+        - name: BASE_API
+          value: {{ .Values.baseApi }}
+        - name: BASE_ASSETS
+          value: {{ .Values.baseAssets }}
+        - name: BASE_UTIL
+          value: {{ .Values.baseUtil }}
+        - name: BASE_API_BPDM
+          value: {{ .Values.baseApiBpdm }}
+        - name: REQUEST_TIMEOUT
+          value: {{ .Values.requestTimeout }}
