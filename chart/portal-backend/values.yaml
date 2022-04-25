@@ -4,6 +4,14 @@ name: "portal-backend"
 portContainer: 80
 portService: 8080
 replicaCount: 1
+postgresql:
+  enabled: true
+  auth:
+    username: postgres
+    password: ""
+    database: postgres
+    existingSecret: ""
+  architecture: replication
 
 registration:
   name: "registration-service"
