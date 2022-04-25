@@ -6,11 +6,6 @@ portService: 8080
 replicaCount: 1
 postgresql:
   enabled: true
-  auth:
-    username: postgres
-    password: ""
-    database: postgres
-    existingSecret: ""
   architecture: replication
 
 registration:
