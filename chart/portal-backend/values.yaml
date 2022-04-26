@@ -6,7 +6,6 @@ portService: 8080
 replicaCount: 1
 postgresql:
   enabled: true
-  architecture: replication
 
 registration:
   name: "registration-service"
