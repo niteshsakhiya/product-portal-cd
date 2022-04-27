@@ -6,6 +6,15 @@ portService: 8080
 replicaCount: 1
 postgresql:
   enabled: true
+  auth:
+    username: portal
+    password: ""
+    database: postgres
+    existingSecret: ""
+  architecture: replication
+  primary:
+    initdb:
+      scriptsConfigMap: p-init-sql
 
 registration:
   name: "registration-service"
