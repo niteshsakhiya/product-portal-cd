@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.useradministration.name }}
+  name: {{ .Values.administration.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.useradministration.name }}
+      app: {{ .Values.administration.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.useradministration.name }}
+        app: {{ .Values.administration.name }}
     spec:
       containers:
-      - name: {{ .Values.useradministration.name }}
-        image: {{ .Values.useradministration.image }}
+      - name: {{ .Values.administration.name }}
+        image: {{ .Values.administration.image }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
@@ -28,4 +28,4 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: secret-useradministration-appsettings
+          secretName: secret-administration-appsettings

@@ -3,8 +3,8 @@ name: "portal-backend-dev"
 registration:
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"
 
-useradministration:
-  image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:latest"
+administration:
+  image: "ghcr.io/catenax-ng/product-portal-backend_administration-service:latest"
 
 provisioning:
   image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest"
