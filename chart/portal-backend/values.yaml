@@ -23,9 +23,9 @@ registration:
     name: "secret-registration"
     path: "portal/data/int/registration"
 
-useradministration:
-  name: "useradministration-service"
-  image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:latest"
+administration:
+  name: "administration-service"
+  image: "ghcr.io/catenax-ng/product-portal-backend_administration-service:latest"
 
 provisioning:
   name: "provisioning-service"

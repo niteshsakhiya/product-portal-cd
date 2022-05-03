@@ -26,11 +26,11 @@ spec:
             port:
               number: {{ .Values.portService }}
 
-      - path: /api/useradministration
+      - path: /api/administration
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.useradministration.name }}
+            name: {{ .Values.administration.name }}
             port:
               number: {{ .Values.portService }}
 
