@@ -18,16 +18,16 @@ postgresql:
 
 registration:
   name: "registration-service"
-  image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:main"
+  image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"
 
-useradministration:
-  name: "useradministration-service"
-  image: "ghcr.io/catenax-ng/product-portal-backend_useradministration-service:main"
+administration:
+  name: "administration-service"
+  image: "ghcr.io/catenax-ng/product-portal-backend_administration-service:latest"
 
 provisioning:
   name: "provisioning-service"
-  image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:main"
+  image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest"
 
 appmarketplace:
   name: "marketplace-app-service"
-  image: "ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:main"
+  image: "ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest"
