@@ -26,11 +26,20 @@ registration:
 administration:
   name: "administration-service"
   image: "ghcr.io/catenax-ng/product-portal-backend_administration-service:latest"
+  secret:
+    name: "secret-administration"
+    path: "portal/data/int/administration"
 
 provisioning:
   name: "provisioning-service"
   image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest"
+  secret:
+    name: "secret-provisioning"
+    path: "portal/data/int/provisioning"
 
 appmarketplace:
   name: "marketplace-app-service"
   image: "ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest"
+  secret:
+    name: "secret-appmarketplace"
+    path: "portal/data/int/appmarketplace"
