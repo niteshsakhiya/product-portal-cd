@@ -2,12 +2,20 @@ name: "portal-backend-dev"
 
 registration:
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"
+  secret:
+    path: "portal/data/dev/registration"
 
 administration:
   image: "ghcr.io/catenax-ng/product-portal-backend_administration-service:latest"
+  secret:
+    path: "portal/data/dev/administration"
 
 provisioning:
   image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest"
+  secret:
+    path: "portal/data/dev/provisioning"
 
 appmarketplace:
   image: "ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest"
+  secret:
+    path: "portal/data/dev/appmarketplace"
