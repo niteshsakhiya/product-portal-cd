@@ -1,5 +1,10 @@
 domain: "dev.demo.catena-x.net"
 
+postgresql:
+  secret:
+    name: "secret-postgres-init"
+    path: "portal/data/dev/postgres"
+
 registration:
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"
   secret:

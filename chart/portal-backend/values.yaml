@@ -4,13 +4,19 @@ name: "portal-backend"
 portContainer: 80
 portService: 8080
 replicaCount: 1
+
 postgresql:
   enabled: true
+  global:
+    auth:
+      existingSecret: secret-postgres-init
   auth:
     username: portal
-    password: ""
     database: postgres
-    existingSecret: ""
+    existingSecret: secret-postgres-init
+  secret:
+    name: "secret-postgres-init"
+    path: "portal/data/int/postgres"
   architecture: replication
   primary:
     initdb:
