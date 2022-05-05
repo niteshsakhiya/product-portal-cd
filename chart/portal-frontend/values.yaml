@@ -1,5 +1,6 @@
 name: "portal"
 domain: "int.demo.catena-x.net"
+corsOrigins: "http://localhost:3000, https://*.demo.catena-x.net, https://*.dev.demo.catena-x.net, https://*.int.demo.catena-x.net"
 issuer: "letsencrypt-prod"
 portContainer: 8080
 portService: 8080
