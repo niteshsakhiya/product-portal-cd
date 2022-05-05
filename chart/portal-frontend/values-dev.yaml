@@ -1,4 +1,4 @@
-name: "portal-dev"
+domain: "dev.demo.catena-x.net"
 
 portal:
   image: "ghcr.io/catenax-ng/product-portal-frontend:main"

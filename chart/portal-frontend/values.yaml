@@ -1,5 +1,5 @@
 name: "portal"
-domain: "demo.catena-x.net"
+domain: "int.demo.catena-x.net"
 issuer: "letsencrypt-prod"
 portContainer: 8080
 portService: 8080
