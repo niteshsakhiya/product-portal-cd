@@ -1,4 +1,4 @@
-name: "portal-backend-dev"
+domain: "dev.demo.catena-x.net"
 
 registration:
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"

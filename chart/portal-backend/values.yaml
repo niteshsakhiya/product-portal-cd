@@ -1,4 +1,4 @@
-domain: "demo.catena-x.net"
+domain: "int.demo.catena-x.net"
 issuer: "letsencrypt-prod"
 name: "portal-backend"
 portContainer: 80
