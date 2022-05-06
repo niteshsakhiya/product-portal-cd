@@ -7,9 +7,6 @@ replicaCount: 1
 
 postgresql:
   enabled: true
-  global:
-    auth:
-      existingSecret: secret-postgres-init
   auth:
     username: portal
     database: postgres
