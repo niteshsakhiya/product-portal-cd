@@ -10,7 +10,7 @@ portal:
   path: "/(.*)"
   name: "portal"
   image: "ghcr.io/catenax-ng/product-portal-frontend:0.3.5"
-  
+
 assets:
   path: "/assets/(.*)"
   name: "assets"
@@ -20,3 +20,8 @@ registration:
   path: "/registration/(.*)"
   name: "registration"
   image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.3.5"
+
+demonstrator:
+  path: "/demonstrator/(.*)"
+  name: "demonstrator"
+  image: "ghcr.io/catenax-ng/product-demonstrator:latest"

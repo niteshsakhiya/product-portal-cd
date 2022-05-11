@@ -36,6 +36,14 @@ spec:
             port:
               number: {{ .Values.portService }}
 
+      - path: {{ .Values.demonstrator.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.demonstrator.name }}
+            port:
+              number: {{ .Values.portService }}
+
       - path: {{ .Values.portal.path }}
         pathType: Prefix
         backend:
