@@ -24,6 +24,8 @@ pgadmin4:
   secret:
     name: "secret-pgadmin4"
     path: "portal/data/int/pgadmin4"
+  service:
+    port: 443
   ingress:
     enabled: true
     annotations:
