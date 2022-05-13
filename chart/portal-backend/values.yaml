@@ -34,7 +34,7 @@ pgadmin4:
     hosts:
       - host: "portal-backend.int.demo.catena-x.net"
         paths:
-        - path: /pgdamin4
+        - path: /pgadmin4
           pathType: Prefix
     tls:
       - hosts:
