@@ -15,10 +15,10 @@ pgadmin4:
         paths:
         - path: /pgadmin4
           pathType: Prefix
-    tls:
-      - hosts:
-        - portal-backend.dev.demo.catena-x.net
-        secretName: portal-backend.dev.demo.catena-x.net-tls
+    # tls:
+    #   - hosts:
+    #     - portal-backend.dev.demo.catena-x.net
+    #     secretName: portal-backend.dev.demo.catena-x.net-tls
 
 registration:
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"

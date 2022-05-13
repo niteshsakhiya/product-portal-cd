@@ -24,8 +24,6 @@ pgadmin4:
   secret:
     name: "secret-pgadmin4"
     path: "portal/data/int/pgadmin4"
-  service:
-    port: 443
   ingress:
     enabled: true
     annotations:
@@ -36,10 +34,10 @@ pgadmin4:
         paths:
         - path: /pgadmin4
           pathType: Prefix
-    tls:
-      - hosts:
-        - portal-backend.int.demo.catena-x.net
-        secretName: portal-backend.int.demo.catena-x.net-tls
+    # tls:
+    #   - hosts:
+    #     - portal-backend.int.demo.catena-x.net
+    #     secretName: portal-backend.int.demo.catena-x.net-tls
 
 
 registration:
