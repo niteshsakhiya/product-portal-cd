@@ -19,6 +19,28 @@ postgresql:
   primary:
     initdb:
       scriptsConfigMap: p-init-sql
+pgadmin4:
+  existingSecret: secret-pgadmin4
+  secret:
+    name: "secret-pgadmin4"
+    path: "portal/data/int/pgadmin4"
+  service:
+    port: 8080
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: "portal-backend.int.demo.catena-x.net"
+        paths:
+        - path: /pgdamin4
+          pathType: Prefix
+    tls:
+      - hosts:
+        - portal-backend.int.demo.catena-x.net
+        secretName: portal-backend.int.demo.catena-x.net-tls
+
 
 registration:
   name: "registration-service"

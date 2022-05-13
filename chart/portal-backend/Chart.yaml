@@ -14,3 +14,6 @@ dependencies:
     tags:
       - bitnami-common
     version: 1.x.x
+  - name: pgadmin4
+    repository: https://helm.runix.net
+    version: 1.x.x
