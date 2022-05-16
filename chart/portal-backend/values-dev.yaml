@@ -8,8 +8,8 @@ postgresql:
 pgadmin4:
   secret:
     path: "portal/data/dev/pgadmin4"
-  ingress:
-    enabled: true
+  # ingress:
+  #   enabled: true
     # hosts:
     #   - host: "portal-backend.dev.demo.catena-x.net"
     #     paths:
