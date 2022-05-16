@@ -50,7 +50,7 @@ spec:
             port:
               number: {{ .Values.portService }}
 
-      - path: /pgadmin
+      - path: /pgadmin4
         pathType: Prefix
         backend:
           service:
