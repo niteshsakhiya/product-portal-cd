@@ -30,9 +30,6 @@ pgadmin4:
   env:
     email: portal@catena-x.net
   existingSecret: secret-pgadmin4
-  secret:
-    name: secret-pgadmin4
-    path: portal/data/dev/pgadmin4
   ingress:
     enabled: true
     annotations:
