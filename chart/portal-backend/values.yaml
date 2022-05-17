@@ -20,7 +20,6 @@ postgresql:
     initdb:
       scriptsConfigMap: p-init-sql
 
-
 registration:
   name: "registration-service"
   image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"
