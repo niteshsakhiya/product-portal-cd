@@ -9,17 +9,17 @@ replicaCount: 1
 portal:
   path: "/(.*)"
   name: "portal"
-  image: "ghcr.io/catenax-ng/product-portal-frontend:0.3.5"
+  image: "ghcr.io/catenax-ng/product-portal-frontend:0.4.1"
 
 assets:
   path: "/assets/(.*)"
   name: "assets"
-  image: "ghcr.io/catenax-ng/product-portal-common-assets:0.3.5"
+  image: "ghcr.io/catenax-ng/product-portal-common-assets:0.4.1"
 
 registration:
   path: "/registration/(.*)"
   name: "registration"
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.3.5"
+  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.4.1"
 
 demonstrator:
   path: "/demonstrator/(.*)"
