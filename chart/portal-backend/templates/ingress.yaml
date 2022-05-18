@@ -49,11 +49,3 @@ spec:
             name: {{ .Values.appmarketplace.name }}
             port:
               number: {{ .Values.portService }}
-
-      - path: /pgadmin4
-        pathType: Prefix
-        backend:
-          service:
-            name: portal-backend-pgadmin4
-            port:
-              number: 80
