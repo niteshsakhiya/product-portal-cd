@@ -27,6 +27,9 @@ appmarketplace:
     path: "portal/data/dev/appmarketplace"
 
 pgadmin4:
+  enabled: true
+  secret:
+    path: portal/data/dev/pgadmin4
   env:
     email: portal@catena-x.net
   existingSecret: secret-pgadmin4
@@ -43,4 +46,4 @@ pgadmin4:
     tls:
       - hosts:
         - portal-pgadmin4.dev.demo.catena-x.net
-        secretName: portal-pgadmin4.dev.demo.catena-x.net-tls
+        secretName: tls-secret
