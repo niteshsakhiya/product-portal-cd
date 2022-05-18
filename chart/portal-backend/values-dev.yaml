@@ -46,4 +46,4 @@ pgadmin4:
     tls:
       - hosts:
         - portal-pgadmin4.dev.demo.catena-x.net
-        secretName: portal-pgadmin4.dev.demo.catena-x.net-tls
+        secretName: tls-secret
