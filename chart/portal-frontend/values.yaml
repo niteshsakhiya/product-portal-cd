@@ -12,7 +12,7 @@ portal:
   image: "ghcr.io/catenax-ng/product-portal-frontend:0.4.1"
 
 assets:
-  path: "/(assets|swagger)/(.*)"
+  path: "/((assets|swagger)/.*)"
   name: "assets"
   image: "ghcr.io/catenax-ng/product-portal-common-assets:0.4.1"
 
