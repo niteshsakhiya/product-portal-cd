@@ -27,7 +27,7 @@ appmarketplace:
     path: "portal/data/dev/appmarketplace"
 
 pgadmin4:
-  enabled: false
+  enabled: true
   secret:
     path: portal/data/dev/pgadmin4
   env:
