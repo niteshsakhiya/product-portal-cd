@@ -49,6 +49,8 @@ postgresql:
             cat /secrets/01-init-user-db.sql
             echo "cat Secret in Docker..."
             cat /docker-entrypoint-initdb.d/01-init-user-db.sql
+            echo "cat Provisioning in Docker..."
+            cat /docker-entrypoint-initdb.d/30-provisioning.sql
         volumeMounts:
         - name: initdb
           mountPath: "/docker-entrypoint-initdb.d"
