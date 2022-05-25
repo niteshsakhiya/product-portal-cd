@@ -18,8 +18,35 @@ postgresql:
   architecture: replication
   primary:
     initdb:
-      scriptsConfigMap: p-init-sql
-      scriptsSecret: secret-postgres-init-additional-db-user
+      extraVolumeMounts:
+        - name: initdb
+          mountPath: "/docker-entrypoint-initdb.d"
+        - name: initdb-secrets
+          mountPath: "/secrets"
+      extraVolumes:
+        - name: initdb
+          emptyDir: {}
+        - name: initdb-secrets
+          secret:
+            secretName: secret-postgres-init-additional-db-use
+      initContainers:
+        - name: initdb
+          image: ghcr.io/catenax-ng/product-portal-cd_initdb:latest
+          imagePullPolicy: Always
+          command:
+            - sh
+          args:
+            - -c
+            - |
+              echo "Copying initdb sqls..."
+              cp -R /import/* /docker-entrypoint-initdb.d
+              echo "Copying initdb sqls..."
+              cp /secrets/* /docker-entrypoint-initdb.d
+          volumeMounts:
+          - name: initdb
+            mountPath: "/docker-entrypoint-initdb.d"
+          - name: realm-secrets
+            mountPath: "/secrets"
 
 registration:
   name: registration-service
