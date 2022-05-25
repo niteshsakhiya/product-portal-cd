@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.2 (Debian 14.2-1.pgdg110+1)
+-- Dumped from database version 14.3 (Debian 14.3-1.pgdg110+1)
 -- Dumped by pg_dump version 14.2 (Debian 14.2-1.pgdg110+1)
 
 SET statement_timeout = 0;
@@ -70,7 +70,7 @@ CREATE TABLE portal.agreement_assigned_document_templates (
 --
 
 CREATE TABLE portal.agreement_categories (
-    agreement_category_id integer NOT NULL,
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -166,11 +166,11 @@ CREATE TABLE portal.app_licenses (
 
 
 --
--- Name: app_status; Type: TABLE; Schema: portal; Owner: -
+-- Name: app_statuses; Type: TABLE; Schema: portal; Owner: -
 --
 
-CREATE TABLE portal.app_status (
-    app_status_id integer NOT NULL,
+CREATE TABLE portal.app_statuses (
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -223,11 +223,11 @@ CREATE TABLE portal.companies (
 
 
 --
--- Name: company_application_status; Type: TABLE; Schema: portal; Owner: -
+-- Name: company_application_statuses; Type: TABLE; Schema: portal; Owner: -
 --
 
-CREATE TABLE portal.company_application_status (
-    application_status_id integer NOT NULL,
+CREATE TABLE portal.company_application_statuses (
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -276,10 +276,10 @@ CREATE TABLE portal.company_assigned_use_cases (
 
 
 --
--- Name: company_identity_provider; Type: TABLE; Schema: portal; Owner: -
+-- Name: company_identity_providers; Type: TABLE; Schema: portal; Owner: -
 --
 
-CREATE TABLE portal.company_identity_provider (
+CREATE TABLE portal.company_identity_providers (
     company_id uuid NOT NULL,
     identity_provider_id uuid NOT NULL
 );
@@ -301,17 +301,51 @@ CREATE TABLE portal.company_role_descriptions (
 --
 
 CREATE TABLE portal.company_roles (
-    company_role_id integer NOT NULL,
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
 
 --
--- Name: company_status; Type: TABLE; Schema: portal; Owner: -
+-- Name: company_service_account_assigned_roles; Type: TABLE; Schema: portal; Owner: -
 --
 
-CREATE TABLE portal.company_status (
-    company_status_id integer NOT NULL,
+CREATE TABLE portal.company_service_account_assigned_roles (
+    company_service_account_id uuid NOT NULL,
+    user_role_id uuid NOT NULL
+);
+
+
+--
+-- Name: company_service_account_statuses; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.company_service_account_statuses (
+    id integer NOT NULL,
+    label character varying(255) NOT NULL
+);
+
+
+--
+-- Name: company_service_accounts; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.company_service_accounts (
+    id uuid NOT NULL,
+    date_created timestamp with time zone NOT NULL,
+    company_id uuid NOT NULL,
+    name character varying(255) NOT NULL,
+    description text NOT NULL,
+    company_service_account_status_id integer NOT NULL
+);
+
+
+--
+-- Name: company_statuses; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.company_statuses (
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -337,11 +371,11 @@ CREATE TABLE portal.company_user_assigned_roles (
 
 
 --
--- Name: company_user_status; Type: TABLE; Schema: portal; Owner: -
+-- Name: company_user_statuses; Type: TABLE; Schema: portal; Owner: -
 --
 
-CREATE TABLE portal.company_user_status (
-    company_user_status_id integer NOT NULL,
+CREATE TABLE portal.company_user_statuses (
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -364,11 +398,47 @@ CREATE TABLE portal.company_users (
 
 
 --
--- Name: consent_status; Type: TABLE; Schema: portal; Owner: -
+-- Name: connector_statuses; Type: TABLE; Schema: portal; Owner: -
 --
 
-CREATE TABLE portal.consent_status (
-    consent_status_id integer NOT NULL,
+CREATE TABLE portal.connector_statuses (
+    id integer NOT NULL,
+    label character varying(255) NOT NULL
+);
+
+
+--
+-- Name: connector_types; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.connector_types (
+    id integer NOT NULL,
+    label character varying(255) NOT NULL
+);
+
+
+--
+-- Name: connectors; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.connectors (
+    id uuid NOT NULL,
+    name character varying(255) NOT NULL,
+    connector_url character varying(255) NOT NULL,
+    type_id integer NOT NULL,
+    status_id integer NOT NULL,
+    provider_id uuid NOT NULL,
+    host_id uuid,
+    location_id character(2) NOT NULL
+);
+
+
+--
+-- Name: consent_statuses; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.consent_statuses (
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -420,7 +490,7 @@ CREATE TABLE portal.document_templates (
 --
 
 CREATE TABLE portal.document_types (
-    document_type_id integer NOT NULL,
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -461,6 +531,18 @@ CREATE TABLE portal.iam_identity_providers (
 
 
 --
+-- Name: iam_service_accounts; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.iam_service_accounts (
+    client_id character varying(36) NOT NULL,
+    client_client_id character varying(255) NOT NULL,
+    user_entity_id character varying(36) NOT NULL,
+    company_service_account_id uuid NOT NULL
+);
+
+
+--
 -- Name: iam_users; Type: TABLE; Schema: portal; Owner: -
 --
 
@@ -475,7 +557,7 @@ CREATE TABLE portal.iam_users (
 --
 
 CREATE TABLE portal.identity_provider_categories (
-    identity_provider_category_id integer NOT NULL,
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -492,11 +574,11 @@ CREATE TABLE portal.identity_providers (
 
 
 --
--- Name: invitation_status; Type: TABLE; Schema: portal; Owner: -
+-- Name: invitation_statuses; Type: TABLE; Schema: portal; Owner: -
 --
 
-CREATE TABLE portal.invitation_status (
-    invitation_status_id integer NOT NULL,
+CREATE TABLE portal.invitation_statuses (
+    id integer NOT NULL,
     label character varying(255) NOT NULL
 );
 
@@ -559,22 +641,6 @@ CREATE TABLE portal.user_roles (
 
 
 --
--- Name: app_descriptions app_descriptions_pkey; Type: CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_descriptions
-    ADD CONSTRAINT app_descriptions_pkey PRIMARY KEY (app_id, language_short_name);
-
-
---
--- Name: company_application_status company_application_status_pkey; Type: CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_application_status
-    ADD CONSTRAINT company_application_status_pkey PRIMARY KEY (application_status_id);
-
-
---
 -- Name: addresses pk_addresses; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
@@ -583,19 +649,19 @@ ALTER TABLE ONLY portal.addresses
 
 
 --
--- Name: agreement_assigned_company_roles pk_agreement_ass_comp_roles; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: agreement_assigned_company_roles pk_agreement_assigned_company_roles; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.agreement_assigned_company_roles
-    ADD CONSTRAINT pk_agreement_ass_comp_roles PRIMARY KEY (agreement_id, company_role_id);
+    ADD CONSTRAINT pk_agreement_assigned_company_roles PRIMARY KEY (agreement_id, company_role_id);
 
 
 --
--- Name: agreement_assigned_document_templates pk_agreement_ass_doc_templa; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: agreement_assigned_document_templates pk_agreement_assigned_document_templates; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.agreement_assigned_document_templates
-    ADD CONSTRAINT pk_agreement_ass_doc_templa PRIMARY KEY (agreement_id, document_template_id);
+    ADD CONSTRAINT pk_agreement_assigned_document_templates PRIMARY KEY (agreement_id, document_template_id);
 
 
 --
@@ -603,7 +669,7 @@ ALTER TABLE ONLY portal.agreement_assigned_document_templates
 --
 
 ALTER TABLE ONLY portal.agreement_categories
-    ADD CONSTRAINT pk_agreement_categories PRIMARY KEY (agreement_category_id);
+    ADD CONSTRAINT pk_agreement_categories PRIMARY KEY (id);
 
 
 --
@@ -639,6 +705,14 @@ ALTER TABLE ONLY portal.app_assigned_use_cases
 
 
 --
+-- Name: app_descriptions pk_app_descriptions; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_descriptions
+    ADD CONSTRAINT pk_app_descriptions PRIMARY KEY (app_id, language_short_name);
+
+
+--
 -- Name: app_detail_images pk_app_detail_images; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
@@ -647,11 +721,11 @@ ALTER TABLE ONLY portal.app_detail_images
 
 
 --
--- Name: app_languages pk_app_language; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: app_languages pk_app_languages; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.app_languages
-    ADD CONSTRAINT pk_app_language PRIMARY KEY (app_id, language_short_name);
+    ADD CONSTRAINT pk_app_languages PRIMARY KEY (app_id, language_short_name);
 
 
 --
@@ -663,11 +737,11 @@ ALTER TABLE ONLY portal.app_licenses
 
 
 --
--- Name: app_status pk_app_status; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: app_statuses pk_app_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.app_status
-    ADD CONSTRAINT pk_app_status PRIMARY KEY (app_status_id);
+ALTER TABLE ONLY portal.app_statuses
+    ADD CONSTRAINT pk_app_statuses PRIMARY KEY (id);
 
 
 --
@@ -687,27 +761,19 @@ ALTER TABLE ONLY portal.apps
 
 
 --
--- Name: company_user_assigned_app_favourites pk_comp_user_ass_app_favour; Type: CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_user_assigned_app_favourites
-    ADD CONSTRAINT pk_comp_user_ass_app_favour PRIMARY KEY (company_user_id, app_id);
-
-
---
--- Name: company_user_assigned_roles pk_comp_user_assigned_roles; Type: CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_user_assigned_roles
-    ADD CONSTRAINT pk_comp_user_assigned_roles PRIMARY KEY (company_user_id, user_role_id);
-
-
---
 -- Name: companies pk_companies; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.companies
     ADD CONSTRAINT pk_companies PRIMARY KEY (id);
+
+
+--
+-- Name: company_application_statuses pk_company_application_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_application_statuses
+    ADD CONSTRAINT pk_company_application_statuses PRIMARY KEY (id);
 
 
 --
@@ -735,19 +801,19 @@ ALTER TABLE ONLY portal.company_assigned_roles
 
 
 --
--- Name: company_assigned_use_cases pk_company_assigned_use_cas; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_assigned_use_cases pk_company_assigned_use_cases; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.company_assigned_use_cases
-    ADD CONSTRAINT pk_company_assigned_use_cas PRIMARY KEY (company_id, use_case_id);
+    ADD CONSTRAINT pk_company_assigned_use_cases PRIMARY KEY (company_id, use_case_id);
 
 
 --
--- Name: company_identity_provider pk_company_identity_provider; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_identity_providers pk_company_identity_providers; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_identity_provider
-    ADD CONSTRAINT pk_company_identity_provider PRIMARY KEY (company_id, identity_provider_id);
+ALTER TABLE ONLY portal.company_identity_providers
+    ADD CONSTRAINT pk_company_identity_providers PRIMARY KEY (company_id, identity_provider_id);
 
 
 --
@@ -763,23 +829,63 @@ ALTER TABLE ONLY portal.company_role_descriptions
 --
 
 ALTER TABLE ONLY portal.company_roles
-    ADD CONSTRAINT pk_company_roles PRIMARY KEY (company_role_id);
+    ADD CONSTRAINT pk_company_roles PRIMARY KEY (id);
 
 
 --
--- Name: company_status pk_company_status; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_service_account_assigned_roles pk_company_service_account_assigned_roles; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_status
-    ADD CONSTRAINT pk_company_status PRIMARY KEY (company_status_id);
+ALTER TABLE ONLY portal.company_service_account_assigned_roles
+    ADD CONSTRAINT pk_company_service_account_assigned_roles PRIMARY KEY (company_service_account_id, user_role_id);
 
 
 --
--- Name: company_user_status pk_company_user_status; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_service_account_statuses pk_company_service_account_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_user_status
-    ADD CONSTRAINT pk_company_user_status PRIMARY KEY (company_user_status_id);
+ALTER TABLE ONLY portal.company_service_account_statuses
+    ADD CONSTRAINT pk_company_service_account_statuses PRIMARY KEY (id);
+
+
+--
+-- Name: company_service_accounts pk_company_service_accounts; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_service_accounts
+    ADD CONSTRAINT pk_company_service_accounts PRIMARY KEY (id);
+
+
+--
+-- Name: company_statuses pk_company_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_statuses
+    ADD CONSTRAINT pk_company_statuses PRIMARY KEY (id);
+
+
+--
+-- Name: company_user_assigned_app_favourites pk_company_user_assigned_app_favourites; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_user_assigned_app_favourites
+    ADD CONSTRAINT pk_company_user_assigned_app_favourites PRIMARY KEY (company_user_id, app_id);
+
+
+--
+-- Name: company_user_assigned_roles pk_company_user_assigned_roles; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_user_assigned_roles
+    ADD CONSTRAINT pk_company_user_assigned_roles PRIMARY KEY (company_user_id, user_role_id);
+
+
+--
+-- Name: company_user_statuses pk_company_user_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_user_statuses
+    ADD CONSTRAINT pk_company_user_statuses PRIMARY KEY (id);
 
 
 --
@@ -791,11 +897,35 @@ ALTER TABLE ONLY portal.company_users
 
 
 --
--- Name: consent_status pk_consent_status; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: connector_statuses pk_connector_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.consent_status
-    ADD CONSTRAINT pk_consent_status PRIMARY KEY (consent_status_id);
+ALTER TABLE ONLY portal.connector_statuses
+    ADD CONSTRAINT pk_connector_statuses PRIMARY KEY (id);
+
+
+--
+-- Name: connector_types pk_connector_types; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.connector_types
+    ADD CONSTRAINT pk_connector_types PRIMARY KEY (id);
+
+
+--
+-- Name: connectors pk_connectors; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.connectors
+    ADD CONSTRAINT pk_connectors PRIMARY KEY (id);
+
+
+--
+-- Name: consent_statuses pk_consent_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.consent_statuses
+    ADD CONSTRAINT pk_consent_statuses PRIMARY KEY (id);
 
 
 --
@@ -827,7 +957,7 @@ ALTER TABLE ONLY portal.document_templates
 --
 
 ALTER TABLE ONLY portal.document_types
-    ADD CONSTRAINT pk_document_types PRIMARY KEY (document_type_id);
+    ADD CONSTRAINT pk_document_types PRIMARY KEY (id);
 
 
 --
@@ -855,6 +985,14 @@ ALTER TABLE ONLY portal.iam_identity_providers
 
 
 --
+-- Name: iam_service_accounts pk_iam_service_accounts; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.iam_service_accounts
+    ADD CONSTRAINT pk_iam_service_accounts PRIMARY KEY (client_id);
+
+
+--
 -- Name: iam_users pk_iam_users; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
@@ -867,7 +1005,7 @@ ALTER TABLE ONLY portal.iam_users
 --
 
 ALTER TABLE ONLY portal.identity_provider_categories
-    ADD CONSTRAINT pk_identity_provider_categories PRIMARY KEY (identity_provider_category_id);
+    ADD CONSTRAINT pk_identity_provider_categories PRIMARY KEY (id);
 
 
 --
@@ -879,11 +1017,11 @@ ALTER TABLE ONLY portal.identity_providers
 
 
 --
--- Name: invitation_status pk_invitation_status; Type: CONSTRAINT; Schema: portal; Owner: -
+-- Name: invitation_statuses pk_invitation_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.invitation_status
-    ADD CONSTRAINT pk_invitation_status PRIMARY KEY (invitation_status_id);
+ALTER TABLE ONLY portal.invitation_statuses
+    ADD CONSTRAINT pk_invitation_statuses PRIMARY KEY (id);
 
 
 --
@@ -1081,10 +1219,10 @@ CREATE INDEX ix_company_assigned_use_cases_use_case_id ON portal.company_assigne
 
 
 --
--- Name: ix_company_identity_provider_identity_provider_id; Type: INDEX; Schema: portal; Owner: -
+-- Name: ix_company_identity_providers_identity_provider_id; Type: INDEX; Schema: portal; Owner: -
 --
 
-CREATE INDEX ix_company_identity_provider_identity_provider_id ON portal.company_identity_provider USING btree (identity_provider_id);
+CREATE INDEX ix_company_identity_providers_identity_provider_id ON portal.company_identity_providers USING btree (identity_provider_id);
 
 
 --
@@ -1092,6 +1230,27 @@ CREATE INDEX ix_company_identity_provider_identity_provider_id ON portal.company
 --
 
 CREATE INDEX ix_company_role_descriptions_language_short_name ON portal.company_role_descriptions USING btree (language_short_name);
+
+
+--
+-- Name: ix_company_service_account_assigned_roles_user_role_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_company_service_account_assigned_roles_user_role_id ON portal.company_service_account_assigned_roles USING btree (user_role_id);
+
+
+--
+-- Name: ix_company_service_accounts_company_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_company_service_accounts_company_id ON portal.company_service_accounts USING btree (company_id);
+
+
+--
+-- Name: ix_company_service_accounts_company_service_account_status_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_company_service_accounts_company_service_account_status_id ON portal.company_service_accounts USING btree (company_service_account_status_id);
 
 
 --
@@ -1120,6 +1279,41 @@ CREATE INDEX ix_company_users_company_id ON portal.company_users USING btree (co
 --
 
 CREATE INDEX ix_company_users_company_user_status_id ON portal.company_users USING btree (company_user_status_id);
+
+
+--
+-- Name: ix_connectors_host_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_connectors_host_id ON portal.connectors USING btree (host_id);
+
+
+--
+-- Name: ix_connectors_location_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_connectors_location_id ON portal.connectors USING btree (location_id);
+
+
+--
+-- Name: ix_connectors_provider_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_connectors_provider_id ON portal.connectors USING btree (provider_id);
+
+
+--
+-- Name: ix_connectors_status_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_connectors_status_id ON portal.connectors USING btree (status_id);
+
+
+--
+-- Name: ix_connectors_type_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_connectors_type_id ON portal.connectors USING btree (type_id);
 
 
 --
@@ -1186,6 +1380,27 @@ CREATE UNIQUE INDEX ix_iam_identity_providers_identity_provider_id ON portal.iam
 
 
 --
+-- Name: ix_iam_service_accounts_client_client_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE UNIQUE INDEX ix_iam_service_accounts_client_client_id ON portal.iam_service_accounts USING btree (client_client_id);
+
+
+--
+-- Name: ix_iam_service_accounts_company_service_account_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE UNIQUE INDEX ix_iam_service_accounts_company_service_account_id ON portal.iam_service_accounts USING btree (company_service_account_id);
+
+
+--
+-- Name: ix_iam_service_accounts_user_entity_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE UNIQUE INDEX ix_iam_service_accounts_user_entity_id ON portal.iam_service_accounts USING btree (user_entity_id);
+
+
+--
 -- Name: ix_iam_users_company_user_id; Type: INDEX; Schema: portal; Owner: -
 --
 
@@ -1235,139 +1450,283 @@ CREATE INDEX ix_user_roles_iam_client_id ON portal.user_roles USING btree (iam_c
 
 
 --
--- Name: company_user_assigned_roles fk_0c9rjjf9gm3l0n6reb4o0f1s; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_user_assigned_roles
-    ADD CONSTRAINT fk_0c9rjjf9gm3l0n6reb4o0f1s FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
-
-
---
--- Name: consents fk_36j22f34lgi2444n4tynxamh; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.consents
-    ADD CONSTRAINT fk_36j22f34lgi2444n4tynxamh FOREIGN KEY (document_id) REFERENCES portal.documents(id);
-
-
---
--- Name: consents fk_39a5cbiv35v59ysgfon5oole; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.consents
-    ADD CONSTRAINT fk_39a5cbiv35v59ysgfon5oole FOREIGN KEY (agreement_id) REFERENCES portal.agreements(id);
-
-
---
--- Name: app_assigned_licenses fk_3of613iyw1jx8gcj5i46jc1h; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_assigned_licenses
-    ADD CONSTRAINT fk_3of613iyw1jx8gcj5i46jc1h FOREIGN KEY (app_id) REFERENCES portal.apps(id);
-
-
---
--- Name: company_applications fk_3prv5i3o84vwvh7v0hh3sav7; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_applications
-    ADD CONSTRAINT fk_3prv5i3o84vwvh7v0hh3sav7 FOREIGN KEY (company_id) REFERENCES portal.companies(id);
-
-
---
--- Name: company_assigned_roles fk_4db4hgj3yvqlkn9h6q8m4e0j; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_assigned_roles
-    ADD CONSTRAINT fk_4db4hgj3yvqlkn9h6q8m4e0j FOREIGN KEY (company_id) REFERENCES portal.companies(id);
-
-
---
--- Name: app_assigned_clients fk_4m022ek8gffepnqlnuxwyxp8; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_assigned_clients
-    ADD CONSTRAINT fk_4m022ek8gffepnqlnuxwyxp8 FOREIGN KEY (iam_client_id) REFERENCES portal.iam_clients(id) ON DELETE CASCADE;
-
-
---
--- Name: apps fk_68a9joedhyf43smfx2xc4rgm; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.apps
-    ADD CONSTRAINT fk_68a9joedhyf43smfx2xc4rgm FOREIGN KEY (provider_company_id) REFERENCES portal.companies(id);
-
-
---
--- Name: addresses fk_6jg6itw07d2qww62deuyk0kh; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: addresses fk_addresses_countries_country_temp_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.addresses
-    ADD CONSTRAINT fk_6jg6itw07d2qww62deuyk0kh FOREIGN KEY (country_alpha2code) REFERENCES portal.countries(alpha2code) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_addresses_countries_country_temp_id FOREIGN KEY (country_alpha2code) REFERENCES portal.countries(alpha2code) ON DELETE CASCADE;
 
 
 --
--- Name: iam_identity_providers fk_9balkda89j2498dkj2lkjd9s3; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: agreement_assigned_company_roles fk_agreement_assigned_company_roles_agreements_agreement_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.iam_identity_providers
-    ADD CONSTRAINT fk_9balkda89j2498dkj2lkjd9s3 FOREIGN KEY (identity_provider_id) REFERENCES portal.identity_providers(id);
-
-
---
--- Name: invitations fk_9tgenb7p09hr5c24haxjw259; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.invitations
-    ADD CONSTRAINT fk_9tgenb7p09hr5c24haxjw259 FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
+ALTER TABLE ONLY portal.agreement_assigned_company_roles
+    ADD CONSTRAINT fk_agreement_assigned_company_roles_agreements_agreement_id FOREIGN KEY (agreement_id) REFERENCES portal.agreements(id);
 
 
 --
--- Name: consents fk_aiodhuwehw8wee20adskdfo2; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: agreement_assigned_company_roles fk_agreement_assigned_company_roles_company_roles_company_role; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.consents
-    ADD CONSTRAINT fk_aiodhuwehw8wee20adskdfo2 FOREIGN KEY (consent_status_id) REFERENCES portal.consent_status(consent_status_id);
-
-
---
--- Name: company_applications fk_akuwiehfiadf8928fhefhuda; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_applications
-    ADD CONSTRAINT fk_akuwiehfiadf8928fhefhuda FOREIGN KEY (application_status_id) REFERENCES portal.company_application_status(application_status_id) ON DELETE CASCADE;
+ALTER TABLE ONLY portal.agreement_assigned_company_roles
+    ADD CONSTRAINT fk_agreement_assigned_company_roles_company_roles_company_role FOREIGN KEY (company_role_id) REFERENCES portal.company_roles(id);
 
 
 --
--- Name: consents fk_asqxie2r7yr06cdrw9ifaex8; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.consents
-    ADD CONSTRAINT fk_asqxie2r7yr06cdrw9ifaex8 FOREIGN KEY (company_id) REFERENCES portal.companies(id);
-
-
---
--- Name: agreement_assigned_document_templates fk_bvrvs5aktrcn4t6565pnj3ur; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: agreement_assigned_document_templates fk_agreement_assigned_document_templates_agreements_agreement_; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.agreement_assigned_document_templates
-    ADD CONSTRAINT fk_bvrvs5aktrcn4t6565pnj3ur FOREIGN KEY (document_template_id) REFERENCES portal.document_templates(id);
+    ADD CONSTRAINT fk_agreement_assigned_document_templates_agreements_agreement_ FOREIGN KEY (agreement_id) REFERENCES portal.agreements(id);
 
 
 --
--- Name: company_user_assigned_roles fk_bw1yhel67uhrxfk7mevovq5p; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: agreement_assigned_document_templates fk_agreement_assigned_document_templates_document_templates_do; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_user_assigned_roles
-    ADD CONSTRAINT fk_bw1yhel67uhrxfk7mevovq5p FOREIGN KEY (user_role_id) REFERENCES portal.user_roles(id);
+ALTER TABLE ONLY portal.agreement_assigned_document_templates
+    ADD CONSTRAINT fk_agreement_assigned_document_templates_document_templates_do FOREIGN KEY (document_template_id) REFERENCES portal.document_templates(id);
 
 
 --
--- Name: consents fk_cnrtafckouq96m0fw2qtpwbs; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: agreements fk_agreements_agreement_categories_agreement_category_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.consents
-    ADD CONSTRAINT fk_cnrtafckouq96m0fw2qtpwbs FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
+ALTER TABLE ONLY portal.agreements
+    ADD CONSTRAINT fk_agreements_agreement_categories_agreement_category_id FOREIGN KEY (agreement_category_id) REFERENCES portal.agreement_categories(id);
+
+
+--
+-- Name: agreements fk_agreements_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.agreements
+    ADD CONSTRAINT fk_agreements_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: agreements fk_agreements_companies_issuer_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.agreements
+    ADD CONSTRAINT fk_agreements_companies_issuer_company_id FOREIGN KEY (issuer_company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: agreements fk_agreements_use_cases_use_case_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.agreements
+    ADD CONSTRAINT fk_agreements_use_cases_use_case_id FOREIGN KEY (use_case_id) REFERENCES portal.use_cases(id);
+
+
+--
+-- Name: app_assigned_clients fk_app_assigned_clients_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_assigned_clients
+    ADD CONSTRAINT fk_app_assigned_clients_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: app_assigned_clients fk_app_assigned_clients_iam_clients_iam_client_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_assigned_clients
+    ADD CONSTRAINT fk_app_assigned_clients_iam_clients_iam_client_id FOREIGN KEY (iam_client_id) REFERENCES portal.iam_clients(id) ON DELETE CASCADE;
+
+
+--
+-- Name: app_assigned_licenses fk_app_assigned_licenses_app_licenses_app_license_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_assigned_licenses
+    ADD CONSTRAINT fk_app_assigned_licenses_app_licenses_app_license_id FOREIGN KEY (app_license_id) REFERENCES portal.app_licenses(id);
+
+
+--
+-- Name: app_assigned_licenses fk_app_assigned_licenses_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_assigned_licenses
+    ADD CONSTRAINT fk_app_assigned_licenses_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: app_assigned_use_cases fk_app_assigned_use_cases_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_assigned_use_cases
+    ADD CONSTRAINT fk_app_assigned_use_cases_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: app_assigned_use_cases fk_app_assigned_use_cases_use_cases_use_case_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_assigned_use_cases
+    ADD CONSTRAINT fk_app_assigned_use_cases_use_cases_use_case_id FOREIGN KEY (use_case_id) REFERENCES portal.use_cases(id);
+
+
+--
+-- Name: app_descriptions fk_app_descriptions_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_descriptions
+    ADD CONSTRAINT fk_app_descriptions_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: app_descriptions fk_app_descriptions_languages_language_temp_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_descriptions
+    ADD CONSTRAINT fk_app_descriptions_languages_language_temp_id FOREIGN KEY (language_short_name) REFERENCES portal.languages(short_name);
+
+
+--
+-- Name: app_detail_images fk_app_detail_images_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_detail_images
+    ADD CONSTRAINT fk_app_detail_images_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: app_languages fk_app_languages_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_languages
+    ADD CONSTRAINT fk_app_languages_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: app_languages fk_app_languages_languages_language_temp_id1; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_languages
+    ADD CONSTRAINT fk_app_languages_languages_language_temp_id1 FOREIGN KEY (language_short_name) REFERENCES portal.languages(short_name);
+
+
+--
+-- Name: app_tags fk_app_tags_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_tags
+    ADD CONSTRAINT fk_app_tags_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: apps fk_apps_app_statuses_app_status_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.apps
+    ADD CONSTRAINT fk_apps_app_statuses_app_status_id FOREIGN KEY (app_status_id) REFERENCES portal.app_statuses(id) ON DELETE CASCADE;
+
+
+--
+-- Name: apps fk_apps_companies_provider_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.apps
+    ADD CONSTRAINT fk_apps_companies_provider_company_id FOREIGN KEY (provider_company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: companies fk_companies_addresses_address_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.companies
+    ADD CONSTRAINT fk_companies_addresses_address_id FOREIGN KEY (address_id) REFERENCES portal.addresses(id);
+
+
+--
+-- Name: companies fk_companies_company_statuses_company_status_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.companies
+    ADD CONSTRAINT fk_companies_company_statuses_company_status_id FOREIGN KEY (company_status_id) REFERENCES portal.company_statuses(id) ON DELETE CASCADE;
+
+
+--
+-- Name: company_applications fk_company_applications_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_applications
+    ADD CONSTRAINT fk_company_applications_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: company_applications fk_company_applications_company_application_statuses_applicati; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_applications
+    ADD CONSTRAINT fk_company_applications_company_application_statuses_applicati FOREIGN KEY (application_status_id) REFERENCES portal.company_application_statuses(id) ON DELETE CASCADE;
+
+
+--
+-- Name: company_assigned_apps fk_company_assigned_apps_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_assigned_apps
+    ADD CONSTRAINT fk_company_assigned_apps_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+
+
+--
+-- Name: company_assigned_apps fk_company_assigned_apps_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_assigned_apps
+    ADD CONSTRAINT fk_company_assigned_apps_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: company_assigned_roles fk_company_assigned_roles_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_assigned_roles
+    ADD CONSTRAINT fk_company_assigned_roles_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: company_assigned_roles fk_company_assigned_roles_company_roles_company_role_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_assigned_roles
+    ADD CONSTRAINT fk_company_assigned_roles_company_roles_company_role_id FOREIGN KEY (company_role_id) REFERENCES portal.company_roles(id);
+
+
+--
+-- Name: company_assigned_use_cases fk_company_assigned_use_cases_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_assigned_use_cases
+    ADD CONSTRAINT fk_company_assigned_use_cases_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: company_assigned_use_cases fk_company_assigned_use_cases_use_cases_use_case_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_assigned_use_cases
+    ADD CONSTRAINT fk_company_assigned_use_cases_use_cases_use_case_id FOREIGN KEY (use_case_id) REFERENCES portal.use_cases(id);
+
+
+--
+-- Name: company_identity_providers fk_company_identity_providers_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_identity_providers
+    ADD CONSTRAINT fk_company_identity_providers_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: company_identity_providers fk_company_identity_providers_identity_providers_identity_prov; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_identity_providers
+    ADD CONSTRAINT fk_company_identity_providers_identity_providers_identity_prov FOREIGN KEY (identity_provider_id) REFERENCES portal.identity_providers(id);
 
 
 --
@@ -1375,255 +1734,247 @@ ALTER TABLE ONLY portal.consents
 --
 
 ALTER TABLE ONLY portal.company_role_descriptions
-    ADD CONSTRAINT fk_company_role_descriptions_company_roles_company_role_id FOREIGN KEY (company_role_id) REFERENCES portal.company_roles(company_role_id) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_company_role_descriptions_company_roles_company_role_id FOREIGN KEY (company_role_id) REFERENCES portal.company_roles(id) ON DELETE CASCADE;
 
 
 --
--- Name: company_role_descriptions fk_company_role_descriptions_languages_language_short_name; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_role_descriptions fk_company_role_descriptions_languages_language_temp_id2; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.company_role_descriptions
-    ADD CONSTRAINT fk_company_role_descriptions_languages_language_short_name FOREIGN KEY (language_short_name) REFERENCES portal.languages(short_name) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_company_role_descriptions_languages_language_temp_id2 FOREIGN KEY (language_short_name) REFERENCES portal.languages(short_name) ON DELETE CASCADE;
 
 
 --
--- Name: company_users fk_company_users_company_user_status_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_service_account_assigned_roles fk_company_service_account_assigned_roles_company_service_acco; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_users
-    ADD CONSTRAINT fk_company_users_company_user_status_id FOREIGN KEY (company_user_status_id) REFERENCES portal.company_user_status(company_user_status_id) ON DELETE CASCADE;
-
-
---
--- Name: invitations fk_dlrst4ju9d0wcgkh4w1nnoj3; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.invitations
-    ADD CONSTRAINT fk_dlrst4ju9d0wcgkh4w1nnoj3 FOREIGN KEY (company_application_id) REFERENCES portal.company_applications(id) ON DELETE CASCADE;
+ALTER TABLE ONLY portal.company_service_account_assigned_roles
+    ADD CONSTRAINT fk_company_service_account_assigned_roles_company_service_acco FOREIGN KEY (company_service_account_id) REFERENCES portal.company_service_accounts(id);
 
 
 --
--- Name: company_user_assigned_app_favourites fk_eip97mygnbglivrtmkagesjh; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_service_account_assigned_roles fk_company_service_account_assigned_roles_user_roles_user_role; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_service_account_assigned_roles
+    ADD CONSTRAINT fk_company_service_account_assigned_roles_user_roles_user_role FOREIGN KEY (user_role_id) REFERENCES portal.user_roles(id);
+
+
+--
+-- Name: company_service_accounts fk_company_service_accounts_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_service_accounts
+    ADD CONSTRAINT fk_company_service_accounts_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+
+
+--
+-- Name: company_service_accounts fk_company_service_accounts_company_service_account_statuses_c; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_service_accounts
+    ADD CONSTRAINT fk_company_service_accounts_company_service_account_statuses_c FOREIGN KEY (company_service_account_status_id) REFERENCES portal.company_service_account_statuses(id) ON DELETE CASCADE;
+
+
+--
+-- Name: company_user_assigned_app_favourites fk_company_user_assigned_app_favourites_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.company_user_assigned_app_favourites
-    ADD CONSTRAINT fk_eip97mygnbglivrtmkagesjh FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+    ADD CONSTRAINT fk_company_user_assigned_app_favourites_apps_app_id FOREIGN KEY (app_id) REFERENCES portal.apps(id);
 
 
 --
--- Name: agreement_assigned_document_templates fk_fvcwoptsuer9p23m055osose; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_user_assigned_app_favourites fk_company_user_assigned_app_favourites_company_users_company_; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.agreement_assigned_document_templates
-    ADD CONSTRAINT fk_fvcwoptsuer9p23m055osose FOREIGN KEY (agreement_id) REFERENCES portal.agreements(id);
-
-
---
--- Name: company_identity_provider fk_haad983jkald89wlkejidk234; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_identity_provider
-    ADD CONSTRAINT fk_haad983jkald89wlkejidk234 FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+ALTER TABLE ONLY portal.company_user_assigned_app_favourites
+    ADD CONSTRAINT fk_company_user_assigned_app_favourites_company_users_company_ FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
 
 
 --
--- Name: iam_users fk_iweorqwaeilskjeijekkalwo; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_user_assigned_roles fk_company_user_assigned_roles_company_users_company_user_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.iam_users
-    ADD CONSTRAINT fk_iweorqwaeilskjeijekkalwo FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
-
-
---
--- Name: identity_providers fk_iwohgwi9342adf9asdnfuie28; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.identity_providers
-    ADD CONSTRAINT fk_iwohgwi9342adf9asdnfuie28 FOREIGN KEY (identity_provider_category_id) REFERENCES portal.identity_provider_categories(identity_provider_category_id);
+ALTER TABLE ONLY portal.company_user_assigned_roles
+    ADD CONSTRAINT fk_company_user_assigned_roles_company_users_company_user_id FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
 
 
 --
--- Name: company_identity_provider fk_iwzehadf8whjd8asjdfuwefhs; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_user_assigned_roles fk_company_user_assigned_roles_user_roles_user_role_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_identity_provider
-    ADD CONSTRAINT fk_iwzehadf8whjd8asjdfuwefhs FOREIGN KEY (identity_provider_id) REFERENCES portal.identity_providers(id);
-
-
---
--- Name: company_assigned_apps fk_k1dqlv81463yes0k8f2giyaf; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_assigned_apps
-    ADD CONSTRAINT fk_k1dqlv81463yes0k8f2giyaf FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+ALTER TABLE ONLY portal.company_user_assigned_roles
+    ADD CONSTRAINT fk_company_user_assigned_roles_user_roles_user_role_id FOREIGN KEY (user_role_id) REFERENCES portal.user_roles(id);
 
 
 --
--- Name: company_users fk_ku01366dbcqk8h32lh8k5sx1; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_users fk_company_users_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
 ALTER TABLE ONLY portal.company_users
-    ADD CONSTRAINT fk_ku01366dbcqk8h32lh8k5sx1 FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+    ADD CONSTRAINT fk_company_users_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
 
 
 --
--- Name: agreement_assigned_company_roles fk_ljol11mdo76f4kv7fwqn1qc6; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: company_users fk_company_users_company_user_statuses_company_user_status_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.agreement_assigned_company_roles
-    ADD CONSTRAINT fk_ljol11mdo76f4kv7fwqn1qc6 FOREIGN KEY (agreement_id) REFERENCES portal.agreements(id);
-
-
---
--- Name: company_assigned_use_cases fk_m5eyaohrl0g9ju52byxsouqk; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_assigned_use_cases
-    ADD CONSTRAINT fk_m5eyaohrl0g9ju52byxsouqk FOREIGN KEY (use_case_id) REFERENCES portal.use_cases(id);
+ALTER TABLE ONLY portal.company_users
+    ADD CONSTRAINT fk_company_users_company_user_statuses_company_user_status_id FOREIGN KEY (company_user_status_id) REFERENCES portal.company_user_statuses(id) ON DELETE CASCADE;
 
 
 --
--- Name: app_assigned_licenses fk_mes2xm3i1wotryfc88be4dkf; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: connectors fk_connectors_companies_host_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.app_assigned_licenses
-    ADD CONSTRAINT fk_mes2xm3i1wotryfc88be4dkf FOREIGN KEY (app_license_id) REFERENCES portal.app_licenses(id);
-
-
---
--- Name: company_assigned_roles fk_my2p7jlqrjf0tq1f8rhk0i0a; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_assigned_roles
-    ADD CONSTRAINT fk_my2p7jlqrjf0tq1f8rhk0i0a FOREIGN KEY (company_role_id) REFERENCES portal.company_roles(company_role_id);
+ALTER TABLE ONLY portal.connectors
+    ADD CONSTRAINT fk_connectors_companies_host_id FOREIGN KEY (host_id) REFERENCES portal.companies(id);
 
 
 --
--- Name: agreements fk_n4nnf5bn8i3i9ijrf7kchfvc; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: connectors fk_connectors_companies_provider_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.agreements
-    ADD CONSTRAINT fk_n4nnf5bn8i3i9ijrf7kchfvc FOREIGN KEY (issuer_company_id) REFERENCES portal.companies(id);
-
-
---
--- Name: app_assigned_clients fk_oayyvy590ngh5705yspep0up; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_assigned_clients
-    ADD CONSTRAINT fk_oayyvy590ngh5705yspep0up FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+ALTER TABLE ONLY portal.connectors
+    ADD CONSTRAINT fk_connectors_companies_provider_id FOREIGN KEY (provider_id) REFERENCES portal.companies(id) ON DELETE CASCADE;
 
 
 --
--- Name: app_languages fk_oayyvy590ngh5705yspep101; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: connectors fk_connectors_connector_statuses_status_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.app_languages
-    ADD CONSTRAINT fk_oayyvy590ngh5705yspep101 FOREIGN KEY (app_id) REFERENCES portal.apps(id);
-
-
---
--- Name: app_languages fk_oayyvy590ngh5705yspep102; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_languages
-    ADD CONSTRAINT fk_oayyvy590ngh5705yspep102 FOREIGN KEY (language_short_name) REFERENCES portal.languages(short_name);
+ALTER TABLE ONLY portal.connectors
+    ADD CONSTRAINT fk_connectors_connector_statuses_status_id FOREIGN KEY (status_id) REFERENCES portal.connector_statuses(id);
 
 
 --
--- Name: app_detail_images fk_oayyvy590ngh5705yspep12a; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: connectors fk_connectors_connector_types_type_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.app_detail_images
-    ADD CONSTRAINT fk_oayyvy590ngh5705yspep12a FOREIGN KEY (app_id) REFERENCES portal.apps(id);
-
-
---
--- Name: agreements fk_ooy9ydkah696jxh4lq7pn0xe; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.agreements
-    ADD CONSTRAINT fk_ooy9ydkah696jxh4lq7pn0xe FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+ALTER TABLE ONLY portal.connectors
+    ADD CONSTRAINT fk_connectors_connector_types_type_id FOREIGN KEY (type_id) REFERENCES portal.connector_types(id);
 
 
 --
--- Name: apps fk_owihadhfweilwefhaf111aaa; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: connectors fk_connectors_countries_location_temp_id1; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.apps
-    ADD CONSTRAINT fk_owihadhfweilwefhaf111aaa FOREIGN KEY (app_status_id) REFERENCES portal.app_status(app_status_id) ON DELETE CASCADE;
-
-
---
--- Name: companies fk_owihadhfweilwefhaf682khj; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.companies
-    ADD CONSTRAINT fk_owihadhfweilwefhaf682khj FOREIGN KEY (company_status_id) REFERENCES portal.company_status(company_status_id) ON DELETE CASCADE;
+ALTER TABLE ONLY portal.connectors
+    ADD CONSTRAINT fk_connectors_countries_location_temp_id1 FOREIGN KEY (location_id) REFERENCES portal.countries(alpha2code) ON DELETE CASCADE;
 
 
 --
--- Name: agreements fk_owqie84qkle78dasifljiwer; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: consents fk_consents_agreements_agreement_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.agreements
-    ADD CONSTRAINT fk_owqie84qkle78dasifljiwer FOREIGN KEY (agreement_category_id) REFERENCES portal.agreement_categories(agreement_category_id);
-
-
---
--- Name: app_descriptions fk_qamy6j7s3klebrf2s69v9k0i; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_descriptions
-    ADD CONSTRAINT fk_qamy6j7s3klebrf2s69v9k0i FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+ALTER TABLE ONLY portal.consents
+    ADD CONSTRAINT fk_consents_agreements_agreement_id FOREIGN KEY (agreement_id) REFERENCES portal.agreements(id);
 
 
 --
--- Name: agreement_assigned_company_roles fk_qh1hby9qcrr3gmy1cvi7nd3h; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: consents fk_consents_companies_company_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.agreement_assigned_company_roles
-    ADD CONSTRAINT fk_qh1hby9qcrr3gmy1cvi7nd3h FOREIGN KEY (company_role_id) REFERENCES portal.company_roles(company_role_id);
-
-
---
--- Name: app_assigned_use_cases fk_qi320sp8lxy7drw6kt4vheka; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_assigned_use_cases
-    ADD CONSTRAINT fk_qi320sp8lxy7drw6kt4vheka FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+ALTER TABLE ONLY portal.consents
+    ADD CONSTRAINT fk_consents_companies_company_id FOREIGN KEY (company_id) REFERENCES portal.companies(id);
 
 
 --
--- Name: app_tags fk_qi320sp8lxy7drw6kt4vheka; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: consents fk_consents_company_users_company_user_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.app_tags
-    ADD CONSTRAINT fk_qi320sp8lxy7drw6kt4vheka FOREIGN KEY (app_id) REFERENCES portal.apps(id);
-
-
---
--- Name: app_assigned_use_cases fk_sjyfs49ma0kxaqfknjbaye0i; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_assigned_use_cases
-    ADD CONSTRAINT fk_sjyfs49ma0kxaqfknjbaye0i FOREIGN KEY (use_case_id) REFERENCES portal.use_cases(id);
+ALTER TABLE ONLY portal.consents
+    ADD CONSTRAINT fk_consents_company_users_company_user_id FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
 
 
 --
--- Name: company_assigned_apps fk_t365qpfvehuq40om25dyrnn5; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: consents fk_consents_consent_statuses_consent_status_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_assigned_apps
-    ADD CONSTRAINT fk_t365qpfvehuq40om25dyrnn5 FOREIGN KEY (app_id) REFERENCES portal.apps(id);
+ALTER TABLE ONLY portal.consents
+    ADD CONSTRAINT fk_consents_consent_statuses_consent_status_id FOREIGN KEY (consent_status_id) REFERENCES portal.consent_statuses(id);
 
 
 --
--- Name: company_assigned_use_cases fk_u65fkdrxnbkp8n0s7mate01v; Type: FK CONSTRAINT; Schema: portal; Owner: -
+-- Name: consents fk_consents_documents_document_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
-ALTER TABLE ONLY portal.company_assigned_use_cases
-    ADD CONSTRAINT fk_u65fkdrxnbkp8n0s7mate01v FOREIGN KEY (company_id) REFERENCES portal.companies(id);
+ALTER TABLE ONLY portal.consents
+    ADD CONSTRAINT fk_consents_documents_document_id FOREIGN KEY (document_id) REFERENCES portal.documents(id);
+
+
+--
+-- Name: documents fk_documents_company_users_company_user_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.documents
+    ADD CONSTRAINT fk_documents_company_users_company_user_id FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
+
+
+--
+-- Name: documents fk_documents_document_types_document_type_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.documents
+    ADD CONSTRAINT fk_documents_document_types_document_type_id FOREIGN KEY (document_type_id) REFERENCES portal.document_types(id);
+
+
+--
+-- Name: iam_identity_providers fk_iam_identity_providers_identity_providers_identity_provider; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.iam_identity_providers
+    ADD CONSTRAINT fk_iam_identity_providers_identity_providers_identity_provider FOREIGN KEY (identity_provider_id) REFERENCES portal.identity_providers(id);
+
+
+--
+-- Name: iam_service_accounts fk_iam_service_accounts_company_service_accounts_company_servi; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.iam_service_accounts
+    ADD CONSTRAINT fk_iam_service_accounts_company_service_accounts_company_servi FOREIGN KEY (company_service_account_id) REFERENCES portal.company_service_accounts(id);
+
+
+--
+-- Name: iam_users fk_iam_users_company_users_company_user_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.iam_users
+    ADD CONSTRAINT fk_iam_users_company_users_company_user_id FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
+
+
+--
+-- Name: identity_providers fk_identity_providers_identity_provider_categories_identity_pr; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.identity_providers
+    ADD CONSTRAINT fk_identity_providers_identity_provider_categories_identity_pr FOREIGN KEY (identity_provider_category_id) REFERENCES portal.identity_provider_categories(id);
+
+
+--
+-- Name: invitations fk_invitations_company_applications_company_application_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.invitations
+    ADD CONSTRAINT fk_invitations_company_applications_company_application_id FOREIGN KEY (company_application_id) REFERENCES portal.company_applications(id) ON DELETE CASCADE;
+
+
+--
+-- Name: invitations fk_invitations_company_users_company_user_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.invitations
+    ADD CONSTRAINT fk_invitations_company_users_company_user_id FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
+
+
+--
+-- Name: invitations fk_invitations_invitation_statuses_invitation_status_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.invitations
+    ADD CONSTRAINT fk_invitations_invitation_statuses_invitation_status_id FOREIGN KEY (invitation_status_id) REFERENCES portal.invitation_statuses(id);
 
 
 --
@@ -1648,62 +1999,6 @@ ALTER TABLE ONLY portal.user_role_descriptions
 
 ALTER TABLE ONLY portal.user_roles
     ADD CONSTRAINT fk_user_roles_iam_clients_iam_client_id FOREIGN KEY (iam_client_id) REFERENCES portal.iam_clients(id) ON DELETE CASCADE;
-
-
---
--- Name: app_descriptions fk_vrom2pjij9x6stgovhaqkfxf; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.app_descriptions
-    ADD CONSTRAINT fk_vrom2pjij9x6stgovhaqkfxf FOREIGN KEY (language_short_name) REFERENCES portal.languages(short_name);
-
-
---
--- Name: companies fk_w70yf6urddd0ky7ev90okenf; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.companies
-    ADD CONSTRAINT fk_w70yf6urddd0ky7ev90okenf FOREIGN KEY (address_id) REFERENCES portal.addresses(id);
-
-
---
--- Name: agreements fk_whby66dika71srejhja6g75a; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.agreements
-    ADD CONSTRAINT fk_whby66dika71srejhja6g75a FOREIGN KEY (use_case_id) REFERENCES portal.use_cases(id);
-
-
---
--- Name: invitations fk_woihaodhawoeir72alfidosd; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.invitations
-    ADD CONSTRAINT fk_woihaodhawoeir72alfidosd FOREIGN KEY (invitation_status_id) REFERENCES portal.invitation_status(invitation_status_id);
-
-
---
--- Name: company_user_assigned_app_favourites fk_wva553r3xiew3ngbdkvafk85; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.company_user_assigned_app_favourites
-    ADD CONSTRAINT fk_wva553r3xiew3ngbdkvafk85 FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
-
-
---
--- Name: documents fk_xcgobngn7vk56k8nfkualsvn; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.documents
-    ADD CONSTRAINT fk_xcgobngn7vk56k8nfkualsvn FOREIGN KEY (document_type_id) REFERENCES portal.document_types(document_type_id);
-
-
---
--- Name: documents fk_xcgobngn7vk56k8nfkuaysvn; Type: FK CONSTRAINT; Schema: portal; Owner: -
---
-
-ALTER TABLE ONLY portal.documents
-    ADD CONSTRAINT fk_xcgobngn7vk56k8nfkuaysvn FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
 
 
 --
