@@ -3,6 +3,8 @@ name: Portal InitDB
 on: 
   push:
     paths:
+      # this workflow file
+      - '.github/workflows/portal-initdb.yml'
       # sqls
       - 'import/**'
 
