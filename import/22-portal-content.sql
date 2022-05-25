@@ -81,7 +81,7 @@ ac1cf001-7fbc-1f2f-817f-bce057230006	Company-1
 ac1cf001-7fbc-1f2f-817f-bce057230007	Company-2
 ac1cf001-7fbc-1f2f-817f-bce057230008	Company-3
 ac1cf001-7fbc-1f2f-817f-bce057770014	idp2
-ac1cf001-7fbc-1f2f-817f-bce057770015	CX-Test-Access
+ac1cf001-7fbc-1f2f-817f-bce057770015	cx-test-access
 \.
 
 
