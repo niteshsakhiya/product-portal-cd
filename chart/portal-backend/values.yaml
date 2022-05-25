@@ -27,7 +27,7 @@ postgresql:
         emptyDir: {}
       - name: initdb-secrets
         secret:
-          secretName: secret-postgres-init-additional-db-use
+          secretName: secret-postgres-init-additional-db-user
     initContainers:
       - name: initdb
         image: ghcr.io/catenax-ng/product-portal-cd_initdb:latest
