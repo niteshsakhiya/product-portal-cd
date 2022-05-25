@@ -41,6 +41,8 @@ postgresql:
             cp /secrets/* /docker-entrypoint-initdb.d
             echo "Copying initdb sqls..."
             cp -R /import/* /docker-entrypoint-initdb.d
+            echo "Run chown.."
+            run chown postgres:postgres /docker-entrypoint-initdb.d/01-init-user-db.sql
             echo "Docker..."
             ls -lisa /docker-entrypoint-initdb.d
             echo "Secret..."
