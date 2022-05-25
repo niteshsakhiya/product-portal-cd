@@ -44,7 +44,7 @@ postgresql:
         volumeMounts:
         - name: initdb
           mountPath: "/docker-entrypoint-initdb.d"
-        - name: realm-secrets
+        - name: initdb-secrets
           mountPath: "/secrets"
 
 registration:
