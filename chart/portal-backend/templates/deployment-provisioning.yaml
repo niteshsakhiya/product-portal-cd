@@ -28,4 +28,4 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: {{ .Values.provisioning.secret.name }}
+          secretName: secret-provisioning
