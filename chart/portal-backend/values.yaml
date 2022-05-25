@@ -18,6 +18,7 @@ postgresql:
   architecture: replication
   primary:
     initdb:
+      args: "cp /docker-entrypoint-initdb.d/secret/* /docker-entrypoint-initdb.d"
       scriptsConfigMap: p-init-sql
       scriptsSecret: secret-postgres-init-additional-db-user
 
