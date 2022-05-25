@@ -3,3 +3,5 @@ FROM busybox
 RUN mkdir import
 
 COPY import/ import
+
+RUN chown postgres:postgres /docker-entrypoint-initdb.d/01-init-user-db.sql

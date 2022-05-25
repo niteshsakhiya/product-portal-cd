@@ -5,6 +5,8 @@ on:
     paths:
       # this workflow file
       - '.github/workflows/portal-initdb.yml'
+      # Docker files
+      - 'docker/Dockerfile.import'
       # sqls
       - 'import/**'
 
