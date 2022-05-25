@@ -37,10 +37,10 @@ postgresql:
         args:
           - -c
           - |
-            echo "Copying initdb sqls..."
-            cp -R /import/* /docker-entrypoint-initdb.d
             echo "Copying initdb secret sqls..."
             cp /secrets/* /docker-entrypoint-initdb.d
+            echo "Copying initdb sqls..."
+            cp -R /import/* /docker-entrypoint-initdb.d
             echo "Docker..."
             ls -lisa /docker-entrypoint-initdb.d
             echo "Secret..."
