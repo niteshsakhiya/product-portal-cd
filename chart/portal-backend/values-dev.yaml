@@ -4,7 +4,7 @@ corsOrigins: http://localhost:3000, https://*.dev.demo.catena-x.net
 postgresql:
   secret:
     pathinit: portal/data/dev/postgres
-    pathinitadditionaldbuser: portal/data/dev/postgres-additional-db-user
+    pathinitdbuser: portal/data/dev/postgres-db-user
 
 registration:
   image: ghcr.io/catenax-ng/product-portal-backend_registration-service:latest

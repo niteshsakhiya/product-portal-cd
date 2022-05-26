@@ -9,12 +9,10 @@ replicaCount: 1
 postgresql:
   enabled: true
   auth:
-    username: portal
-    database: postgres
     existingSecret: secret-postgres-init
   secret:
     pathinit: portal/data/int/postgres
-    pathinitadditionaldbuser: portal/data/int/postgres-additional-db-user
+    pathinitdbuser: portal/data/int/postgres-db-user
   architecture: replication
   primary:
     extraVolumeMounts:
