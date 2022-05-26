@@ -28,4 +28,4 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: secret-appmarketplace
+          secretName: {{ .Values.appmarketplace.secret.name }}
