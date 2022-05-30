@@ -1,30 +1,30 @@
-domain: "dev.demo.catena-x.net"
-corsOrigins: "http://localhost:3000, https://*.dev.demo.catena-x.net"
+domain: dev.demo.catena-x.net
+corsOrigins: http://localhost:3000, https://*.dev.demo.catena-x.net
 
 postgresql:
   secret:
-    name: "secret-postgres-init"
-    path: "portal/data/dev/postgres"
+    pathinit: portal/data/dev/postgres
+    pathinitdbuser: portal/data/dev/postgres-db-user
 
 registration:
-  image: "ghcr.io/catenax-ng/product-portal-backend_registration-service:latest"
+  image: ghcr.io/catenax-ng/product-portal-backend_registration-service:latest
   secret:
-    path: "portal/data/dev/registration"
+    path: portal/data/dev/registration
 
 administration:
-  image: "ghcr.io/catenax-ng/product-portal-backend_administration-service:latest"
+  image: ghcr.io/catenax-ng/product-portal-backend_administration-service:latest
   secret:
-    path: "portal/data/dev/administration"
+    path: portal/data/dev/administration
 
 provisioning:
-  image: "ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest"
+  image: ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest
   secret:
-    path: "portal/data/dev/provisioning"
+    path: portal/data/dev/provisioning
 
 appmarketplace:
-  image: "ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest"
+  image: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest
   secret:
-    path: "portal/data/dev/appmarketplace"
+    path: portal/data/dev/appmarketplace
 
 pgadmin4:
   enabled: true
