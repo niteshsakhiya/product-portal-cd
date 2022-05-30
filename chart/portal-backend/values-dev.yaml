@@ -26,6 +26,11 @@ appmarketplace:
   secret:
     path: portal/data/dev/appmarketplace
 
+portalmigrations:
+  image: ghcr.io/catenax-ng/product-portal-backend_portal-migrations:latest
+  secret:
+    path: portal/data/dev/portal-migrations
+
 pgadmin4:
   enabled: true
   secret:
