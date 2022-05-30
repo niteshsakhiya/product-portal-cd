@@ -10,11 +10,8 @@ on:
       # sqls
       - 'import/**'
 
-#TODO: Comment in, as soon as it works in hotel budapest
     branches:
-      # Integration environment
      - main
-     - feature/add_db_user_update_sqls
   workflow_dispatch:
 
 jobs:
