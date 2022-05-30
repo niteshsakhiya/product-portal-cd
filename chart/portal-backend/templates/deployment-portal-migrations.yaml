@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.portalmigrations.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.portalmigrations.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.portalmigrations.name }}
+    spec:
+      containers:
+      - name: {{ .Values.portalmigrations.name }}
+        image: {{ .Values.portalmigrations.image }}
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: {{ .Values.portContainer }}
+        volumeMounts:
+        - name: secrets
+          mountPath: /migrations
+          readOnly: true
+      volumes:
+      - name: secrets
+        secret:
+          secretName: {{ .Values.portalmigrations.secret.name }}
