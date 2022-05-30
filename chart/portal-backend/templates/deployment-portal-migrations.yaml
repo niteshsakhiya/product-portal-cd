@@ -20,7 +20,7 @@ spec:
         - containerPort: {{ .Values.portContainer }}
         volumeMounts:
         - name: secrets
-          mountPath: /migrations
+          mountPath: /migrations/secrets
           readOnly: true
       volumes:
       - name: secrets
