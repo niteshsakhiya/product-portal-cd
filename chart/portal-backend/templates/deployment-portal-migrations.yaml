@@ -12,6 +12,7 @@ spec:
       labels:
         app: {{ .Values.portalmigrations.name }}
     spec:
+      restartPolicy: Never
       containers:
       - name: {{ .Values.portalmigrations.name }}
         image: {{ .Values.portalmigrations.image }}
