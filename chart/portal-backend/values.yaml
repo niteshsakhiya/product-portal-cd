@@ -39,16 +39,6 @@ postgresql:
             cp /secrets/* /docker-entrypoint-initdb.d
             echo "Copying initdb sqls..."
             cp -R /import/* /docker-entrypoint-initdb.d
-            echo "Docker..."
-            ls -lisa /docker-entrypoint-initdb.d
-            echo "Secret..."
-            ls -lisa /secrets
-            echo "cat Secret..."
-            cat /secrets/01-init-user-db.sql
-            echo "cat Secret in Docker..."
-            cat /docker-entrypoint-initdb.d/01-init-user-db.sql
-            echo "cat Provisioning in Docker..."
-            cat /docker-entrypoint-initdb.d/30-provisioning.sql
         volumeMounts:
         - name: initdb
           mountPath: "/docker-entrypoint-initdb.d"
