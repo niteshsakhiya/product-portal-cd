@@ -3,14 +3,9 @@ kind: Job
 metadata:
   name: {{ .Values.portalmigrations.name }}
 spec:
-  replicas: {{ .Values.replicaCount }}
-  selector:
-    matchLabels:
-      app: {{ .Values.portalmigrations.name }}
   template:
     metadata:
-      labels:
-        app: {{ .Values.portalmigrations.name }}
+      name: {{ .Values.portalmigrations.name }}
     spec:
       restartPolicy: Never
       containers:
