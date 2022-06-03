@@ -206,8 +206,8 @@ COPY portal.agreement_assigned_document_templates (agreement_id, document_templa
 --
 
 COPY portal.iam_clients (id, client_client_id) FROM stdin;
-0c9051d0-d032-11ec-9d64-0242ac120002	catenax-portal
-f032a034-d035-11ec-9d64-0242ac120002	catenax-registration
+0c9051d0-d032-11ec-9d64-0242ac120002	Cl2-CX-Portal
+f032a034-d035-11ec-9d64-0242ac120002	Cl1-CX-Registration
 f032a035-d035-11ec-9d64-0242ac120002	Cl3-CX-Semantic
 f032a036-d035-11ec-9d64-0242ac120002	Cl4-CX-DigitalTwin
 f032a037-d035-11ec-9d64-0242ac120002	Cl5-CX-Custodian
