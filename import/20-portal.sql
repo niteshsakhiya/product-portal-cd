@@ -3,7 +3,7 @@
 --
 
 -- Dumped from database version 14.3 (Debian 14.3-1.pgdg110+1)
--- Dumped by pg_dump version 14.2 (Debian 14.2-1.pgdg110+1)
+-- Dumped by pg_dump version 14.3 (Debian 14.3-1.pgdg110+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -40,7 +40,7 @@ CREATE TABLE portal.addresses (
     streetadditional character varying(255),
     streetname character varying(255) NOT NULL,
     streetnumber character varying(255),
-    zipcode numeric(19,2) NOT NULL,
+    zipcode character varying(12),
     country_alpha2code character(2) NOT NULL
 );
 
@@ -176,6 +176,16 @@ CREATE TABLE portal.app_statuses (
 
 
 --
+-- Name: app_subscription_statuses; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.app_subscription_statuses (
+    id integer NOT NULL,
+    label character varying(255) NOT NULL
+);
+
+
+--
 -- Name: app_tags; Type: TABLE; Schema: portal; Owner: -
 --
 
@@ -212,10 +222,9 @@ CREATE TABLE portal.apps (
 CREATE TABLE portal.companies (
     id uuid NOT NULL,
     date_created timestamp with time zone NOT NULL,
-    bpn character varying(20),
+    business_partner_number character varying(20),
     tax_id character varying(20),
     name character varying(255) NOT NULL,
-    parent character varying(255),
     shortname character varying(255),
     company_status_id integer NOT NULL,
     address_id uuid
@@ -251,7 +260,8 @@ CREATE TABLE portal.company_applications (
 
 CREATE TABLE portal.company_assigned_apps (
     company_id uuid NOT NULL,
-    app_id uuid NOT NULL
+    app_id uuid NOT NULL,
+    app_subscription_status_id integer DEFAULT 1 NOT NULL
 );
 
 
@@ -357,6 +367,16 @@ CREATE TABLE portal.company_statuses (
 CREATE TABLE portal.company_user_assigned_app_favourites (
     company_user_id uuid NOT NULL,
     app_id uuid NOT NULL
+);
+
+
+--
+-- Name: company_user_assigned_business_partners; Type: TABLE; Schema: portal; Owner: -
+--
+
+CREATE TABLE portal.company_user_assigned_business_partners (
+    company_user_id uuid NOT NULL,
+    business_partner_number character varying(20) NOT NULL
 );
 
 
@@ -745,6 +765,14 @@ ALTER TABLE ONLY portal.app_statuses
 
 
 --
+-- Name: app_subscription_statuses pk_app_subscription_statuses; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.app_subscription_statuses
+    ADD CONSTRAINT pk_app_subscription_statuses PRIMARY KEY (id);
+
+
+--
 -- Name: app_tags pk_app_tags; Type: CONSTRAINT; Schema: portal; Owner: -
 --
 
@@ -870,6 +898,14 @@ ALTER TABLE ONLY portal.company_statuses
 
 ALTER TABLE ONLY portal.company_user_assigned_app_favourites
     ADD CONSTRAINT pk_company_user_assigned_app_favourites PRIMARY KEY (company_user_id, app_id);
+
+
+--
+-- Name: company_user_assigned_business_partners pk_company_user_assigned_business_partners; Type: CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_user_assigned_business_partners
+    ADD CONSTRAINT pk_company_user_assigned_business_partners PRIMARY KEY (company_user_id, business_partner_number);
 
 
 --
@@ -1202,6 +1238,13 @@ CREATE INDEX ix_company_applications_company_id ON portal.company_applications U
 --
 
 CREATE INDEX ix_company_assigned_apps_app_id ON portal.company_assigned_apps USING btree (app_id);
+
+
+--
+-- Name: ix_company_assigned_apps_app_subscription_status_id; Type: INDEX; Schema: portal; Owner: -
+--
+
+CREATE INDEX ix_company_assigned_apps_app_subscription_status_id ON portal.company_assigned_apps USING btree (app_subscription_status_id);
 
 
 --
@@ -1666,6 +1709,14 @@ ALTER TABLE ONLY portal.company_applications
 
 
 --
+-- Name: company_assigned_apps fk_company_assigned_apps_app_subscription_statuses_app_subscri; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_assigned_apps
+    ADD CONSTRAINT fk_company_assigned_apps_app_subscription_statuses_app_subscri FOREIGN KEY (app_subscription_status_id) REFERENCES portal.app_subscription_statuses(id);
+
+
+--
 -- Name: company_assigned_apps fk_company_assigned_apps_apps_app_id; Type: FK CONSTRAINT; Schema: portal; Owner: -
 --
 
@@ -1791,6 +1842,14 @@ ALTER TABLE ONLY portal.company_user_assigned_app_favourites
 
 ALTER TABLE ONLY portal.company_user_assigned_app_favourites
     ADD CONSTRAINT fk_company_user_assigned_app_favourites_company_users_company_ FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id);
+
+
+--
+-- Name: company_user_assigned_business_partners fk_company_user_assigned_business_partners_company_users_compa; Type: FK CONSTRAINT; Schema: portal; Owner: -
+--
+
+ALTER TABLE ONLY portal.company_user_assigned_business_partners
+    ADD CONSTRAINT fk_company_user_assigned_business_partners_company_users_compa FOREIGN KEY (company_user_id) REFERENCES portal.company_users(id) ON DELETE CASCADE;
 
 
 --
