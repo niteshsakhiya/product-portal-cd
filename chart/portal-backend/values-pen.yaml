@@ -1,3 +1,4 @@
+name: portal-backend-pen
 domain: dev.demo.catena-x.net
 corsOrigins: http://localhost:3000, https://*.dev.demo.catena-x.net
 
