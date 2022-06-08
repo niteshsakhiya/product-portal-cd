@@ -40,21 +40,30 @@ c0e1d802-0c4b-4d0d-a763-b6d9d56e6f07	2022-03-24 18:01:33.428	2022-03-24 18:01:33
 -- Data for Name: companies; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
-COPY portal.companies (id, date_created, bpn, tax_id, name, parent, shortname, company_status_id, address_id) FROM stdin;
-2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2022-03-24 18:01:33.306	CAXSDUMMYCATENAZZ	0000000000	Catena-X	\N	Catena-X	1	b4db3945-19a7-4a50-97d6-e66e8dfd04fb
-ac861325-bc54-4583-bcdc-9e9f2a38ff84	2022-03-24 18:01:33.341	CAXSDUMMYBMWZZ	0000000000	Bayerische Motorenwerke AG	\N	BMW AG	1	12302f9b-418c-4b8c-aea8-3eedf67e6a02
-0dcd8209-85e2-4073-b130-ac094fb47106	2022-03-24 18:01:33.344	CAXSDUMMYSAPZZ	0000000000	SAP AG	\N	SAP	1	3a52099d-4988-4a56-9787-10a669c41338
-220330ac-170d-4e22-8d72-9467ed042149	2022-03-24 18:01:33.393	CAXSCARFACTORY1ZZ	0000000000	Car Factory 1	\N	Car Factory 1	1	aa49c0ec-4e65-4115-a01c-7adfc36d220e
-bdac6865-2a8d-4bfd-9373-9dfce8190895	2022-03-24 18:01:33.43	CAXSCARFACTORY2ZZ	0000000000	Car Factory 2	\N	Car Factory 2	1	c0e1d802-0c4b-4d0d-a763-b6d9d56e6f07
-41fd2ab8-71cd-4546-9bef-a388d91b2542	2022-03-24 18:01:33.438	CAXSCARFACTORY3ZZ	0000000000	Car Factory 3	\N	Car Factory 3	1	86da3e1c-a634-41a6-ad44-9880746123e4
-d14eba77-0b18-4e41-9d84-49ef875c0763	2022-03-24 18:01:33.442	CAXLDUMMYCORPZZ	0000000000	Dummy Corp. 1	\N	Dummy Corp. 1	1	0f562ea7-4cc1-47a9-bfee-b41b0ac67ebb
-9d049598-0dac-4d26-8a21-8f5b64c799cf	2022-03-24 18:01:33.442	CAXLCDQCORPZZ	0000000000	CDQ	\N	CDQ	1	095ca573-bef1-4092-ad60-b7f651678fcd
-cac8fa6a-9db7-4bad-9cbd-56298b74bac2	2022-03-24 18:01:33.442	CAXLBOSCHZZ	0000000000	BOSCH	\N	BOSCH	1	081c8bfd-c6d1-4119-a5f8-a69726dfc11d
+COPY portal.companies (id, date_created, business_partner_number, tax_id, name, shortname, company_status_id, address_id) FROM stdin;
+2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2022-03-24 18:01:33.306	CAXSDUMMYCATENAZZ	0000000000	Catena-X	Catena-X	1	b4db3945-19a7-4a50-97d6-e66e8dfd04fb
+ac861325-bc54-4583-bcdc-9e9f2a38ff84	2022-03-24 18:01:33.341	CAXSDUMMYBMWZZ	0000000000	Bayerische Motorenwerke AG	BMW AG	1	12302f9b-418c-4b8c-aea8-3eedf67e6a02
+0dcd8209-85e2-4073-b130-ac094fb47106	2022-03-24 18:01:33.344	CAXSDUMMYSAPZZ	0000000000	SAP AG	SAP	1	3a52099d-4988-4a56-9787-10a669c41338
+220330ac-170d-4e22-8d72-9467ed042149	2022-03-24 18:01:33.393	CAXSCARFACTORY1ZZ	0000000000	Car Factory 1	Car Factory 1	1	aa49c0ec-4e65-4115-a01c-7adfc36d220e
+bdac6865-2a8d-4bfd-9373-9dfce8190895	2022-03-24 18:01:33.43	CAXSCARFACTORY2ZZ	0000000000	Car Factory 2	Car Factory 2	1	c0e1d802-0c4b-4d0d-a763-b6d9d56e6f07
+41fd2ab8-71cd-4546-9bef-a388d91b2542	2022-03-24 18:01:33.438	CAXSCARFACTORY3ZZ	0000000000	Car Factory 3	Car Factory 3	1	86da3e1c-a634-41a6-ad44-9880746123e4
+d14eba77-0b18-4e41-9d84-49ef875c0763	2022-03-24 18:01:33.442	CAXLDUMMYCORPZZ	0000000000	Dummy Corp. 1	Dummy Corp. 1	1	0f562ea7-4cc1-47a9-bfee-b41b0ac67ebb
+9d049598-0dac-4d26-8a21-8f5b64c799cf	2022-03-24 18:01:33.442	CAXLCDQCORPZZ	0000000000	CDQ	CDQ	1	095ca573-bef1-4092-ad60-b7f651678fcd
+cac8fa6a-9db7-4bad-9cbd-56298b74bac2	2022-03-24 18:01:33.442	CAXLBOSCHZZ	0000000000	BOSCH	BOSCH	1	081c8bfd-c6d1-4119-a5f8-a69726dfc11d
 \.
 
 --
--- Data for Name: identity_providers; Type: TABLE DATA; Schema: public; Owner: admin
+-- Data for Name: company_user_assigned_business_partners; Type: TABLE DATA; Schema: public; Owner: admin
 --
+
+
+COPY portal.company_user_assigned_business_partners (company_user_id, business_partner_number) FROM stdin;
+ac1cf001-7fbc-1f2f-817f-bce0575a0011	CAXSDUMMYSAPZZ
+ac1cf001-7fbc-1f2f-817f-bce0577e0015	CAXSCARFACTORY3ZZ
+ac1cf001-7fbc-1f2f-817f-bce058020000	CAXSDUMMYCATENAZZ
+ac1cf001-7fbc-1f2f-817f-bce058020001	CAXSDUMMYCATENAZZ
+\.
+
 
 COPY portal.identity_providers (identity_provider_category_id, id, date_created) FROM stdin;
 2	ac1cf001-7fbc-1f2f-817f-bce0571b0004	2022-05-05 18:01:33.33
@@ -102,6 +111,7 @@ f9cad59d-84b3-4880-a550-4072c26a6b94	2022-03-24 18:01:33.388	Fraud Reporter	2022
 5cf74ef8-e0b7-4984-a872-474828beb5d1	2022-03-24 18:01:33.388	Smart MOM	2022-03-24 18:01:33.388	logo-GEC.jpg	\N	\N	info@gec.io	+49 69 24747180	German Edge Cloud GmbH & Co. KG	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	3
 5cf74ef8-e0b7-4984-a872-474828beb5d2	2022-03-24 18:01:33.388	DTC-Translator	2022-03-24 18:01:33.388	DTC-Translator_LP.svg	https://dtc-translator.adac.openresearch.com	\N	gerd.preuss@adac.de	0000	ADAC	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	3
 5cf74ef8-e0b7-4984-a872-474828beb5d3	2022-03-24 18:01:33.388	Fleet Manager	2022-03-24 18:01:33.388	Fleet_Manager_LP.png	https://fleet-management.adac.openresearch.com	\N	gerd.preuss@adac.de	0000	ADAC	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	3
+5cf74ef8-e0b7-4984-a872-474828beb5d4	2022-03-24 18:01:33.388	up2parts	2022-03-24 18:01:33.388	\N	\N	\N	info@up2parts.com	0000	up2parts GmbH	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	3
 \.
 
 
@@ -141,6 +151,9 @@ f9cad59d-84b3-4880-a550-4072c26a6b93	Partner Network
 5cf74ef8-e0b7-4984-a872-474828beb5d3	Behavior Twin
 ac1cf001-7fbc-1f2f-817f-bce05744000b	Dismantler
 ac1cf001-7fbc-1f2f-817f-bce05744000b	Circular Economy
+5cf74ef8-e0b7-4984-a872-474828beb5d4	Test
+5cf74ef8-e0b7-4984-a872-474828beb5d4	Chain
+5cf74ef8-e0b7-4984-a872-474828beb5d4	Production
 \.
 
 
@@ -159,6 +172,8 @@ f9cad59d-84b3-4880-a550-4072c26a6b94	de
 f9cad59d-84b3-4880-a550-4072c26a6b94	en
 ac1cf001-7fbc-1f2f-817f-bce05744000b	en
 ac1cf001-7fbc-1f2f-817f-bce0573f0009	en
+5cf74ef8-e0b7-4984-a872-474828beb5d4	en
+5cf74ef8-e0b7-4984-a872-474828beb5d4	de
 \.
 
 
@@ -224,12 +239,15 @@ cf207afb-d213-4c33-becc-0cabeef174a7	https://catenax-int-dismantler-s66pftcc.aut
 
 COPY portal.user_roles (id, user_role, iam_client_id) FROM stdin;
 7410693c-c893-409e-852f-9ee886ce94a6	Company Admin	f032a034-d035-11ec-9d64-0242ac120002
+7410693c-c893-409e-852f-9ee886ce94a7	Legal Admin	f032a034-d035-11ec-9d64-0242ac120002
 58f897ec-0aad-4588-8ffa-5f45d6638632	CX Admin	0c9051d0-d032-11ec-9d64-0242ac120002
 58f897ec-0aad-4588-8ffa-5f45d6638633	CX User	0c9051d0-d032-11ec-9d64-0242ac120002
 607818be-4978-41f4-bf63-fa8d2de51154	IT Admin	0c9051d0-d032-11ec-9d64-0242ac120002
 ceec23fd-6b26-485c-a4bb-90571a29e148	Signing Manager	f032a034-d035-11ec-9d64-0242ac120002
 95fe4014-4d1b-47af-a22e-72a12f9470db	Developer	0c9051d0-d032-11ec-9d64-0242ac120002
 04231a30-df50-4d14-bb00-71ff012ae0cf	Data Specialist	0c9051d0-d032-11ec-9d64-0242ac120002
+916e4be9-0ff7-48fb-bb80-97d2e93fca14	Data Specialist (INT only)	0c9051d0-d032-11ec-9d64-0242ac120002
+0d9eb9e4-b6df-49bd-b045-d9cef96a879d	Technical User Semantic & Digital Twin	0c9051d0-d032-11ec-9d64-0242ac120002
 3ff68c40-6581-4e48-a03a-2a6c1c5aac89	App Administrator	0c9051d0-d032-11ec-9d64-0242ac120002
 efc20368-9e82-46ff-b88f-6495b9810253	Vehicle Purchaser	cf207afb-d213-4c33-becc-0cabeef174a7
 aabcdfeb-6669-4c74-89f0-19cda090873f	Dismantling Lead	cf207afb-d213-4c33-becc-0cabeef174a7
@@ -240,11 +258,16 @@ b05d86e1-6c98-4619-85fa-9a425e080000	fraud_app_manager	f032a040-d035-11ec-9d64-0
 b05d86e1-6c98-4619-85fa-9a425e080001	fraud_app_user	f032a040-d035-11ec-9d64-0242ac120002
 b05d86e1-6c98-4619-85fa-9a425e080002	fraud_app_manager	f032a041-d035-11ec-9d64-0242ac120002
 b05d86e1-6c98-4619-85fa-9a425e080003	fraud_app_user	f032a041-d035-11ec-9d64-0242ac120002
+855eeefb-a2ef-4d74-ac10-34a87afcb865	admin	f032a043-d035-11ec-9d64-0242ac120002
+545c2616-2fce-4f52-b881-331db2fc1e35	customer	f032a043-d035-11ec-9d64-0242ac120002
+7a9e0777-2b13-4463-a7c4-f699afff3527	oem	f032a043-d035-11ec-9d64-0242ac120002
 \.
 
 COPY portal.user_role_descriptions (user_role_id, language_short_name, description) FROM stdin;
 7410693c-c893-409e-852f-9ee886ce94a6	de	Unternehmensadministrator
 7410693c-c893-409e-852f-9ee886ce94a6	en	Company Admin
+7410693c-c893-409e-852f-9ee886ce94a7	de	Legal Admin
+7410693c-c893-409e-852f-9ee886ce94a7	en	Legal Admin
 58f897ec-0aad-4588-8ffa-5f45d6638632	de	CX Admin
 58f897ec-0aad-4588-8ffa-5f45d6638632	en	CX Admin
 58f897ec-0aad-4588-8ffa-5f45d6638633	de	CX User
@@ -257,6 +280,10 @@ ceec23fd-6b26-485c-a4bb-90571a29e148	en	Signing Manager
 95fe4014-4d1b-47af-a22e-72a12f9470db	en	Developer
 04231a30-df50-4d14-bb00-71ff012ae0cf	de	Data Specialist
 04231a30-df50-4d14-bb00-71ff012ae0cf	en	Data Specialist
+0d9eb9e4-b6df-49bd-b045-d9cef96a879d	de	Technischer User Semantik & Zwillinge
+0d9eb9e4-b6df-49bd-b045-d9cef96a879d	en	Technical User Semantic & Digital Twin
+916e4be9-0ff7-48fb-bb80-97d2e93fca14	de	Data Specialist (INT only)
+916e4be9-0ff7-48fb-bb80-97d2e93fca14	en	Data Specialist (INT only)
 3ff68c40-6581-4e48-a03a-2a6c1c5aac89	de	App Administrator
 3ff68c40-6581-4e48-a03a-2a6c1c5aac89	en	App Admin
 efc20368-9e82-46ff-b88f-6495b9810253	de	Vehicle Purchaser
@@ -277,6 +304,12 @@ b05d86e1-6c98-4619-85fa-9a425e080002	de	Betrugsmanager
 b05d86e1-6c98-4619-85fa-9a425e080002	en	Fraud Manager
 b05d86e1-6c98-4619-85fa-9a425e080003	de	Betrugsreporter
 b05d86e1-6c98-4619-85fa-9a425e080003	en	Fraud User
+855eeefb-a2ef-4d74-ac10-34a87afcb865	de	Administrator
+855eeefb-a2ef-4d74-ac10-34a87afcb865	en	Administrator
+545c2616-2fce-4f52-b881-331db2fc1e35	de	Kunde
+545c2616-2fce-4f52-b881-331db2fc1e35	en	Customer
+7a9e0777-2b13-4463-a7c4-f699afff3527	de	Erstausrüster
+7a9e0777-2b13-4463-a7c4-f699afff3527	en	Original Equipment Manufacturer
 \.
 
 
@@ -368,14 +401,16 @@ The service provides information about new bank account fraud cases (e.g. invoic
 Automatic monitoring (Early Warning System) of diagnostic data	Automatic monitoring (Early Warning System) of diagnostic data	8488044e-b8df-403a-9cbd-16dad7e4a08c	en
 Works with multiple use cases	Works with multiple use cases	5cf74ef8-e0b7-4984-a872-474828beb5d8	en
 smart MOM (Manufacturing Operations Management) consolidates all production processes and systems for managing manufacturing processes in order to increase efficiency. The smart MOM solution from German Edge Cloud includes various services and enables a holistic production management. This includes, for example, the management of production processes including specific production rules, bill of materials (BOM), recipient data, resource/asset management and much more.	smart MOM can be operated as part of our scalable Edge Cloud data center “GEC Digital Production System”, which can combine various MES (Manufacturing Execution System), MOM functionalities and integration services. Thus, smart MOM can use integrated dat	5cf74ef8-e0b7-4984-a872-474828beb5d1	en
-Test	Test	5cf74ef8-e0b7-4984-a872-474828beb5d2	en
-Test	Test	5cf74ef8-e0b7-4984-a872-474828beb5d2	de
-Test	Test	5cf74ef8-e0b7-4984-a872-474828beb5d3	en
-Test	Test	5cf74ef8-e0b7-4984-a872-474828beb5d3	de
+This is only a test text	This is only a test text	5cf74ef8-e0b7-4984-a872-474828beb5d2	en
+This is only a test text	This is only a test text	5cf74ef8-e0b7-4984-a872-474828beb5d2	de
+This is only a test text	This is only a test text	5cf74ef8-e0b7-4984-a872-474828beb5d3	en
+This is only a test text	This is only a test text	5cf74ef8-e0b7-4984-a872-474828beb5d3	de
 The service provides the possibility to create a fraud case (e.g. invoices with fake bank details) and report them to business partners.	Report Fraud Cases	f9cad59d-84b3-4880-a550-4072c26a6b94	en
-Test	Test	f9cad59d-84b3-4880-a550-4072c26a6b94	de
-Test	Test	ac1cf001-7fbc-1f2f-817f-bce05744000b	de
-Test	Test	ac1cf001-7fbc-1f2f-817f-bce0573f0009	de
+This is only a test text	This is only a test text	f9cad59d-84b3-4880-a550-4072c26a6b94	de
+This is only a test text	This is only a test text	ac1cf001-7fbc-1f2f-817f-bce05744000b	de
+This is only a test text	This is only a test text	ac1cf001-7fbc-1f2f-817f-bce0573f0009	de
+AI-based software solutions enable manufacturing companies to digitalize the entire process chain in production and therefor a real increase in efficiency and competitiveness. The self-learning algorithm is the centerpiece of up2parts. It combines component information from 3D models with existing processes with the individual manufacturing expertise. As up2parts is used, the company-specific artificial intelligence is continuously trained and optimized. Production companies use up2parts to automate their work scheduling and quotation with the assistance of their own company specific artificial intelligence. The result: Automatic calculation proposals only take a few seconds, the quotation takes just 2 clicks and acceleration of the processes in production planning to the maximum. Thanks to the permanently self-training AI, the human expert knowledge in the company can be utilized optimally and is preserved in the long term. up2parts GmbH is a software company specialist in the development of efficiency-enhancing solutions for the digitalization of production processes. The company was founded in 2019, as the former software department of the contract manufacturer BAM GmbH. The experience and daily work of today's sister company BAM are used by up2parts as a basis for the development of innovative software solutions.	Enable manufacturing companies to digitalize the entire process chain in production.	5cf74ef8-e0b7-4984-a872-474828beb5d4	de
+AI-based software solutions enable manufacturing companies to digitalize the entire process chain in production and therefor a real increase in efficiency and competitiveness. The self-learning algorithm is the centerpiece of up2parts. It combines component information from 3D models with existing processes with the individual manufacturing expertise. As up2parts is used, the company-specific artificial intelligence is continuously trained and optimized. Production companies use up2parts to automate their work scheduling and quotation with the assistance of their own company specific artificial intelligence. The result: Automatic calculation proposals only take a few seconds, the quotation takes just 2 clicks and acceleration of the processes in production planning to the maximum. Thanks to the permanently self-training AI, the human expert knowledge in the company can be utilized optimally and is preserved in the long term. up2parts GmbH is a software company specialist in the development of efficiency-enhancing solutions for the digitalization of production processes. The company was founded in 2019, as the former software department of the contract manufacturer BAM GmbH. The experience and daily work of today's sister company BAM are used by up2parts as a basis for the development of innovative software solutions.	Enable manufacturing companies to digitalize the entire process chain in production.	5cf74ef8-e0b7-4984-a872-474828beb5d4	en
 \.
 
 
@@ -469,8 +504,12 @@ ac861325-bc54-4583-bcdc-9e9f2a38ff84	06b243a4-ba51-4bf3-bc40-5d79a2231b86
 --
 
 COPY portal.company_users (id, date_created, date_last_changed, email, firstname, lastlogin, lastname, company_id, company_user_status_id) FROM stdin;
-ac1cf001-7fbc-1f2f-817f-bce0575a0011	2022-03-24 18:01:33.394	2022-03-24 18:01:33.394	\N	\N	\N	\N	220330ac-170d-4e22-8d72-9467ed042149	1
+ac1cf001-7fbc-1f2f-817f-bce0575a0011	2022-03-24 18:01:33.394	2022-03-24 18:01:33.394	\N	\N	\N	\N	0dcd8209-85e2-4073-b130-ac094fb47106	1
 ac1cf001-7fbc-1f2f-817f-bce0577e0015	2022-03-24 18:01:33.438	2022-03-24 18:01:33.438	\N	\N	\N	\N	41fd2ab8-71cd-4546-9bef-a388d91b2542	1
+ac1cf001-7fbc-1f2f-817f-bce058019990	2022-03-24 18:01:33.57	2022-03-24 18:01:33.57	julia.jeroch@bmw.de	Test User	\N	cx-user-2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1
+ac1cf001-7fbc-1f2f-817f-bce058019991	2022-03-24 18:01:33.57	2022-03-24 18:01:33.57	julia.jeroch@bmw.de	Test User	\N	cx-admin-2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1
+ac1cf001-7fbc-1f2f-817f-bce058019992	2022-03-24 18:01:33.57	2022-03-24 18:01:33.57	julia.jeroch@bmw.de	Test User	\N	company-admin-2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1
+ac1cf001-7fbc-1f2f-817f-bce058019993	2022-03-24 18:01:33.57	2022-03-24 18:01:33.57	julia.jeroch@bmw.de	Test User	\N	it-admin-2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1
 ac1cf001-7fbc-1f2f-817f-bce058020000	2022-03-24 18:01:33.57	2022-03-24 18:01:33.57	julia.jeroch@bmw.de	Test User	\N	CX User	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1
 ac1cf001-7fbc-1f2f-817f-bce058020001	2022-03-24 18:01:33.57	2022-03-24 18:01:33.57	julia.jeroch@bmw.de	Test User	\N	CX Admin	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1
 ac1cf001-7fbc-1f2f-817f-bce058020002	2022-03-24 18:01:33.57	2022-03-24 18:01:33.57	julia.jeroch@bmw.de	Test User	\N	Company Admin 1	220330ac-170d-4e22-8d72-9467ed042149	1
@@ -507,6 +546,10 @@ ac1cf001-7fbc-1f2f-817f-bce058020001	aabcdfeb-6669-4c74-89f0-19cda090873f
 ac1cf001-7fbc-1f2f-817f-bce058020002	7410693c-c893-409e-852f-9ee886ce94a6
 ac1cf001-7fbc-1f2f-817f-bce058020003	7410693c-c893-409e-852f-9ee886ce94a6
 ac1cf001-7fbc-1f2f-817f-bce058020004	7410693c-c893-409e-852f-9ee886ce94a6
+ac1cf001-7fbc-1f2f-817f-bce058019990	58f897ec-0aad-4588-8ffa-5f45d6638633
+ac1cf001-7fbc-1f2f-817f-bce058019991	58f897ec-0aad-4588-8ffa-5f45d6638632
+ac1cf001-7fbc-1f2f-817f-bce058019992	7410693c-c893-409e-852f-9ee886ce94a6
+ac1cf001-7fbc-1f2f-817f-bce058019993	607818be-4978-41f4-bf63-fa8d2de51154
 \.
 
 
@@ -544,6 +587,10 @@ ad56702b-5908-44eb-a668-9a11a0e100d6	ac1cf001-7fbc-1f2f-817f-bce0575a0011
 4a23930a-30b6-461c-9ad4-58d3e761a0b5	ac1cf001-7fbc-1f2f-817f-bce058020002
 ee93d4e6-2088-4352-b6e4-21f3fa7f390e	ac1cf001-7fbc-1f2f-817f-bce058020003
 e756e57e-e236-4f6e-b410-92a16ff8be85	ac1cf001-7fbc-1f2f-817f-bce058020004
+623770c5-cf38-4b9f-9a35-f8b9ae972e2e	ac1cf001-7fbc-1f2f-817f-bce058019990
+3d8142f1-860b-48aa-8c2b-1ccb18699f66	ac1cf001-7fbc-1f2f-817f-bce058019991
+47ea7f1f-f10d-4cb2-acaf-b77323ef25b4	ac1cf001-7fbc-1f2f-817f-bce058019992
+070e2c20-4b09-4670-84c8-af882589e7eb	ac1cf001-7fbc-1f2f-817f-bce058019993
 \.
 
 --
@@ -557,4 +604,69 @@ d54db875-774c-479f-9f14-375f2cb8b258	2022-03-24 18:01:33.439	3	6b2d1263-c073-4a4
 d54db875-774c-479f-9f14-375f2cb8b260	2022-03-24 18:01:33.439	1	6b2d1263-c073-4a48-bfaf-704dc154ca9c	ac1cf001-7fbc-1f2f-817f-bce058020002
 d54db875-774c-479f-9f14-375f2cb8b261	2022-03-24 18:01:33.439	1	6b2d1263-c073-4a48-bfaf-704dc154ca9d	ac1cf001-7fbc-1f2f-817f-bce058020003
 d54db875-774c-479f-9f14-375f2cb8b262	2022-03-24 18:01:33.439	1	6b2d1263-c073-4a48-bfaf-704dc154ca9e	ac1cf001-7fbc-1f2f-817f-bce058020004
+d54db875-774c-479f-9f14-375f2cb8b263	2022-03-24 18:01:33.439	3	6b2d1263-c073-4a48-bfaf-704dc154ca9a	ac1cf001-7fbc-1f2f-817f-bce058019990
+d54db875-774c-479f-9f14-375f2cb8b264	2022-03-24 18:01:33.439	3	6b2d1263-c073-4a48-bfaf-704dc154ca9a	ac1cf001-7fbc-1f2f-817f-bce058019991
+d54db875-774c-479f-9f14-375f2cb8b265	2022-03-24 18:01:33.439	3	6b2d1263-c073-4a48-bfaf-704dc154ca9a	ac1cf001-7fbc-1f2f-817f-bce058019992
+d54db875-774c-479f-9f14-375f2cb8b266	2022-03-24 18:01:33.439	3	6b2d1263-c073-4a48-bfaf-704dc154ca9a	ac1cf001-7fbc-1f2f-817f-bce058019993
+\.
+
+
+--
+-- Data for Name: connectors; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY portal.connectors (id, name, connector_url, type_id, status_id, provider_id, host_id, location_id) FROM stdin;
+7e86a0b8-6903-496b-96d1-0ef508206833	Test Connector 1	www.google.de	1	1	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE
+7e86a0b8-6903-496b-96d1-0ef508206834	Test Connector 2	www.google.de	1	2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE
+7e86a0b8-6903-496b-96d1-0ef508206835	Test Connector 3	www.google.de	1	2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE
+7e86a0b8-6903-496b-96d1-0ef508206836	Test Connector 4	www.google.de	1	2	ac861325-bc54-4583-bcdc-9e9f2a38ff84	ac861325-bc54-4583-bcdc-9e9f2a38ff84	DE
+7e86a0b8-6903-496b-96d1-0ef508206837	Test Connector 5	www.google.de	1	1	ac861325-bc54-4583-bcdc-9e9f2a38ff84	ac861325-bc54-4583-bcdc-9e9f2a38ff84	DE
+7e86a0b8-6903-496b-96d1-0ef508206838	Test Connector 6	www.google.de	1	1	cac8fa6a-9db7-4bad-9cbd-56298b74bac2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE
+\.
+
+--
+-- Data for Name: company_service_accounts; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY portal.company_service_accounts (id, date_created, company_id, name, description, company_service_account_status_id) FROM stdin;
+7e85a0b8-0001-ab67-10d1-0ef508201000	2022-06-01 18:01:33.439	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	Service Account 01	This is a test service account only and not for actual use.	1
+7e85a0b8-0001-ab67-10d1-0ef508201001	2022-06-01 18:01:33.439	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	Service Account 02	This is a test service account only and not for actual use.	1
+7e85a0b8-0001-ab67-10d1-0ef508201002	2022-06-01 18:01:33.439	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	Service Account 03	This is a test service account only and not for actual use.	2
+7e85a0b8-0001-ab67-10d1-0ef508201003	2022-06-01 18:01:33.439	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	Service Account 04	This is a test service account only and not for actual use.	1
+7e85a0b8-0001-ab67-10d1-0ef508201004	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff84	Service Account 01	This is a test service account only and not for actual use.	1
+7e85a0b8-0001-ab67-10d1-0ef508201005	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff84	Service Account 02	This is a test service account only and not for actual use.	1
+7e85a0b8-0001-ab67-10d1-0ef508201006	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl5-custodian-1	sa-cl5-custodian-1	1
+7e85a0b8-0001-ab67-10d1-0ef508201007	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl5-custodian-2	sa-cl5-custodian-2	1
+7e85a0b8-0001-ab67-10d1-0ef508201008	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl5-custodian-internaltest	sa-cl5-custodian-internaltest	1
+7e85a0b8-0001-ab67-10d1-0ef508201009	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-1	sa-cl6-cx-1	1
+7e85a0b8-0001-ab67-10d1-0ef508201010	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-2	sa-cl6-cx-2	1
+7e85a0b8-0001-ab67-10d1-0ef508201011	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff84	sa-cl6-cx-3	sa-cl6-cx-3	1
+7e85a0b8-0001-ab67-10d1-0ef508201012	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-4	sa-cl6-cx-4	1
+7e85a0b8-0001-ab67-10d1-0ef508201013	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-5	sa-cl6-cx-5	1
+7e85a0b8-0001-ab67-10d1-0ef508201014	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-6	sa-cl6-cx-6	1
+7e85a0b8-0001-ab67-10d1-0ef508201015	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-7	sa-cl6-cx-7	1
+7e85a0b8-0001-ab67-10d1-0ef508201016	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-8	sa-cl6-cx-8	1
+7e85a0b8-0001-ab67-10d1-0ef508201017	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-9	sa-cl6-cx-9	1
+7e85a0b8-0001-ab67-10d1-0ef508201018	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-10	sa-cl6-cx-10	1
+7e85a0b8-0001-ab67-10d1-0ef508201019	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-11	sa-cl6-cx-11	1
+7e85a0b8-0001-ab67-10d1-0ef508201020	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-12	sa-cl6-cx-12	1
+7e85a0b8-0001-ab67-10d1-0ef508201021	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl6-cx-13	sa-cl6-cx-13	1
+7e85a0b8-0001-ab67-10d1-0ef508201022	2022-06-01 18:01:33.439	ac861325-bc54-4583-bcdc-9e9f2a38ff87	sa-cl5-cx-1	sa-cl5-cx-1	1
+\.
+
+
+--
+-- Data for Name: company_service_account_assigned_roles; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY portal.company_service_account_assigned_roles (company_service_account_id, user_role_id) FROM stdin;
+\.
+
+
+
+--
+-- Data for Name: iam_service_accounts; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY portal.iam_service_accounts (client_id, client_client_id, user_entity_id, company_service_account_id) FROM stdin;
 \.
