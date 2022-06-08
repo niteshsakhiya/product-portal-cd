@@ -33,7 +33,7 @@ portalmigrations:
     path: portal/data/pen/portal-migrations
 
 pgadmin4:
-  enabled: false
+  enabled: true
   secret:
     path: portal/data/pen/pgadmin4
   env:
