@@ -14,6 +14,8 @@ postgresql:
     pathinit: portal/data/int/postgres
     pathinitdbuser: portal/data/int/postgres-db-user
   architecture: replication
+  audit:
+    pgAuditLog: write, ddl
   primary:
     extraVolumeMounts:
       - name: initdb
