@@ -28,13 +28,13 @@ appmarketplace:
 
 portalmigrations:
   image: ghcr.io/catenax-ng/product-portal-backend_portal-migrations:latest
+  secret:
+    path: portal/data/dev/portal-migrations
 
 portalmaintenance:
   image: ghcr.io/catenax-ng/product-portal-backend_maintenance-service:latest
-
-portalmigrationsmaintenance:
   secret:
-    path: portal/data/dev/portal-migrations-maintenance
+    path: portal/data/dev/portal-maintenance
 
 pgadmin4:
   enabled: true
