@@ -81,7 +81,7 @@ portalmigrations:
   image: ghcr.io/catenax-ng/product-portal-backend_portal-migrations:latest
 
 portalmaintenance:
-  name: maintenance-service
+  name: portal-maintenance
   image: ghcr.io/catenax-ng/product-portal-backend_maintenance-service:latest
 
 portalmigrationsmaintenance:
