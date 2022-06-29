@@ -1,17 +1,17 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ .Values.maintenance.name }}
+  name: {{ .Values.portalmaintenance.name }}
 spec:
-  schedule: "0 0 * * *"
+  schedule: "0 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
           restartPolicy: OnFailure
           containers:
-          - name: {{ .Values.maintenance.name }}
-            image: {{ .Values.maintenance.image }}
+          - name: {{ .Values.portalmaintenance.name }}
+            image: {{ .Values.portalmaintenance.image }}
             imagePullPolicy: "Always"
             ports:
             - containerPort: {{ .Values.portContainer }}
@@ -22,4 +22,4 @@ spec:
           volumes:
           - name: secrets
             secret:
-              secretName: {{ .Values.maintenance.secret.name }}
+              secretName: {{ .Values.portalmigrationsmaintenance.secret.name }}

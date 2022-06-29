@@ -23,4 +23,4 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: {{ .Values.portalmigrations.secret.name }}
+          secretName: {{ .Values.portalmigrationsmaintenance.secret.name }}
