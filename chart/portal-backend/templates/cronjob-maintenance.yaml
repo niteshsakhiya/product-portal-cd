@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: {{ .Values.portalmaintenance.name }}
 spec:
-  schedule: "20 * * * *"
+  schedule: "35 * * * *"
   jobTemplate:
     spec:
       template:
@@ -16,7 +16,7 @@ spec:
             ports:
             - containerPort: {{ .Values.portContainer }}
             env:
-            - name: "ASPNETCORE_ENVIRONMENT"
+            - name: "DOTNET_ENVIRONMENT"
               value: "Kubernetes"
             volumeMounts:
             - name: secrets
