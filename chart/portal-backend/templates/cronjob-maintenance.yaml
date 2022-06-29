@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Values.maintenance.name }}
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: {{ .Values.maintenance.name }}
+            image: {{ .Values.maintenance.image }}
+            imagePullPolicy: "Always"
+            ports:
+            - containerPort: {{ .Values.portContainer }}
+            volumeMounts:
+            - name: secrets
+              mountPath: /app/secrets
+              readOnly: true
+          volumes:
+          - name: secrets
+            secret:
+              secretName: {{ .Values.maintenance.secret.name }}
