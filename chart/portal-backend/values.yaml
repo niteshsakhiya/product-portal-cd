@@ -84,7 +84,7 @@ portalmigrations:
     path: portal/data/int/portal-migrations
 
 pgadmin4:
-  enabled: false
+  enabled: true
   secret:
     path: portal/data/int/pgadmin4
   env:
