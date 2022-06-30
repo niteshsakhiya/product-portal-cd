@@ -83,6 +83,13 @@ portalmigrations:
     name: secret-portal-migrations
     path: portal/data/int/portal-migrations
 
+portalmaintenance:
+  name: portal-maintenance
+  image: ghcr.io/catenax-ng/product-portal-backend_maintenance-service:latest
+  secret:
+    name: secret-portal-maintenance
+    path: portal/data/int/portal-maintenance
+
 pgadmin4:
   enabled: true
   secret:
