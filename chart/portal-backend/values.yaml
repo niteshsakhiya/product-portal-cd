@@ -91,7 +91,7 @@ portalmaintenance:
     path: portal/data/int/portal-maintenance
 
 pgadmin4:
-  enabled: false
+  enabled: true
   secret:
     path: portal/data/int/pgadmin4
   env:
