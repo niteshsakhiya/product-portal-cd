@@ -1,7 +1,7 @@
 domain: "dev.demo.catena-x.net"
 
 portal:
-  image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+  image: "ghcr.io/catenax-ng/product-portal-frontend:dev"
 
 assets:
   image: "ghcr.io/catenax-ng/product-portal-common-assets:main"
