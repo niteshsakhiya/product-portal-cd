@@ -1,5 +1,9 @@
 FROM busybox
 
+RUN groupadd -r postgres && useradd --no-log-init -r -g postgres postgres
+
+USER postgres
+
 RUN mkdir import
 
 COPY import/ import

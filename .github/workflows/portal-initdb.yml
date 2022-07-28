@@ -12,6 +12,7 @@ on:
 
     branches:
      - main
+     - bug/CPLP-1079-fix-vulnerability
   workflow_dispatch:
 
 jobs:
