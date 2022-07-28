@@ -1,8 +1,8 @@
-FROM busybox
+FROM ubuntu
 
 RUN groupadd -r postgres && useradd --no-log-init -r -g postgres postgres
 
-USER postgres
+USER postgres[:postgres]
 
 RUN mkdir import
 
