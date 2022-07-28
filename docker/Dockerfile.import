@@ -1,9 +1,9 @@
 FROM ubuntu
 
+RUN mkdir import
+
 RUN groupadd -r postgres && useradd --no-log-init -r -g postgres postgres
 
-USER postgres[:postgres]
-
-RUN mkdir import
+USER postgres:postgres
 
 COPY import/ import
