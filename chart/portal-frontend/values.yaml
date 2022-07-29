@@ -5,6 +5,9 @@ issuer: "letsencrypt-prod"
 portContainer: 8080
 portService: 8080
 replicaCount: 1
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
 
 portal:
   path: "/(.*)"
