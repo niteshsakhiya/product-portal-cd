@@ -2,8 +2,10 @@ FROM ubuntu
 
 RUN mkdir import
 
-RUN groupadd -r postgres && useradd --no-log-init -r -g postgres postgres
+RUN groupadd -r initdbgroup && useradd --no-log-init -r -g initdbgroup initdbuser
 
-USER postgres:postgres
+RUN chown initdbuser:initdbgroup import
+
+USER initdbuser
 
 COPY import/ import
