@@ -7,37 +7,44 @@ postgresql:
     pathinitdbuser: portal/data/dev/postgres-db-user
 
 registration:
-  image: ghcr.io/catenax-ng/product-portal-backend_registration-service:latest
+  image:
+    registrationtag: 1336b2f662b18844baf854e6c8e07a67e2393ba3
   secret:
     path: portal/data/dev/registration
 
 administration:
-  image: ghcr.io/catenax-ng/product-portal-backend_administration-service:latest
+  image:
+    administrationtag: 3e2f9c1e86b06ec98063dd9f68af06f6789e466e
   secret:
     path: portal/data/dev/administration
 
 provisioning:
-  image: ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest
+  image:
+    provisioningtag: d7d147804bd8e1dd98f34201d719b3927c688a55
   secret:
     path: portal/data/dev/provisioning
 
 appmarketplace:
-  image: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest
+  image:
+    appmarketplacetag: 6cb736f785dbb4bbebc111677e1d1be356528820
   secret:
     path: portal/data/dev/appmarketplace
 
 portalmigrations:
-  image: ghcr.io/catenax-ng/product-portal-backend_portal-migrations:latest
+  image:
+    portalmigrationstag: 5e72ce3e46f3f75467161a6196f9ae2dfed02a51
   secret:
     path: portal/data/dev/portal-migrations
 
 portalmaintenance:
-  image: ghcr.io/catenax-ng/product-portal-backend_maintenance-service:latest
+  image:
+    portalmaintenancetag: 5b2034fbfea6f68601fecaefa1a5156302eff60a
   secret:
     path: portal/data/dev/portal-maintenance
 
 notification:
-  image: ghcr.io/catenax-ng/product-portal-backend_notification-service:latest
+  image:
+    notificationtag: 1c2eb021e1ed38ad820b581f9ef10016b58e6cd6
   secret:
     path: portal/data/dev/notification
 
