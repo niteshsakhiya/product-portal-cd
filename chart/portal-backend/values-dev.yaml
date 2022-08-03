@@ -26,7 +26,7 @@ provisioning:
 
 appmarketplace:
   image:
-    appmarketplacetag: 6cb736f785dbb4bbebc111677e1d1be356528820
+    appmarketplacetag: e37891e2fb690ef9560fbb1abb8e3b6a2f2a5319
   secret:
     path: portal/data/dev/appmarketplace
 
