@@ -10,7 +10,7 @@ on:
 
 env:
   IMAGE_BEGINN: 'registrationtag: '
-  IMAGE_FULL_NEW: ${{ inputs.new-image }}
+  IMAGE_FULL_NEW: 'registrationtag: ${{ inputs.new-image }}'
 
 jobs:
   update-image-tag:
@@ -32,4 +32,4 @@ jobs:
           git config user.email github-actions@github.com
           git add chart/portal-backend/values-dev.yaml
           git commit -m "Add new image for registration service"
-          git push
+          bash ./scripts/push.sh
