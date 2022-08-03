@@ -52,7 +52,7 @@ registration:
   name: registration-service
   image:
     name: ghcr.io/catenax-ng/product-portal-backend_registration-service
-    registrationtag: 
+    registrationtag: no content
   secret:
     name: secret-registration
     path: portal/data/int/registration
@@ -61,7 +61,7 @@ administration:
   name: administration-service
   image:
     name: ghcr.io/catenax-ng/product-portal-backend_administration-service
-    administrationtag: 
+    administrationtag: no content
   secret:
     name: secret-administration
     path: portal/data/int/administration
@@ -70,7 +70,7 @@ provisioning:
   name: provisioning-service
   image:
     name: ghcr.io/catenax-ng/product-portal-backend_provisioning-service
-    provisioningtag: 
+    provisioningtag: no content
   secret:
     name: secret-provisioning
     path: portal/data/int/provisioning
@@ -79,7 +79,7 @@ appmarketplace:
   name: marketplace-app-service
   image:
     name: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service
-    appmarketplacetag: 
+    appmarketplacetag: no content
   secret:
     name: secret-appmarketplace
     path: portal/data/int/appmarketplace
@@ -88,7 +88,7 @@ portalmigrations:
   name: portal-migrations
   image:
     name: ghcr.io/catenax-ng/product-portal-backend_portal-migrations
-    portalmigrationstag: 
+    portalmigrationstag: no content
   secret:
     name: secret-portal-migrations
     path: portal/data/int/portal-migrations
@@ -97,7 +97,7 @@ portalmaintenance:
   name: portal-maintenance
   image:
     name: ghcr.io/catenax-ng/product-portal-backend_maintenance-service
-    portalmaintenancetag: 
+    portalmaintenancetag: no content
   secret:
     name: secret-portal-maintenance
     path: portal/data/int/portal-maintenance
@@ -106,7 +106,7 @@ notification:
   name: notification-service
   image:
     name: ghcr.io/catenax-ng/product-portal-backend_notification-service
-    notificationtag: 
+    notificationtag: no content
   secret:
     name: secret-notification
     path: portal/data/int/notification
