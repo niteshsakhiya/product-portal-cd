@@ -44,7 +44,7 @@ portalmaintenance:
 
 notification:
   image:
-    notificationtag: notificationtag: 948d336ed6c27082dc8238875c08321e51a9d327
+    notificationtag: 33d9a07399d441dc1b26e9bb329dc91634dd56c4
   secret:
     path: portal/data/dev/notification
 
