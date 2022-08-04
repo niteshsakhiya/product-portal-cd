@@ -1,10 +1,60 @@
-domain: int.demo.catena-x.net
-corsOrigins: http://localhost:3000, https://*.int.demo.catena-x.net
 issuer: letsencrypt-prod
 name: portal-backend
 portContainer: 80
 portService: 8080
 replicaCount: 1
+
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.int.demo.catena-x.net
+    nginx.ingress.kubernetes.io/proxy-body-size: 8m
+  tls: 
+    - secretName: portal-backend.int.demo.catena-x.net-tls
+      hosts:
+        - portal-backend.int.demo.catena-x.net
+  hosts:
+    - host: portal-backend.int.demo.catena-x.net
+      paths:
+        - path: /api/registration
+          pathType: Prefix
+          backend:
+            service:
+              name: registration-service
+              port:
+                number: 8080
+        - path: /api/administration
+          pathType: Prefix
+          backend:
+            service:
+              name: administration-service
+              port:
+                number: 8080
+        - path: /api/notification
+          pathType: Prefix
+          backend:
+            service:
+              name: notification-service
+              port:
+                number: 8080
+        - path: /api/provisioning
+          pathType: Prefix
+          backend:
+            service:
+              name: provisioning-service
+              port:
+                number: 8080
+        - path: /api/apps
+          pathType: Prefix
+          backend:
+            service:
+              name: marketplace-app-service
+              port:
+                number: 8080
 
 postgresql:
   enabled: true
