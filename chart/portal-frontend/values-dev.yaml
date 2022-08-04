@@ -2,7 +2,7 @@ domain: "dev.demo.catena-x.net"
 
 portal:
   image:
-    portaltag: dev_48f6df0807e978730a63b93dc62988c4ab2c99bd
+    portaltag: dev_ff16eae4153aae118555159fd82bfda549df8166
 
 assets:
   image: "ghcr.io/catenax-ng/product-portal-common-assets:dev"
