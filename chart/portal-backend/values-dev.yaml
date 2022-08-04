@@ -32,7 +32,7 @@ appmarketplace:
 
 portalmigrations:
   image:
-    portalmigrationstag: 33d9a07399d441dc1b26e9bb329dc91634dd56c4
+    portalmigrationstag: ad06c898d8219e4078cc7bd203341aa1cf62ee63
   secret:
     path: portal/data/dev/portal-migrations
 
