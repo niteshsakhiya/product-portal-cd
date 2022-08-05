@@ -14,7 +14,7 @@ registration:
 
 administration:
   image:
-    administrationtag: 6f8372592317748d503e31c592a27fb9ecd6cd7b
+    administrationtag: b9cfe80a1eaec4d42f2e21f577862cc2c1ee3463
   secret:
     path: portal/data/dev/administration
 
