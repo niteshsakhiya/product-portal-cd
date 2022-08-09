@@ -28,7 +28,7 @@ registration:
   name: "registration"
   image: 
     name: "ghcr.io/catenax-ng/product-portal-frontend-registration"
-    registrationtag: main
+    registrationtag: 0.5.1
 
 demonstrator:
   path: "/demonstrator/(.*)"
