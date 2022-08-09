@@ -8,7 +8,7 @@ postgresql:
 
 registration:
   image:
-    registrationtag: ac720752399754d95999b561c414578b5e13ca40
+    registrationtag: 6f1507d4134af08895d31694042f75256bccb80b
   secret:
     path: portal/data/dev/registration
 
