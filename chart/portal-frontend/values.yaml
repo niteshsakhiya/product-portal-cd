@@ -21,7 +21,7 @@ assets:
   name: "assets"
   image:
     name: "ghcr.io/catenax-ng/product-portal-common-assets"
-    assetstag: main
+    assetstag: no content
 
 registration:
   path: "/registration/(.*)"
