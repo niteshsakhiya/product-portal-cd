@@ -10,7 +10,7 @@ assets:
 
 registration:
   image:
-    registrationtag: main_f4a499fa65549f1437ffc78014165a9c53aab597
+    registrationtag: main_ada986a5101259edb7c918d77b4da8a814b4e975
 
 demonstrator:
   image: "ghcr.io/catenax-ng/product-demonstrator:latest"
