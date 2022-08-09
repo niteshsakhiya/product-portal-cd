@@ -14,14 +14,14 @@ portal:
   name: "portal"
   image:
     name: "ghcr.io/catenax-ng/product-portal-frontend"
-    portaltag: main
+    portaltag: 0.5.1
 
 assets:
   path: "/((assets|swagger)/.*)"
   name: "assets"
   image:
     name: "ghcr.io/catenax-ng/product-portal-common-assets"
-    assetstag: main
+    assetstag: 0.5.1
 
 registration:
   path: "/registration/(.*)"
