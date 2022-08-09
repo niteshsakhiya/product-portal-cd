@@ -12,15 +12,6 @@ spec:
       valueFiles:
         - values.yaml
         - values-dev.yaml
-      parameters:
-        - name: assets.image
-          value: 'ghcr.io/catenax-ng/product-portal-common-assets:main'
-        - name: portal.image
-          value: 'ghcr.io/catenax-ng/product-portal-frontend:main'
-        - name: registration.image
-          value: 'ghcr.io/catenax-ng/product-portal-frontend-registration:main'
-        - name: assets.path
-          value: /((assets|swagger)/.*)
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: product-portal
