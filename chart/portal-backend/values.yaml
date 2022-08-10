@@ -7,7 +7,6 @@ replicaCount: 1
 ingress:
   enabled: true
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
@@ -171,7 +170,6 @@ pgadmin4:
   ingress:
     enabled: true
     annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: nginx
     hosts:
       - host: portal-pgadmin4.int.demo.catena-x.net
@@ -181,4 +179,4 @@ pgadmin4:
     tls:
       - hosts:
         - portal-pgadmin4.int.demo.catena-x.net
-        secretName: portal-pgadmin4.int.demo.catena-x.net-tls
+        secretName: tls-secret

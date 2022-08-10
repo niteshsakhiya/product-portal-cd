@@ -3,7 +3,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.dev.demo.catena-x.net
   tls: 
-    - secretName: portal-backend.dev.demo.catena-x.net-tls
+    - secretName: tls-secret
       hosts:
         - portal-backend.dev.demo.catena-x.net
   hosts:
@@ -102,7 +102,6 @@ pgadmin4:
   ingress:
     enabled: true
     annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: nginx
     hosts:
       - host: portal-pgadmin4.dev.demo.catena-x.net
@@ -112,4 +111,4 @@ pgadmin4:
     tls:
       - hosts:
         - portal-pgadmin4.dev.demo.catena-x.net
-        secretName: portal-pgadmin4.dev.demo.catena-x.net-tls
+        secretName: tls-secret
