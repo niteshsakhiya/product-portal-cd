@@ -37,55 +37,56 @@ ingress:
 
 postgresql:
   secret:
-    pathinit: portal/data/dev/postgres
-    pathinitdbuser: portal/data/dev/postgres-db-user
+    password: "<path:portal/data/dev/postgres#postgres-password>"
+    replicationPassword: "<path:portal/data/dev/postgres#replication-password>"
+    initUserDbSql: "<path:portal/data/dev/postgres-db-user#01-init-user-db.sql>"
 
 registration:
   image:
     registrationtag: 6f1507d4134af08895d31694042f75256bccb80b
   secret:
-    path: portal/data/dev/registration
+    appsettings: "<path:portal/data/dev/registration#appsettings.json>"
 
 administration:
   image:
     administrationtag: 6f1507d4134af08895d31694042f75256bccb80b
   secret:
-    path: portal/data/dev/administration
+    appsettings: "<path:portal/data/dev/administration#appsettings.json>"
 
 provisioning:
   image:
     provisioningtag: ac720752399754d95999b561c414578b5e13ca40
   secret:
-    path: portal/data/dev/provisioning
+    appsettings: "<path:portal/data/dev/provisioning#appsettings.json>"
 
 appmarketplace:
   image:
     appmarketplacetag: ac720752399754d95999b561c414578b5e13ca40
   secret:
-    path: portal/data/dev/appmarketplace
+    appsettings: "<path:portal/data/dev/appmarketplace#appsettings.json>"
 
 portalmigrations:
   image:
     portalmigrationstag: ad06c898d8219e4078cc7bd203341aa1cf62ee63
   secret:
-    path: portal/data/dev/portal-migrations
+    appsettings: "<path:portal/data/dev/portal-migrations#appsettings.json>"
 
 portalmaintenance:
   image:
     portalmaintenancetag: ac720752399754d95999b561c414578b5e13ca40
   secret:
-    path: portal/data/dev/portal-maintenance
+    appsettings: "<path:portal/data/dev/portal-maintenance#appsettings.json>"
 
 notification:
   image:
     notificationtag: ac720752399754d95999b561c414578b5e13ca40
   secret:
-    path: portal/data/dev/notification
+    appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
 pgadmin4:
   enabled: true
   secret:
-    path: portal/data/dev/pgadmin4
+    password: "<path:portal/data/dev/pgadmin4#password>"
   env:
     email: portal@catena-x.net
   existingSecret: secret-pgadmin4

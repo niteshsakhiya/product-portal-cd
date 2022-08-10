@@ -1,172 +1,89 @@
-issuer: letsencrypt-prod
+corsOrigins: http://localhost:3000
 name: portal-backend
 portContainer: 80
 portService: 8080
 replicaCount: 1
 
 ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.int.demo.catena-x.net
-    nginx.ingress.kubernetes.io/proxy-body-size: 8m
-  tls: 
-    - secretName: portal-backend.int.demo.catena-x.net-tls
-      hosts:
-        - portal-backend.int.demo.catena-x.net
-  hosts:
-    - host: portal-backend.int.demo.catena-x.net
-      paths:
-        - path: /api/registration
-          pathType: Prefix
-          backend:
-            service: registration-service
-            port: 8080
-        - path: /api/administration
-          pathType: Prefix
-          backend:
-            service: administration-service
-            port: 8080
-        - path: /api/notification
-          pathType: Prefix
-          backend:
-            service: notification-service
-            port: 8080
-        - path: /api/provisioning
-          pathType: Prefix
-          backend:
-            service: provisioning-service
-            port: 8080
-        - path: /api/apps
-          pathType: Prefix
-          backend:
-            service: marketplace-app-service
-            port: 8080
+  enabled: false
 
 postgresql:
   enabled: true
   auth:
     existingSecret: secret-postgres-init
   secret:
-    pathinit: portal/data/int/postgres
-    pathinitdbuser: portal/data/int/postgres-db-user
+    password: ""
+    replicationPassword: ""
+    initUserDbSql: ""
   architecture: replication
   audit:
     pgAuditLog: write, ddl
     logLinePrefix: "%m %u %d "
-  primary:
-    extraVolumeMounts:
-      - name: initdb
-        mountPath: "/docker-entrypoint-initdb.d"
-      - name: initdb-secrets
-        mountPath: "/secrets"
-    extraVolumes:
-      - name: initdb
-        emptyDir: {}
-      - name: initdb-secrets
-        secret:
-          secretName: secret-postgres-init-db-user
-    initContainers:
-      - name: initdb
-        image: ghcr.io/catenax-ng/product-portal-cd_initdb:latest
-        imagePullPolicy: Always
-        command:
-          - sh
-        args:
-          - -c
-          - |
-            echo "Copying initdb secret sqls..."
-            cp /secrets/* /docker-entrypoint-initdb.d
-            echo "Copying initdb sqls..."
-            cp -R /import/* /docker-entrypoint-initdb.d
-        volumeMounts:
-        - name: initdb
-          mountPath: "/docker-entrypoint-initdb.d"
-        - name: initdb-secrets
-          mountPath: "/secrets"
-
+ 
 registration:
   name: registration-service
-  image:
+  image: 
     name: ghcr.io/catenax-ng/product-portal-backend_registration-service
-    registrationtag: int-v0.5.1
+    tag: int-v0.5.1
   secret:
     name: secret-registration
-    path: portal/data/int/registration
+    appsettings: "'{}'"
 
 administration:
   name: administration-service
-  image:
+  image: 
     name: ghcr.io/catenax-ng/product-portal-backend_administration-service
-    administrationtag: int-v0.5.1
+    tag: int-v0.5.1
   secret:
     name: secret-administration
-    path: portal/data/int/administration
+    appsettings: "'{}'"
 
 provisioning:
   name: provisioning-service
-  image:
+  image: 
     name: ghcr.io/catenax-ng/product-portal-backend_provisioning-service
-    provisioningtag: int-v0.5.1
+    tag: int-v0.5.1
   secret:
     name: secret-provisioning
-    path: portal/data/int/provisioning
+    appsettings: "'{}'"
 
 appmarketplace:
   name: marketplace-app-service
-  image:
+  image: 
     name: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service
-    appmarketplacetag: int-v0.5.1
+    tag: int-v0.5.1
   secret:
     name: secret-appmarketplace
-    path: portal/data/int/appmarketplace
+    appsettings: "'{}'"
 
 portalmigrations:
   name: portal-migrations
-  image:
+  image: 
     name: ghcr.io/catenax-ng/product-portal-backend_portal-migrations
-    portalmigrationstag: int-v0.5.1
+    tag: int-v0.5.1
   secret:
     name: secret-portal-migrations
-    path: portal/data/int/portal-migrations
+    appsettings: "'{}'"
 
 portalmaintenance:
   name: portal-maintenance
-  image:
+  image: 
     name: ghcr.io/catenax-ng/product-portal-backend_maintenance-service
-    portalmaintenancetag: int-v0.5.1
+    tag: int-v0.5.1
   secret:
     name: secret-portal-maintenance
-    path: portal/data/int/portal-maintenance
+    appsettings: "'{}'"
 
 notification:
   name: notification-service
-  image:
+  image: 
     name: ghcr.io/catenax-ng/product-portal-backend_notification-service
-    notificationtag: int-v0.5.1
+    tag: int-v0.5.1
   secret:
     name: secret-notification
-    path: portal/data/int/notification
+    appsettings: "'{}'"
 
 pgadmin4:
-  enabled: true
-  secret:
-    path: portal/data/int/pgadmin4
-  env:
-    email: portal@catena-x.net
-  existingSecret: secret-pgadmin4
+  enabled: false
   ingress:
-    enabled: true
-    annotations:
-      kubernetes.io/ingress.class: nginx
-    hosts:
-      - host: portal-pgadmin4.int.demo.catena-x.net
-        paths:
-        - path: /
-          pathType: Prefix
-    tls:
-      - hosts:
-        - portal-pgadmin4.int.demo.catena-x.net
-        secretName: tls-secret
+    enabled: false
