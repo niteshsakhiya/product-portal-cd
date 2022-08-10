@@ -2,15 +2,15 @@ domain: "dev.demo.catena-x.net"
 
 portal:
   image:
-    portaltag: dev_4c44e7fdc8a72cfa549716cfe3db3c3bcc32b554
+    portaltag: dev_89018cfabc745847d79f42397b2b5f674ae7df2a
 
 assets:
   image:
-    assetstag: dev
+    assetstag: main_0270b670d8b472ec48a0bc31b8f566b1896bcdcc
 
 registration:
   image:
-    registrationtag: dev_99f06779c79bdc4f22476ec0824dd7a3fe88fc6e
+    registrationtag: main_2edd449d94a2dd44199f7eac53489471971e4633
 
 demonstrator:
   image: "ghcr.io/catenax-ng/product-demonstrator:latest"

@@ -52,25 +52,25 @@ postgresql:
 
 registration:
   image:
-    registrationtag: 0a577951594f23e4ef066b513b624d796d4fc2d9
+    registrationtag: 6f1507d4134af08895d31694042f75256bccb80b
   secret:
     path: portal/data/dev/registration
 
 administration:
   image:
-    administrationtag: 33d9a07399d441dc1b26e9bb329dc91634dd56c4
+    administrationtag: 6f1507d4134af08895d31694042f75256bccb80b
   secret:
     path: portal/data/dev/administration
 
 provisioning:
   image:
-    provisioningtag: 33d9a07399d441dc1b26e9bb329dc91634dd56c4
+    provisioningtag: ac720752399754d95999b561c414578b5e13ca40
   secret:
     path: portal/data/dev/provisioning
 
 appmarketplace:
   image:
-    appmarketplacetag: 33d9a07399d441dc1b26e9bb329dc91634dd56c4
+    appmarketplacetag: ac720752399754d95999b561c414578b5e13ca40
   secret:
     path: portal/data/dev/appmarketplace
 
@@ -82,13 +82,13 @@ portalmigrations:
 
 portalmaintenance:
   image:
-    portalmaintenancetag: 33d9a07399d441dc1b26e9bb329dc91634dd56c4
+    portalmaintenancetag: ac720752399754d95999b561c414578b5e13ca40
   secret:
     path: portal/data/dev/portal-maintenance
 
 notification:
   image:
-    notificationtag: 33d9a07399d441dc1b26e9bb329dc91634dd56c4
+    notificationtag: ac720752399754d95999b561c414578b5e13ca40
   secret:
     path: portal/data/dev/notification
 
