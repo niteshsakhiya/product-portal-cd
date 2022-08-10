@@ -14,38 +14,28 @@ ingress:
         - path: /api/registration
           pathType: Prefix
           backend:
-            service:
-              name: registration-service
-              port:
-                number: 8080
+            service: registration-service
+            port: 8080
         - path: /api/administration
           pathType: Prefix
           backend:
-            service:
-              name: administration-service
-              port:
-                number: 8080
+            service: administration-service
+            port: 8080
         - path: /api/notification
           pathType: Prefix
           backend:
-            service:
-              name: notification-service
-              port:
-                number: 8080
+            service: notification-service
+            port: 8080
         - path: /api/provisioning
           pathType: Prefix
           backend:
-            service:
-              name: provisioning-service
-              port:
-                number: 8080
+            service: provisioning-service
+            port: 8080
         - path: /api/apps
           pathType: Prefix
           backend:
-            service:
-              name: marketplace-app-service
-              port:
-                number: 8080
+            service: marketplace-app-service
+            port: 8080
 
 postgresql:
   secret:
