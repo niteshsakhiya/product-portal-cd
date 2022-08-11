@@ -1,4 +1,4 @@
-name: Auto-image-update Portal Backend INT Release
+name: Portal Backend INT Release Auto-image-update
 
 on:
   workflow_dispatch:

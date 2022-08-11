@@ -1,4 +1,4 @@
-name: Auto-image-update Portal Registration
+name: Portal Registration Auto-image-update
 
 on:
   workflow_dispatch:

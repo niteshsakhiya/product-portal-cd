@@ -1,4 +1,4 @@
-name: Auto-image-update Maintenance-Service
+name: Maintenance-Service Backend Auto-image-update
 
 on:
   workflow_dispatch:

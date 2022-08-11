@@ -1,4 +1,4 @@
-name: Auto-image-update Portal Assets INT Release
+name: Portal Assets INT Release Auto-image-update
 
 on:
   workflow_dispatch:

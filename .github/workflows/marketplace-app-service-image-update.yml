@@ -1,4 +1,4 @@
-name: Auto-image-update Marketplace-App-Service
+name: Marketplace-App-Service Backend Auto-image-update
 
 on:
   workflow_dispatch:
