@@ -3,6 +3,8 @@ name: Release Chart
 on:
   workflow_dispatch:
   push:
+    branches:
+     - feature/CPLP-1260-release-helm-chart-prep-2
     tags:
       - 'v*'
 

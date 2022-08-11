@@ -1,3 +1,4 @@
+{{- if .Values.demonstrator.enabled -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,3 +21,4 @@ spec:
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
+{{- end -}}
