@@ -15,22 +15,22 @@ ingress:
       paths:
         - path: "/(.*)"
           pathType: Prefix
-          frontend:
+          backend:
             service: "portal"
             port: 8080
         - path: "/registration/(.*)"
           pathType: Prefix
-          frontend:
+          backend:
             service: "registration"
             port: 8080
         - path: "/((assets|swagger)/.*)"
           pathType: Prefix
-          frontend:
+          backend:
             service: "assets"
             port: 8080
         - path: "/demonstrator/(.*)"
           pathType: Prefix
-          frontend:
+          backend:
             service: "demonstrator"
             port: 8080
 

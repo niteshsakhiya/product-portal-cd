@@ -46,15 +46,15 @@ spec:
             {{- if and .pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
             pathType: {{ .pathType }}
             {{- end }}
-            frontend:
+            backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ .frontend.service }}
+                name: {{ .backend.service }}
                 port:
                   number: {{ $svcPort }}
               {{- else }}
-              serviceName: {{ .frontend.service }}
-              servicePort: {{ .frontend.port }}
+              serviceName: {{ .backend.service }}
+              servicePort: {{ .backend.port }}
               {{- end }}
           {{- end }}
     {{- end }}
