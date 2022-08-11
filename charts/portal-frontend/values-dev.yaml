@@ -2,7 +2,7 @@ domain: "dev.demo.catena-x.net"
 
 portal:
   image:
-    portaltag: dev_793a862827b41bbf5dff5ce4d4e70e31aacac770
+    portaltag: dev_c3024254d4d047921d60bc15745dc173de793e08
 
 assets:
   image:
