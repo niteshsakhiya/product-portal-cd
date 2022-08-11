@@ -1,4 +1,4 @@
-name: Auto-image-update Portal Assets
+name: Portal Assets Auto-image-update
 
 on:
   workflow_dispatch:

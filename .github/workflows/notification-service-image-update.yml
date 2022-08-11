@@ -1,4 +1,4 @@
-name: Auto-image-update Notification-Service
+name: Notification-Service Backend Auto-image-update
 
 on:
   workflow_dispatch:

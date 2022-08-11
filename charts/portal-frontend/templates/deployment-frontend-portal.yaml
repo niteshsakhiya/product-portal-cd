@@ -16,7 +16,7 @@ spec:
       - name: {{ .Values.portal.name }}
         securityContext:
           {{- toYaml .Values.securityContext | nindent 12 }}
-        image: {{ .Values.portal.image.name }}:{{ .Values.portal.image.portaltag }}
+        image: {{ .Values.portal.image.name }}:{{ .Values.portal.image.portaltag | default .Chart.AppVersion }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}

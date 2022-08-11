@@ -1,5 +1,4 @@
-name: Auto-image-update Registration-Service
-
+name: Registration-Service Backend Auto-image-update
 on:
   workflow_dispatch:
     inputs:

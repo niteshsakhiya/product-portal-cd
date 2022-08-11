@@ -5,13 +5,13 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, https://*.dev.demo.catena-x.net"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, https://*.demo.catena-x.net, https://*.int.demo.catena-x.net"
   tls: 
     - secretName: tls-secret
       hosts:
-        - portal.dev.demo.catena-x.net
+        - portal.int.demo.catena-x.net
   hosts:
-    - host: portal.dev.demo.catena-x.net
+    - host: portal.int.demo.catena-x.net
       paths:
         - path: "/(.*)"
           pathType: Prefix
@@ -36,15 +36,15 @@ ingress:
 
 portal:
   image:
-    portaltag: dev_bc93cc54700788f52c0013efd91af24420fa1444
+    portaltag: 0.5.1
 
 assets:
   image:
-    assetstag: main_0270b670d8b472ec48a0bc31b8f566b1896bcdcc
+    assetstag: 0.5.1
 
 registration:
-  image:
-    registrationtag: main_2edd449d94a2dd44199f7eac53489471971e4633
+  image: 
+    registrationtag: 0.5.1
 
 demonstrator:
   enabled: true

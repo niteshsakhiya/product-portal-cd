@@ -1,7 +1,4 @@
 name: "portal"
-domain: "int.demo.catena-x.net"
-corsOrigins: "http://localhost:3000, https://*.demo.catena-x.net, https://*.dev.demo.catena-x.net, https://*.int.demo.catena-x.net"
-issuer: "letsencrypt-prod"
 portContainer: 8080
 portService: 8080
 replicaCount: 1
@@ -9,28 +6,26 @@ securityContext:
   allowPrivilegeEscalation: false
   runAsNonRoot: true
 
+ingress:
+  enabled: false
+
 portal:
-  path: "/(.*)"
   name: "portal"
   image:
     name: "ghcr.io/catenax-ng/product-portal-frontend"
     portaltag: 0.5.1
 
 assets:
-  path: "/((assets|swagger)/.*)"
   name: "assets"
   image:
     name: "ghcr.io/catenax-ng/product-portal-common-assets"
     assetstag: 0.5.1
 
 registration:
-  path: "/registration/(.*)"
   name: "registration"
   image: 
     name: "ghcr.io/catenax-ng/product-portal-frontend-registration"
     registrationtag: 0.5.1
 
 demonstrator:
-  path: "/demonstrator/(.*)"
-  name: "demonstrator"
-  image: "ghcr.io/catenax-ng/product-demonstrator:latest"
+  enabled: false

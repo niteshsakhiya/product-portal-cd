@@ -1,4 +1,4 @@
-name: Auto-image-update Provisioning-Service
+name: Provisioning-Service Backend Auto-image-update
 
 on:
   workflow_dispatch:
