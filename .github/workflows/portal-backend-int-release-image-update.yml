@@ -34,20 +34,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Modify image tag in values.yaml
+      - name: Modify image tag in values-int.yaml
         run: |
-          sed -i 's/${{ env.ADMINISTRATION_IMAGE_BEGINN }}.*/${{ env.ADMINISTRATION_IMAGE_FULL_NEW }}/' charts/portal-backend/values.yaml
-          sed -i 's/${{ env.PORTALMAINTENANCE_IMAGE_BEGINN }}.*/${{ env.PORTALMAINTENANCE_IMAGE_FULL_NEW }}/' charts/portal-backend/values.yaml
-          sed -i 's/${{ env.APPMARKETPLACE_IMAGE_BEGINN }}.*/${{ env.APPMARKETPLACE_IMAGE_FULL_NEW }}/' charts/portal-backend/values.yaml
-          sed -i 's/${{ env.NOTIFICATION_IMAGE_BEGINN }}.*/${{ env.NOTIFICATION_IMAGE_FULL_NEW }}/' charts/portal-backend/values.yaml
-          sed -i 's/${{ env.PORTALMIGRATIONS_IMAGE_BEGINN }}.*/${{ env.PORTALMIGRATIONS_IMAGE_FULL_NEW }}/' charts/portal-backend/values.yaml
-          sed -i 's/${{ env.PROVISIONING_IMAGE_BEGINN }}.*/${{ env.PROVISIONING_IMAGE_FULL_NEW }}/' charts/portal-backend/values.yaml
-          sed -i 's/${{ env.REGISTRATION_IMAGE_BEGINN }}.*/${{ env.REGISTRATION_IMAGE_FULL_NEW }}/' charts/portal-backend/values.yaml
+          sed -i 's/${{ env.ADMINISTRATION_IMAGE_BEGINN }}.*/${{ env.ADMINISTRATION_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
+          sed -i 's/${{ env.PORTALMAINTENANCE_IMAGE_BEGINN }}.*/${{ env.PORTALMAINTENANCE_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
+          sed -i 's/${{ env.APPMARKETPLACE_IMAGE_BEGINN }}.*/${{ env.APPMARKETPLACE_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
+          sed -i 's/${{ env.NOTIFICATION_IMAGE_BEGINN }}.*/${{ env.NOTIFICATION_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
+          sed -i 's/${{ env.PORTALMIGRATIONS_IMAGE_BEGINN }}.*/${{ env.PORTALMIGRATIONS_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
+          sed -i 's/${{ env.PROVISIONING_IMAGE_BEGINN }}.*/${{ env.PROVISIONING_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
+          sed -i 's/${{ env.REGISTRATION_IMAGE_BEGINN }}.*/${{ env.REGISTRATION_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
 
-      - name: Commit and push updated values.yaml
+      - name: Commit and push updated values-int.yaml
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add charts/portal-backend/values.yaml
+          git add charts/portal-backend/values-int.yaml
           git commit -m "Add new images for int"
           bash ./scripts/push.sh
