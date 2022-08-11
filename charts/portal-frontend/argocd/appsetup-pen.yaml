@@ -6,7 +6,7 @@ spec:
   project: project-portal
   source:
     repoURL: 'https://github.com/catenax-ng/product-portal-cd.git'
-    path: chart/portal-frontend
+    path: charts/portal-frontend
     targetRevision: HEAD
     helm:
       valueFiles:

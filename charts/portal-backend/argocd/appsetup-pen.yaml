@@ -7,7 +7,7 @@ spec:
     namespace: product-portal-pen
     server: 'https://kubernetes.default.svc'
   source:
-    path: chart/portal-backend
+    path: charts/portal-backend
     repoURL: 'https://github.com/catenax-ng/product-portal-cd.git'
     targetRevision: HEAD
     plugin:
