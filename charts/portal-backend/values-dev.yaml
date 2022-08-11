@@ -77,19 +77,19 @@ postgresql:
 
 registration:
   image:
-    registrationtag: 6f1507d4134af08895d31694042f75256bccb80b
+    registrationtag: 10cedce6cdf768bef1d761df56310be423e90722
   secret:
     appsettings: "<path:portal/data/dev/registration#appsettings.json>"
 
 administration:
   image:
-    administrationtag: 6f1507d4134af08895d31694042f75256bccb80b
+    administrationtag: 10cedce6cdf768bef1d761df56310be423e90722
   secret:
     appsettings: "<path:portal/data/dev/administration#appsettings.json>"
 
 provisioning:
   image:
-    provisioningtag: ac720752399754d95999b561c414578b5e13ca40
+    provisioningtag: 10cedce6cdf768bef1d761df56310be423e90722
   secret:
     appsettings: "<path:portal/data/dev/provisioning#appsettings.json>"
 
