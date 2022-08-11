@@ -44,6 +44,36 @@ postgresql:
     password: "<path:portal/data/dev/postgres#postgres-password>"
     replicationPassword: "<path:portal/data/dev/postgres#replication-password>"
     initUserDbSql: "<path:portal/data/dev/postgres-db-user#01-init-user-db.sql>"
+  primary:
+    extraVolumeMounts:
+      - name: initdb
+        mountPath: "/docker-entrypoint-initdb.d"
+      - name: initdb-secrets
+        mountPath: "/secrets"
+    extraVolumes:
+      - name: initdb
+        emptyDir: {}
+      - name: initdb-secrets
+        secret:
+          secretName: secret-postgres-init-db-user
+    initContainers:
+      - name: initdb
+        image: ghcr.io/catenax-ng/product-portal-cd_initdb:latest
+        imagePullPolicy: Always
+        command:
+          - sh
+        args:
+          - -c
+          - |
+            echo "Copying initdb secret sqls..."
+            cp /secrets/* /docker-entrypoint-initdb.d
+            echo "Copying initdb sqls..."
+            cp -R /import/* /docker-entrypoint-initdb.d
+        volumeMounts:
+        - name: initdb
+          mountPath: "/docker-entrypoint-initdb.d"
+        - name: initdb-secrets
+          mountPath: "/secrets"
 
 registration:
   image:
