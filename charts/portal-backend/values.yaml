@@ -1,4 +1,3 @@
-corsOrigins: http://localhost:3000
 name: portal-backend
 portContainer: 80
 portService: 8080
