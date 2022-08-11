@@ -1,6 +1,6 @@
 apiVersion: v2
 name: portal-backend
-description: Helm chart for Catena-X registration backend service
+description: Helm chart for Catena-X Portal backend
 type: application
 version: 0.5.1
 appVersion: 0.5.1
