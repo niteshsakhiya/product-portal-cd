@@ -101,7 +101,7 @@ appmarketplace:
 
 portalmigrations:
   image:
-    portalmigrationstag: ad06c898d8219e4078cc7bd203341aa1cf62ee63
+    portalmigrationstag: 996f8342efd813a1b08bcfc8080bc8034b3c3602
   secret:
     appsettings: "<path:portal/data/dev/portal-migrations#appsettings.json>"
 
