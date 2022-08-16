@@ -5,13 +5,14 @@ ingress:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 8m
-    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.dev.demo.catena-x.net
+    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.dev.demo.ftcpro.co
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   tls: 
     - secretName: tls-secret
       hosts:
-        - portal-backend.dev.demo.catena-x.net
+        - portal-backend.dev.demo.ftcpro.co
   hosts:
-    - host: portal-backend.dev.demo.catena-x.net
+    - host: portal-backend.dev.demo.ftcpro.co
       paths:
         - path: /api/registration
           pathType: Prefix
@@ -39,41 +40,41 @@ ingress:
             service: marketplace-app-service
             port: 8080
 
-postgresql:
-  secret:
-    password: "<path:portal/data/dev/postgres#postgres-password>"
-    replicationPassword: "<path:portal/data/dev/postgres#replication-password>"
-    initUserDbSql: "<path:portal/data/dev/postgres-db-user#01-init-user-db.sql>"
-  primary:
-    extraVolumeMounts:
-      - name: initdb
-        mountPath: "/docker-entrypoint-initdb.d"
-      - name: initdb-secrets
-        mountPath: "/secrets"
-    extraVolumes:
-      - name: initdb
-        emptyDir: {}
-      - name: initdb-secrets
-        secret:
-          secretName: secret-postgres-init-db-user
-    initContainers:
-      - name: initdb
-        image: ghcr.io/catenax-ng/product-portal-cd_initdb:latest
-        imagePullPolicy: Always
-        command:
-          - sh
-        args:
-          - -c
-          - |
-            echo "Copying initdb secret sqls..."
-            cp /secrets/* /docker-entrypoint-initdb.d
-            echo "Copying initdb sqls..."
-            cp -R /import/* /docker-entrypoint-initdb.d
-        volumeMounts:
-        - name: initdb
-          mountPath: "/docker-entrypoint-initdb.d"
-        - name: initdb-secrets
-          mountPath: "/secrets"
+# postgresql:
+#   secret:
+#     password: "<path:portal/data/dev/postgres#postgres-password>"
+#     replicationPassword: "<path:portal/data/dev/postgres#replication-password>"
+#     initUserDbSql: "<path:portal/data/dev/postgres-db-user#01-init-user-db.sql>"
+#   primary:
+#     extraVolumeMounts:
+#       - name: initdb
+#         mountPath: "/docker-entrypoint-initdb.d"
+#       - name: initdb-secrets
+#         mountPath: "/secrets"
+#     extraVolumes:
+#       - name: initdb
+#         emptyDir: {}
+#       - name: initdb-secrets
+#         secret:
+#           secretName: secret-postgres-init-db-user
+#     initContainers:
+#       - name: initdb
+#         image: ghcr.io/catenax-ng/product-portal-cd_initdb:latest
+#         imagePullPolicy: Always
+#         command:
+#           - sh
+#         args:
+#           - -c
+#           - |
+#             echo "Copying initdb secret sqls..."
+#             cp /secrets/* /docker-entrypoint-initdb.d
+#             echo "Copying initdb sqls..."
+#             cp -R /import/* /docker-entrypoint-initdb.d
+#         volumeMounts:
+#         - name: initdb
+#           mountPath: "/docker-entrypoint-initdb.d"
+#         - name: initdb-secrets
+#           mountPath: "/secrets"
 
 registration:
   image:
@@ -118,22 +119,22 @@ notification:
     appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
 pgadmin4:
-  enabled: true
+  enabled: false
   secret:
     password: "<path:portal/data/dev/pgadmin4#password>"
   env:
-    email: portal@catena-x.net
+    email: portal@ftcpro.co
   existingSecret: secret-pgadmin4
   ingress:
     enabled: true
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - host: portal-pgadmin4.dev.demo.catena-x.net
+      - host: portal-pgadmin4.dev.demo.ftcpro.co
         paths:
         - path: /
           pathType: Prefix
     tls:
       - hosts:
-        - portal-pgadmin4.dev.demo.catena-x.net
+        - portal-pgadmin4.dev.demo.ftcpro.co
         secretName: tls-secret

@@ -7,13 +7,13 @@ securityContext:
   runAsNonRoot: true
 
 ingress:
-  enabled: false
+  enabled: true
 
 portal:
   name: "portal"
   image:
-    name: "ghcr.io/catenax-ng/product-portal-frontend"
-    portaltag: 0.5.1
+    name: "ftcpro.azurecr.io/frontend/product-portal-frontend"
+    portaltag: "latest"
 
 assets:
   name: "assets"
@@ -24,8 +24,8 @@ assets:
 registration:
   name: "registration"
   image: 
-    name: "ghcr.io/catenax-ng/product-portal-frontend-registration"
-    registrationtag: 0.5.1
+    name: "ftcpro.azurecr.io/frontend/product-portal-frontend-registration"
+    registrationtag: "latest"
 
 demonstrator:
   enabled: false

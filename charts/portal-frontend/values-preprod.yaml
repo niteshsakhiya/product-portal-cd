@@ -5,13 +5,13 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.pre-prod.demo.catena-x.net"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://*.pre-prod.demo.ftcpro.co"
   tls: 
     - secretName: tls-secret
       hosts:
-        - portal.pre-prod.demo.catena-x.net
+        - portal.pre-prod.demo.ftcpro.co
   hosts:
-    - host: portal.pre-prod.demo.catena-x.net
+    - host: portal.pre-prod.demo.ftcpro.co
       paths:
         - path: "/(.*)"
           pathType: Prefix

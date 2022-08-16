@@ -5,13 +5,14 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, https://*.dev.demo.catena-x.net"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, https://*.dev.demo.ftcpro.co"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   tls: 
     - secretName: tls-secret
       hosts:
-        - portal.dev.demo.catena-x.net
+        - portal.dev.demo.ftcpro.co
   hosts:
-    - host: portal.dev.demo.catena-x.net
+    - host: portal.dev.demo.ftcpro.co
       paths:
         - path: "/(.*)"
           pathType: Prefix

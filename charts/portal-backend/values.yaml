@@ -4,20 +4,20 @@ portService: 8080
 replicaCount: 1
 
 ingress:
-  enabled: false
+  enabled: true
 
 postgresql:
-  enabled: true
-  auth:
-    existingSecret: secret-postgres-init
-  secret:
-    password: ""
-    replicationPassword: ""
-    initUserDbSql: ""
-  architecture: replication
-  audit:
-    pgAuditLog: write, ddl
-    logLinePrefix: "%m %u %d "
+  enabled: false
+  # auth:
+  #   existingSecret: secret-postgres-init
+  # secret:
+  #   password: ""
+  #   replicationPassword: ""
+  #   initUserDbSql: ""
+  # architecture: replication
+  # audit:
+  #   pgAuditLog: write, ddl
+  #   logLinePrefix: "%m %u %d "
  
 registration:
   name: registration-service

@@ -5,7 +5,7 @@ metadata:
 spec:
   project: project-portal
   source:
-    repoURL: 'https://github.com/catenax-ng/product-portal-cd.git'
+    repoURL: 'https://github.com/niteshsakhiya/product-portal-cd.git'
     path: charts/portal-frontend
     targetRevision: HEAD
     helm:

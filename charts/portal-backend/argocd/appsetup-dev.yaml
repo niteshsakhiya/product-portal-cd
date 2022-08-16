@@ -2,13 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: portal-backend
+  namespace: argocd
 spec:
   destination:
     namespace: product-portal
     server: 'https://kubernetes.default.svc'
   source:
     path: charts/portal-backend
-    repoURL: 'https://github.com/catenax-ng/product-portal-cd.git'
+    repoURL: 'https://github.com/niteshsakhiya/product-portal-cd.git'
     targetRevision: HEAD
     plugin:
       name: argocd-vault-plugin-helm-args
@@ -17,4 +18,4 @@ spec:
           value: vault-secret
         - name: helm_args
           value: '-f values.yaml -f values-dev.yaml'
-  project: project-portal
+  project: default

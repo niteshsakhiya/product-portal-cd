@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: charts/portal-backend
-    repoURL: 'https://github.com/catenax-ng/product-portal-cd.git'
+    repoURL: 'https://github.com/niteshsakhiya/product-portal-cd.git'
     targetRevision: HEAD
     plugin:
       name: argocd-vault-plugin-helm-args

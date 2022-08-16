@@ -3,9 +3,9 @@
 Helm charts to deploy Portal frontend and backend using ArgoCD.
 
 DEV
-* https://argo.dev.demo.catena-x.net/applications/portal
-* https://argo.dev.demo.catena-x.net/applications/portal-backend
+* https://argo.dev.demo.ftcpro.co/applications/portal
+* https://argo.dev.demo.ftcpro.co/applications/portal-backend
 
 INT
-* https://argo.int.demo.catena-x.net/applications/portal
-* https://argo.int.demo.catena-x.net/applications/portal-backend
+* https://argo.int.demo.ftcpro.co/applications/portal
+* https://argo.int.demo.ftcpro.co/applications/portal-backend

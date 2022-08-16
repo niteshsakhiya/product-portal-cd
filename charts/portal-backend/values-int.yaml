@@ -5,13 +5,13 @@ ingress:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 8m
-    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.int.demo.catena-x.net
+    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.int.demo.ftcpro.co
   tls: 
     - secretName: tls-secret
       hosts:
-        - portal-backend.int.demo.catena-x.net
+        - portal-backend.int.demo.ftcpro.co
   hosts:
-    - host: portal-backend.int.demo.catena-x.net
+    - host: portal-backend.int.demo.ftcpro.co
       paths:
         - path: /api/registration
           pathType: Prefix
@@ -122,18 +122,18 @@ pgadmin4:
   secret:
     password: "<path:portal/data/int/pgadmin4#password>"
   env:
-    email: portal@catena-x.net
+    email: portal@ftcpro.co
   existingSecret: secret-pgadmin4
   ingress:
     enabled: true
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - host: portal-pgadmin4.int.demo.catena-x.net
+      - host: portal-pgadmin4.int.demo.ftcpro.co
         paths:
         - path: /
           pathType: Prefix
     tls:
       - hosts:
-        - portal-pgadmin4.int.demo.catena-x.net
+        - portal-pgadmin4.int.demo.ftcpro.co
         secretName: tls-secret
