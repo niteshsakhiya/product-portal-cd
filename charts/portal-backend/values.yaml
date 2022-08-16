@@ -3,6 +3,49 @@ portContainer: 80
 portService: 8080
 replicaCount: 1
 
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 8m
+    nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.dev.demo.ftcpro.co
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  tls: 
+    - secretName: tls-secret
+      hosts:
+        - portal-backend.dev.demo.ftcpro.co
+  hosts:
+    - host: portal-backend.dev.demo.ftcpro.co
+      paths:
+        - path: /api/registration
+          pathType: Prefix
+          backend:
+            service: registration-service
+            port: 8080
+        - path: /api/administration
+          pathType: Prefix
+          backend:
+            service: administration-service
+            port: 8080
+        - path: /api/notification
+          pathType: Prefix
+          backend:
+            service: notification-service
+            port: 8080
+        - path: /api/provisioning
+          pathType: Prefix
+          backend:
+            service: provisioning-service
+            port: 8080
+        - path: /api/apps
+          pathType: Prefix
+          backend:
+            service: marketplace-app-service
+            port: 8080
+
+
 postgresql:
   enabled: false
   # auth:
