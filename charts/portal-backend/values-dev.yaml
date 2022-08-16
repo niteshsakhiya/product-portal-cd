@@ -78,43 +78,43 @@ ingress:
 
 registration:
   image:
-    registrationtag: d3833cc722ebcab0b90246c6d6e7f4426834d856
+    registrationtag: int-v0.5.1
   secret:
     appsettings: "<path:portal/data/dev/registration#appsettings.json>"
 
 administration:
   image:
-    administrationtag: d3833cc722ebcab0b90246c6d6e7f4426834d856
+    administrationtag: int-v0.5.1
   secret:
     appsettings: "<path:portal/data/dev/administration#appsettings.json>"
 
 provisioning:
   image:
-    provisioningtag: 10cedce6cdf768bef1d761df56310be423e90722
+    provisioningtag: int-v0.5.1
   secret:
     appsettings: "<path:portal/data/dev/provisioning#appsettings.json>"
 
 appmarketplace:
   image:
-    appmarketplacetag: d3833cc722ebcab0b90246c6d6e7f4426834d856
+    appmarketplacetag: int-v0.5.1
   secret:
     appsettings: "<path:portal/data/dev/appmarketplace#appsettings.json>"
 
 portalmigrations:
   image:
-    portalmigrationstag: d3833cc722ebcab0b90246c6d6e7f4426834d856
+    portalmigrationstag: int-v0.5.1
   secret:
     appsettings: "<path:portal/data/dev/portal-migrations#appsettings.json>"
 
 portalmaintenance:
   image:
-    portalmaintenancetag: ac720752399754d95999b561c414578b5e13ca40
+    portalmaintenancetag: int-v0.5.1
   secret:
     appsettings: "<path:portal/data/dev/portal-maintenance#appsettings.json>"
 
 notification:
   image:
-    notificationtag: 1094f1a710618537a58d097ee216ca11c4734bef
+    notificationtag: int-v0.5.1
   secret:
     appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
