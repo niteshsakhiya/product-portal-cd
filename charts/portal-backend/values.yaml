@@ -13,7 +13,7 @@ ingress:
     nginx.ingress.kubernetes.io/cors-allow-origin: http://localhost:3000, https://*.dev.demo.ftcpro.co
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   tls: 
-    - secretName: tls-secret
+    - secretName: backend-tls-secret
       hosts:
         - portal-backend.dev.demo.ftcpro.co
   hosts:
