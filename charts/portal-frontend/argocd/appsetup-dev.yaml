@@ -4,7 +4,7 @@ metadata:
   name: portal
   namesapce: argocd
 spec:
-  project: project-portal
+  project: default
   source:
     repoURL: 'https://github.com/niteshsakhiya/product-portal-cd.git'
     path: charts/portal-frontend
@@ -15,4 +15,4 @@ spec:
         - values-dev.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: product-portal
