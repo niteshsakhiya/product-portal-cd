@@ -36,7 +36,7 @@ ingress:
 
 portal:
   image:
-    portaltag: dev_cd514a86ba1faa90b3c3c0787091cedf60564ae8
+    portaltag: dev_95ffa1efb4002e50fd8d923cbf86efb8d07fa9ae
 
 assets:
   image:
