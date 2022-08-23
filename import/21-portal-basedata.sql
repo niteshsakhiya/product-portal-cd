@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.4 (Debian 14.4-1.pgdg110+1)
+-- Dumped from database version 14.5 (Debian 14.5-1.pgdg110+1)
 -- Dumped by pg_dump version 14.4 (Debian 14.4-1.pgdg110+1)
 
 SET statement_timeout = 0;
@@ -47,6 +47,17 @@ COPY portal.app_subscription_statuses (id, label) FROM stdin;
 1	PENDING
 2	ACTIVE
 3	INACTIVE
+\.
+
+
+--
+-- Data for Name: audit_operation; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+COPY portal.audit_operation (id, label) FROM stdin;
+1	INSERT
+2	UPDATE
+3	DELETE
 \.
 
 
@@ -127,6 +138,7 @@ COPY portal.company_statuses (id, label) FROM stdin;
 2	ACTIVE
 3	REJECTED
 4	INACTIVE
+5	DELETED
 \.
 
 
@@ -137,6 +149,7 @@ COPY portal.company_statuses (id, label) FROM stdin;
 COPY portal.company_user_statuses (id, label) FROM stdin;
 1	ACTIVE
 2	INACTIVE
+3	DELETED
 \.
 
 
@@ -490,6 +503,29 @@ COPY portal.notification_type (id, label) FROM stdin;
 
 
 --
+-- Data for Name: service_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+COPY portal.service_statuses (id, label) FROM stdin;
+1	CREATED
+2	IN_REVIEW
+3	ACTIVE
+4	INACTIVE
+\.
+
+
+--
+-- Data for Name: service_subscription_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+COPY portal.service_subscription_statuses (id, label) FROM stdin;
+1	PENDING
+2	ACTIVE
+3	INACTIVE
+\.
+
+
+--
 -- Data for Name: use_cases; Type: TABLE DATA; Schema: portal; Owner: portal
 --
 
@@ -510,3 +546,4 @@ c065a349-f649-47f8-94d5-1a504a855419	Quality Management	QM
 --
 -- PostgreSQL database dump complete
 --
+
