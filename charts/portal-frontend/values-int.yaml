@@ -36,7 +36,7 @@ ingress:
 
 portal:
   image:
-    portaltag: 0.5.1
+    portaltag: 0.5.2
 
 assets:
   image:
