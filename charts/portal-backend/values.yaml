@@ -23,7 +23,7 @@ registration:
   name: registration-service
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_registration-service
-    tag: int-v0.5.1
+    tag: int-v0.5.2
   secret:
     name: secret-registration
     appsettings: "'{}'"
@@ -32,7 +32,7 @@ administration:
   name: administration-service
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_administration-service
-    tag: int-v0.5.1
+    tag: int-v0.5.2
   secret:
     name: secret-administration
     appsettings: "'{}'"
@@ -41,7 +41,7 @@ provisioning:
   name: provisioning-service
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_provisioning-service
-    tag: int-v0.5.1
+    tag: int-v0.5.2
   secret:
     name: secret-provisioning
     appsettings: "'{}'"
@@ -50,7 +50,7 @@ appmarketplace:
   name: marketplace-app-service
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service
-    tag: int-v0.5.1
+    tag: int-v0.5.2
   secret:
     name: secret-appmarketplace
     appsettings: "'{}'"
@@ -59,7 +59,7 @@ portalmigrations:
   name: portal-migrations
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_portal-migrations
-    tag: int-v0.5.1
+    tag: int-v0.5.2
   secret:
     name: secret-portal-migrations
     appsettings: "'{}'"
@@ -68,7 +68,7 @@ portalmaintenance:
   name: portal-maintenance
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_maintenance-service
-    tag: int-v0.5.1
+    tag: int-v0.5.2
   secret:
     name: secret-portal-maintenance
     appsettings: "'{}'"
@@ -77,7 +77,7 @@ notification:
   name: notification-service
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_notification-service
-    tag: int-v0.5.1
+    tag: int-v0.5.2
   secret:
     name: secret-notification
     appsettings: "'{}'"
