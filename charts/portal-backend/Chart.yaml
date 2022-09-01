@@ -12,4 +12,4 @@ dependencies:
   - condition: pgadmin4.enabled
     name: pgadmin4
     repository: https://helm.runix.net
-    version: 1.x.x
+    version: 1.11.x
