@@ -113,7 +113,7 @@ portalmaintenance:
 
 notification:
   image:
-    notificationtag: 1094f1a710618537a58d097ee216ca11c4734bef
+    notificationtag: b6ab63ff170b5c922d3528384c41fc628a729906
   secret:
     appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
