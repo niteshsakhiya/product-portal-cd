@@ -99,7 +99,7 @@ portalmigrations:
   name: portal-migrations
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_portal-migrations
-    tag: int-v0.5.1
+    tag: int-v0.5.3
   secret:
     name: secret-portal-migrations
     appsettings: "<path:portal/data/dev/portal-migrations#appsettings.json>"
