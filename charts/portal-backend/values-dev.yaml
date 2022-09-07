@@ -102,7 +102,7 @@ appmarketplace:
 
 portalmigrations:
   image:
-    portalmigrationstag: int-v0.5.1
+    portalmigrationstag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/portal-migrations#appsettings.json>"
 
