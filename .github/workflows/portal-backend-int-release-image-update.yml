@@ -23,6 +23,8 @@ env:
   PROVISIONING_IMAGE_FULL_NEW: 'provisioningtag: ${{ inputs.new-image }}'
   REGISTRATION_IMAGE_BEGINN: 'registrationtag: '
   REGISTRATION_IMAGE_FULL_NEW: 'registrationtag: ${{ inputs.new-image }}'
+  SERVICES_IMAGE_BEGINN: 'servicestag: '
+  SERVICES_IMAGE_FULL_NEW: 'servicestag: ${{ inputs.new-image }}'
 
 jobs:
   update-image-tag:
@@ -43,6 +45,7 @@ jobs:
           sed -i 's/${{ env.PORTALMIGRATIONS_IMAGE_BEGINN }}.*/${{ env.PORTALMIGRATIONS_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
           sed -i 's/${{ env.PROVISIONING_IMAGE_BEGINN }}.*/${{ env.PROVISIONING_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
           sed -i 's/${{ env.REGISTRATION_IMAGE_BEGINN }}.*/${{ env.REGISTRATION_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
+          sed -i 's/${{ env.SERVICES_IMAGE_BEGINN }}.*/${{ env.SERVICES_IMAGE_FULL_NEW }}/' charts/portal-backend/values-int.yaml
 
       - name: Commit and push updated values-int.yaml
         run: |
