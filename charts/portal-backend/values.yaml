@@ -82,7 +82,7 @@ notification:
     name: secret-notification
     appsettings: "'{}'"
 
-notification:
+service:
   name: service-service
   image: 
     name: ghcr.io/catenax-ng/product-portal-backend_service-service

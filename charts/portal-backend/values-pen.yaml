@@ -40,6 +40,11 @@ ingress:
           backend:
             service: marketplace-app-service
             port: 8080
+        - path: /api/apps
+          pathType: Prefix
+          backend:
+            service: service-app-service
+            port: 8080
 
 postgresql:
   secret:
