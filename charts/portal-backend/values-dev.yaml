@@ -38,10 +38,10 @@ ingress:
           backend:
             service: marketplace-app-service
             port: 8080
-        - path: /api/apps
+        - path: /api/services
           pathType: Prefix
           backend:
-            service: service-app-service
+            service: services-service
             port: 8080
 
 postgresql:
@@ -122,11 +122,11 @@ notification:
   secret:
     appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
-service:
+services:
   image:
-    servicetag: 13c45a44e805deacbd440e65533f771df2288305
+    servicestag: 13c45a44e805deacbd440e65533f771df2288305
   secret:
-    appsettings: "<path:portal/data/dev/service#appsettings.json>"
+    appsettings: "<path:portal/data/dev/services#appsettings.json>"
 
 pgadmin4:
   enabled: true
@@ -148,3 +148,4 @@ pgadmin4:
       - hosts:
         - portal-pgadmin4.dev.demo.catena-x.net
         secretName: tls-secret
+

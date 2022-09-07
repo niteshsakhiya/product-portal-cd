@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.service.name }}
+  name: {{ .Values.services.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.service.name }}
+      app: {{ .Values.services.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.service.name }}
+        app: {{ .Values.services.name }}
     spec:
       containers:
-      - name: {{ .Values.service.name }}
-        image: "{{ .Values.service.image.name }}:{{ .Values.service.image.servicetag | default .Chart.AppVersion }}"
+      - name: {{ .Values.services.name }}
+        image: "{{ .Values.services.image.name }}:{{ .Values.services.image.servicestag | default .Chart.AppVersion }}"
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
@@ -28,4 +28,4 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: {{ .Values.service.secret.name }}
+          secretName: {{ .Values.services.secret.name }}
