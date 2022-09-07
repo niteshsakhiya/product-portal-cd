@@ -78,43 +78,43 @@ ingress:
 
 registration:
   image:
-    registrationtag: int-v0.5.3
+    tag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/registration#appsettings.json>"
 
 administration:
   image:
-    administrationtag: int-v0.5.3
+    tag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/administration#appsettings.json>"
 
 provisioning:
   image:
-    provisioningtag: int-v0.5.3
+    tag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/provisioning#appsettings.json>"
 
 appmarketplace:
   image:
-    appmarketplacetag: int-v0.5.3
+    tag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/appmarketplace#appsettings.json>"
 
 portalmigrations:
   image:
-    portalmigrationstag: int-v0.5.3
+    tag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/portal-migrations#appsettings.json>"
 
 portalmaintenance:
   image:
-    portalmaintenancetag: int-v0.5.3
+    tag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/portal-maintenance#appsettings.json>"
 
 notification:
   image:
-    notificationtag: int-v0.5.3
+    tag: int-v0.5.3
   secret:
     appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
