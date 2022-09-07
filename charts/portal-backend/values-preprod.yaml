@@ -117,6 +117,12 @@ notification:
   secret:
     appsettings: "<path:portal/data/pre-prod/notification#appsettings.json>"
 
+service:
+  image:
+    servicetag: int-v0.5.3
+  secret:
+    appsettings: "<path:portal/data/pre-prod/service#appsettings.json>"
+
 pgadmin4:
   enabled: true
   secret:

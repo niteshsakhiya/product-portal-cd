@@ -82,6 +82,15 @@ notification:
     name: secret-notification
     appsettings: "'{}'"
 
+notification:
+  name: service-service
+  image: 
+    name: ghcr.io/catenax-ng/product-portal-backend_service-service
+    tag: int-v0.5.2
+  secret:
+    name: secret-service
+    appsettings: "'{}'"
+
 pgadmin4:
   enabled: false
   ingress:

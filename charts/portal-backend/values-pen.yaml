@@ -119,6 +119,12 @@ notification:
   secret:
     appsettings: "<path:portal/data/pen/notification#appsettings.json>"
 
+service:
+  image:
+    servicetag: int-v0.5.1
+  secret:
+    appsettings: "<path:portal/data/pen/service#appsettings.json>"
+
 pgadmin4:
   enabled: true
   secret:

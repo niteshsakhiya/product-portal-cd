@@ -117,6 +117,12 @@ notification:
   secret:
     appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
+service:
+  image:
+    servicetag: 13c45a44e805deacbd440e65533f771df2288305
+  secret:
+    appsettings: "<path:portal/data/dev/service#appsettings.json>"
+
 pgadmin4:
   enabled: true
   secret:
