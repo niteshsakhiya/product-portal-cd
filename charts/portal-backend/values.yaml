@@ -2,6 +2,9 @@ name: portal-backend
 portContainer: 80
 portService: 8080
 replicaCount: 1
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
 
 ingress:
   enabled: false

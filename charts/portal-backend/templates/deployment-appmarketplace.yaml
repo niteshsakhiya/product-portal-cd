@@ -14,6 +14,8 @@ spec:
     spec:
       containers:
       - name: {{ .Values.appmarketplace.name }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
         image: "{{ .Values.appmarketplace.image.name }}:{{ .Values.appmarketplace.image.appmarketplacetag | default .Chart.AppVersion }}"
         imagePullPolicy: "Always"
         ports:

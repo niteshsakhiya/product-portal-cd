@@ -12,6 +12,8 @@ spec:
       restartPolicy: Never
       containers:
       - name: {{ .Values.portalmigrations.name }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
         image: "{{ .Values.portalmigrations.image.name }}:{{ .Values.portalmigrations.image.portalmigrationstag | default .Chart.AppVersion }}"
         imagePullPolicy: "Always"
         ports:

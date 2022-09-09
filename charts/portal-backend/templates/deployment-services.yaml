@@ -14,6 +14,8 @@ spec:
     spec:
       containers:
       - name: {{ .Values.services.name }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
         image: "{{ .Values.services.image.name }}:{{ .Values.services.image.servicestag | default .Chart.AppVersion }}"
         imagePullPolicy: "Always"
         ports:
