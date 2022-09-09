@@ -11,6 +11,8 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: {{ .Values.portalmaintenance.name }}
+            securityContext:
+              {{- toYaml .Values.securityContext | nindent 16 }}
             image: "{{ .Values.portalmaintenance.image.name }}:{{ .Values.portalmaintenance.image.portalmaintenancetag | default .Chart.AppVersion }}"
             imagePullPolicy: "Always"
             ports:
