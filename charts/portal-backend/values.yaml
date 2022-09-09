@@ -4,6 +4,8 @@ portService: 8080
 replicaCount: 1
 securityContext:
   allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
 
 ingress:
   enabled: false
