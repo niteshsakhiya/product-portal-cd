@@ -8,11 +8,11 @@ spec:
     spec:
       template:
         spec:
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
           restartPolicy: OnFailure
           containers:
           - name: {{ .Values.portalmaintenance.name }}
+            securityContext:
+              allowPrivilegeEscalation: false
             image: "{{ .Values.portalmaintenance.image.name }}:{{ .Values.portalmaintenance.image.portalmaintenancetag | default .Chart.AppVersion }}"
             imagePullPolicy: "Always"
             ports:
