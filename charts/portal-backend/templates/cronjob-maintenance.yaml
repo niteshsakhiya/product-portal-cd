@@ -8,6 +8,8 @@ spec:
     spec:
       template:
         spec:
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
           restartPolicy: OnFailure
           containers:
           - name: {{ .Values.portalmaintenance.name }}
