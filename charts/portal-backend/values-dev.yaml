@@ -82,43 +82,43 @@ postgresql:
 
 registration:
   image:
-    registrationtag: 285c688b9f7ee1a206431bc5546721dd51e21aed
+    registrationtag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/registration#appsettings.json>"
 
 administration:
   image:
-    administrationtag: 189eb1a6c8ee6b15aab2ef66486f71d118c7e478
+    administrationtag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/administration#appsettings.json>"
 
 provisioning:
   image:
-    provisioningtag: 285c688b9f7ee1a206431bc5546721dd51e21aed
+    provisioningtag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/provisioning#appsettings.json>"
 
 appmarketplace:
   image:
-    appmarketplacetag: 285c688b9f7ee1a206431bc5546721dd51e21aed
+    appmarketplacetag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/appmarketplace#appsettings.json>"
 
 portalmigrations:
   image:
-    portalmigrationstag: 0bd4e50dc7ff66df6ee1c2b23d8bfddc00f6043e
+    portalmigrationstag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/portal-migrations#appsettings.json>"
 
 portalmaintenance:
   image:
-    portalmaintenancetag: 285c688b9f7ee1a206431bc5546721dd51e21aed
+    portalmaintenancetag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/portal-maintenance#appsettings.json>"
 
 notification:
   image:
-    notificationtag: 285c688b9f7ee1a206431bc5546721dd51e21aed
+    notificationtag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/notification#appsettings.json>"
 
