@@ -1,5 +1,5 @@
 name: portal-backend
-portContainer: 80
+portContainer: 8080
 portService: 8080
 replicaCount: 1
 securityContext:
