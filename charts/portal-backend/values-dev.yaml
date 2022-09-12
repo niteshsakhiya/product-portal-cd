@@ -94,7 +94,7 @@ administration:
 
 provisioning:
   image:
-    provisioningtag: 285c688b9f7ee1a206431bc5546721dd51e21aed
+    provisioningtag: df40b16c843d4820752cf8c5a62fc68f44a727f3
   secret:
     appsettings: "<path:portal/data/dev/provisioning#appsettings.json>"
 
