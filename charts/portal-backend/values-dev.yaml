@@ -124,7 +124,7 @@ notification:
 
 services:
   image:
-    servicestag: 3a54dd13d515e2bf3ea7a7c9fcc887db1a47f688
+    servicestag: a4359f7939984ed71aa479b0f8f06959e6dd88ee
   secret:
     appsettings: "<path:portal/data/dev/services#appsettings.json>"
 
