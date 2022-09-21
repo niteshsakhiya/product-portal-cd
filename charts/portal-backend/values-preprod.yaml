@@ -82,49 +82,49 @@ postgresql:
 
 registration:
   image:
-    registrationtag: int-v0.5.3
+    registrationtag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/registration#appsettings.json>"
 
 administration:
   image:
-    administrationtag: int-v0.5.3
+    administrationtag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/administration#appsettings.json>"
 
 provisioning:
   image:
-    provisioningtag: int-v0.5.3
+    provisioningtag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/provisioning#appsettings.json>"
 
 appmarketplace:
   image:
-    appmarketplacetag: int-v0.5.3
+    appmarketplacetag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/appmarketplace#appsettings.json>"
 
 portalmigrations:
   image:
-    portalmigrationstag: int-v0.5.3
+    portalmigrationstag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/portal-migrations#appsettings.json>"
 
 portalmaintenance:
   image:
-    portalmaintenancetag: int-v0.5.3
+    portalmaintenancetag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/portal-maintenance#appsettings.json>"
 
 notification:
   image:
-    notificationtag: int-v0.5.3
+    notificationtag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/notification#appsettings.json>"
 
 services:
   image:
-    servicestag: int-v0.5.3
+    servicestag: int-v0.5.4
   secret:
     appsettings: "<path:portal/data/pre-prod/services#appsettings.json>"
 
