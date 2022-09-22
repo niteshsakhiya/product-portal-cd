@@ -24,29 +24,7 @@ COPY portal.agreement_categories (id, label) FROM stdin;
 1	CX_FRAME_CONTRACT
 2	APP_CONTRACT
 3	DATA_CONTRACT
-\.
-
-
---
--- Data for Name: app_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
---
-
-COPY portal.app_statuses (id, label) FROM stdin;
-1	CREATED
-2	IN_REVIEW
-3	ACTIVE
-4	INACTIVE
-\.
-
-
---
--- Data for Name: app_subscription_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
---
-
-COPY portal.app_subscription_statuses (id, label) FROM stdin;
-1	PENDING
-2	ACTIVE
-3	INACTIVE
+4	SERVICE_CONTRACT
 \.
 
 
@@ -458,6 +436,10 @@ COPY portal.document_types (id, label) FROM stdin;
 2	COMMERCIAL_REGISTER_EXTRACT
 3	APP_CONTRACT
 4	DATA_CONTRACT
+5	ADDITIONAL_DETAILS
+6	APP_LEADIMAGE
+7	APP_IMAGE
+8	SELF_DESCRIPTION_EDC
 \.
 
 
@@ -499,14 +481,16 @@ COPY portal.notification_type (id, label) FROM stdin;
 8	APP_SUBSCRIPTION_REQUEST
 9	APP_SUBSCRIPTION_ACTIVATION
 10	CONNECTOR_REGISTERED
+11	APP_RELEASE_REQUEST
+12	TECHNICAL_USER_CREATION
 \.
 
 
 --
--- Data for Name: service_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
+-- Data for Name: offer_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
 --
 
-COPY portal.service_statuses (id, label) FROM stdin;
+COPY portal.offer_statuses (id, label) FROM stdin;
 1	CREATED
 2	IN_REVIEW
 3	ACTIVE
@@ -515,13 +499,24 @@ COPY portal.service_statuses (id, label) FROM stdin;
 
 
 --
--- Data for Name: service_subscription_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
+-- Data for Name: offer_subscription_statuses; Type: TABLE DATA; Schema: portal; Owner: portal
 --
 
-COPY portal.service_subscription_statuses (id, label) FROM stdin;
+COPY portal.offer_subscription_statuses (id, label) FROM stdin;
 1	PENDING
 2	ACTIVE
 3	INACTIVE
+\.
+
+
+--
+-- Data for Name: offer_types; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+COPY portal.offer_types (id, label) FROM stdin;
+1	APP
+2	CORE_COMPONENT
+3	SERVICE
 \.
 
 
