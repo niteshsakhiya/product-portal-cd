@@ -65,7 +65,7 @@ postgresql:
           secretName: secret-postgres-init-db-user
     initContainers:
       - name: initdb
-        image: ghcr.io/catenax-ng/product-portal-cd_initdb:latest
+        image: ghcr.io/catenax-ng/product-portal-cd_initdb:v0.5.4
         imagePullPolicy: Always
         command:
           - sh
