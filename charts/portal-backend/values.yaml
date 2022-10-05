@@ -100,4 +100,3 @@ pgadmin4:
   enabled: false
   ingress:
     enabled: false
-

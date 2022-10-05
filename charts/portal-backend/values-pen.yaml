@@ -150,4 +150,3 @@ pgadmin4:
       - hosts:
         - portal-pgadmin4-pen.dev.demo.catena-x.net
         secretName: tls-secret
-
