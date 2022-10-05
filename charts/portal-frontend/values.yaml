@@ -13,19 +13,19 @@ portal:
   name: "portal"
   image:
     name: "ghcr.io/catenax-ng/product-portal-frontend"
-    portaltag: 0.5.4
+    portaltag: 0.5.5
 
 assets:
   name: "assets"
   image:
     name: "ghcr.io/catenax-ng/product-portal-common-assets"
-    assetstag: 0.5.4
+    assetstag: 0.5.5
 
 registration:
   name: "registration"
   image: 
     name: "ghcr.io/catenax-ng/product-portal-frontend-registration"
-    registrationtag: 0.5.4.1
+    registrationtag: 0.5.5
 
 demonstrator:
   enabled: false
