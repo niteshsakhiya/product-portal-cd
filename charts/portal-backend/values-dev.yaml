@@ -100,7 +100,7 @@ provisioning:
 
 appmarketplace:
   image:
-    appmarketplacetag: 0fd6acba39b3f782bfa3fc8ec711324c97481d60
+    appmarketplacetag: 0915ec25020bb426c5332f9e3d8079a483656bb7
   secret:
     appsettings: "<path:portal/data/dev/appmarketplace#appsettings.json>"
 
