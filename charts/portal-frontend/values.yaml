@@ -24,7 +24,7 @@ assets:
 registration:
   name: "registration"
   image: 
-    name: "ghcr.io/catenax-ng/product-portal-frontend-registration"
+    name: "ghcr.io/catenax-ng/tx-portal-frontend-registration"
     registrationtag: 0.5.5
 
 demonstrator:
