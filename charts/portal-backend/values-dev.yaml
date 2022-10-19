@@ -82,7 +82,7 @@ postgresql:
 
 registration:
   image:
-    registrationtag: 6684e7eee4fb807efcd01ffd742e0a1ab8719720
+    registrationtag: d58a1fa45b4dca97a1e29f6eb1552afda5515254
   secret:
     appsettings: "<path:portal/data/dev/registration#appsettings.json>"
 
