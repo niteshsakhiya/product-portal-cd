@@ -1,6 +1,5 @@
 name: Portal - Lint and Test Chart
 
-# Run chart linting and tests on each pull request
 on: 
   push:
     branches: [main]
