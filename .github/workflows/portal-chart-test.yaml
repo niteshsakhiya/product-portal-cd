@@ -2,10 +2,13 @@ name: Portal - Lint and Test Chart
 
 on: 
   push:
+    paths:
+      - 'charts/portal-frontend/**'
     branches: [main]
   pull_request:
     paths:
       - 'charts/portal-frontend/**'
+  workflow_dispatch:
 
 jobs:
   lint-test:
@@ -44,8 +47,10 @@ jobs:
       # Preparing a kind cluster to install and test charts on
       - name: Create kind cluster
         uses: helm/kind-action@v1.4.0
+        # if: steps.list-changed.outputs.changed == 'true'
 
       # install the chart to the kind cluster and run helm test
       # define charts to test with the --charts parameter
       - name: Run chart-testing (install)
         run: ct install --charts charts/portal-frontend
+        # if: steps.list-changed.outputs.changed == 'true'
