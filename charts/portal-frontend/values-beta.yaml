@@ -36,15 +36,15 @@ ingress:
 
 portal:
   image:
-    portaltag: 0.5.5
+    portaltag: 0.6.0
 
 assets:
   image:
-    assetstag: 0.5.5
+    assetstag: 0.6.0
 
 registration:
   image: 
-    registrationtag: 0.5.5
+    registrationtag: 0.6.0
 
 demonstrator:
   enabled: true
