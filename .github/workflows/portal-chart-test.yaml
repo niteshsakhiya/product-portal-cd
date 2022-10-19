@@ -1,4 +1,4 @@
-name: Portal - Lint and Test Chart
+name: Portal Lint and Test Chart
 
 on: 
   push:
