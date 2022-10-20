@@ -23,10 +23,10 @@ postgresql:
   audit:
     pgAuditLog: write, ddl
     logLinePrefix: "%m %u %d "
- 
+
 registration:
   name: registration-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_registration-service
     tag: int-v0.6.0
   secret:
@@ -35,7 +35,7 @@ registration:
 
 administration:
   name: administration-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_administration-service
     tag: int-v0.6.0
   secret:
@@ -44,7 +44,7 @@ administration:
 
 provisioning:
   name: provisioning-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_provisioning-service
     tag: int-v0.6.0
   secret:
@@ -53,7 +53,7 @@ provisioning:
 
 appmarketplace:
   name: marketplace-app-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service
     tag: int-v0.6.0
   secret:
@@ -62,7 +62,7 @@ appmarketplace:
 
 portalmigrations:
   name: portal-migrations
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_portal-migrations
     tag: int-v0.6.0
   secret:
@@ -71,7 +71,7 @@ portalmigrations:
 
 portalmaintenance:
   name: portal-maintenance
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_maintenance-service
     tag: int-v0.6.0
   secret:
@@ -80,7 +80,7 @@ portalmaintenance:
 
 notification:
   name: notification-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_notification-service
     tag: int-v0.6.0
   secret:
@@ -89,7 +89,7 @@ notification:
 
 services:
   name: services-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_services-service
     tag: int-v0.6.0
   secret:
