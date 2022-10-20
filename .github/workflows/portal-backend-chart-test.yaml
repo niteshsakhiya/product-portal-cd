@@ -42,7 +42,7 @@ jobs:
 
       # run chart linting 
       - name: Run chart-testing (lint)
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }} --config charts/chart-testing-config.yaml
+        run: ct lint --target-branch ${{ github.event.repository.default_branch }} --config charts/chart-testing-lint-config.yaml
 
       # Preparing a kind cluster to install and test charts on
       - name: Create kind cluster
@@ -52,5 +52,5 @@ jobs:
       # install the chart to the kind cluster and run helm test
       # define charts to test with the --charts parameter
       - name: Run chart-testing (install)
-        run: ct install --charts charts/portal-backend --config charts/chart-testing-config.yaml
+        run: ct install --charts charts/portal-backend --config charts/chart-testing-install-config.yaml
         # if: steps.list-changed.outputs.changed == 'true'

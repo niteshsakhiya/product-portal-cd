@@ -1,4 +1,3 @@
-validate-maintainers: false
 dependencies:
   - condition: postgresql.enabled
     name: postgresql
