@@ -31,7 +31,7 @@ registration:
     tag: int-v0.6.0
   secret:
     name: secret-registration
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 administration:
   name: administration-service
@@ -40,7 +40,7 @@ administration:
     tag: int-v0.6.0
   secret:
     name: secret-administration
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 provisioning:
   name: provisioning-service
@@ -49,7 +49,7 @@ provisioning:
     tag: int-v0.6.0
   secret:
     name: secret-provisioning
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 appmarketplace:
   name: marketplace-app-service
@@ -58,7 +58,7 @@ appmarketplace:
     tag: int-v0.6.0
   secret:
     name: secret-appmarketplace
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 portalmigrations:
   name: portal-migrations
@@ -67,7 +67,7 @@ portalmigrations:
     tag: int-v0.6.0
   secret:
     name: secret-portal-migrations
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 portalmaintenance:
   name: portal-maintenance
@@ -76,7 +76,7 @@ portalmaintenance:
     tag: int-v0.6.0
   secret:
     name: secret-portal-maintenance
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 notification:
   name: notification-service
@@ -85,7 +85,7 @@ notification:
     tag: int-v0.6.0
   secret:
     name: secret-notification
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 services:
   name: services-service
@@ -94,7 +94,7 @@ services:
     tag: int-v0.6.0
   secret:
     name: secret-services
-    appsettings: "<path:portal/data/pen/services#appsettings.json>"
+    appsettings: ""
 
 pgadmin4:
   enabled: false
