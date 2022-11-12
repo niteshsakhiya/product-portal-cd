@@ -5,13 +5,13 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, https://*.dev.demo.catena-x.net"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, https://*.dev.ftcpro.co"
   tls: 
-    - secretName: tls-secret
+    - secretName: frontend-tls-secret
       hosts:
-        - portal.dev.demo.catena-x.net
+        - portal.dev.ftcpro.co
   hosts:
-    - host: portal.dev.demo.catena-x.net
+    - host: portal.dev.ftcpro.co
       paths:
         - path: "/(.*)"
           pathType: Prefix
@@ -36,17 +36,18 @@ ingress:
 
 portal:
   image:
-    portaltag: main_7149939d689fe157120ba3c3f9c9ba90b7f2eece
+    name: "ftcpro.azurecr.io/frontend/product-portal-frontend-cf"
+    portaltag: latest
 
 assets:
   image:
-    assetstag: main_723facc75afab6d3ff7645b089aedebed532e555
+    name: "ghcr.io/catenax-ng/product-portal-common-assets"
+    assetstag: 0.6.0
 
 registration:
   image:
-    registrationtag: main_046a59c21d9cd51b75bbbace052a83e80c6dcd75
+    name: "ftcpro.azurecr.io/frontend/product-portal-frontend-registration-cf"
+    registrationtag: latest
 
 demonstrator:
-  enabled: true
-  name: "demonstrator"
-  image: "ghcr.io/catenax-ng/product-demonstrator:latest"
+  enabled: false
