@@ -6,6 +6,7 @@ ingress:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000, https://*.dev.ftcpro.co"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   tls: 
     - secretName: frontend-tls-secret
       hosts:
