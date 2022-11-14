@@ -47,8 +47,8 @@ assets:
 
 registration:
   image:
-    name: "ghcr.io/catenax-ng/tx-portal-frontend-registration"
-    registrationtag: 0.6.0
+    name: "ftcpro.azurecr.io/frontend/product-portal-registration-cf"
+    registrationtag: latest
 
 demonstrator:
   enabled: false
